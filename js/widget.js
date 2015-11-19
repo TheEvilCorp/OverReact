@@ -1,35 +1,11 @@
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>jQuery UI Draggable - Default functionality</title>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <style>
- 
-
-
-  
-  </style>
-
-</head>
-<body>
-  
-  
- 
-    <div id='container' class="ui-widget-content">MAIN CONTAINER
-    <!-- <div class='boxButton'>CREATE CHILD</div> -->
-     <!-- <input id='componentName' type='text' placeholder="NAME YOUR COMPONENT"></input> -->
-    </div>
-    
-  <script>
     $(function() {
-       //create button & input field on the main container 
+      
+      //create button & input field on the main container
+      $('#container').text('MAIN CONTAINER') 
       createButtonAndInput('container', createComponent);
       createSubmitButton();
+
+      //component name array to keep track of names and prevent duplication
       var allNames = [];
 
       function createBox(boxName, context) {
@@ -49,7 +25,8 @@
         button.appendTo('#' + context);
 
         var inputField = $('<input placeholder="NAME YOUR COMPONENT"></input>')
-        inputField.appendTo('#' + context); 
+        inputField.appendTo('#' + context);
+
       }
 
       function createComponent(){
@@ -67,8 +44,8 @@
           //push the component name to an array in order to keep track of names & prevent dups
           allNames.push(componentName); 
 
-          //clear out the input field
-          $('#' + componentName).val('');
+          //clear out the input field - NEED TO FIX THIS (REMOVED ID FROM NEW INPUT FIELD)
+          $('#' + parentName).find('input').val('');
 
           //create a new box
           createBox(componentName, parentName);
@@ -82,8 +59,6 @@
 
       // //WORKING ON THIS TO PROCESS DATA OBJECT**************
       // function setUpData() {
-
-
       // }
 
       // AFTER SETUPDATA FUNCTION IS DONE, NEED TO ADD ON CLICK LISTENER TO THIS FUNCTION
@@ -91,19 +66,6 @@
         var submitButton = $('<div></div>').attr('id', 'submitButton')
         submitButton.text('CREATE FILES!')
         submitButton.appendTo('body');
-
-
       }
 
-
-
-
-
     }); //closes anon function
-    
-  
-  </script>
- 
- 
-</body>
-</html>
