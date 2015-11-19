@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
-var CreateFiles = require('./utils/CreateFiles');
+var fileController = require('./utils/fileController');
 var exec = require('child_process').exec;
 
 var app = express();
@@ -22,7 +22,7 @@ app.post('/stuff', function(req,res) {
     if(!stats) {
       fs.mkdirSync(`./${req.body.projectname}`)
     }
-    CreateFiles(req.body.parent, req.body.projectname);
+    fileController(req.body.parent, req.body.projectname);
     exec('zip -r -X archive_name.zip evil_corp; echo lol', function(err, stdout, stderr) {
       console.log(stdout);
     });

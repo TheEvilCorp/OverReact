@@ -1,11 +1,17 @@
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
+var ejs = require('ejs');
 
-module.exports = function createFiles (obj, projectName) {
+function createFiles (obj, projectName, file) {
   if(!obj) return;
-  fs.writeFileAsync(`./${projectName}/${obj.name}.js`, fs.readFileSync(__dirname + '/../../src/app.js'), 'utf-8')
+  fs.writeFileAsync(`./${obj.name}.js`, file)
   .then(function(written) {
     if(!obj.children) return;
-    obj.children.forEach(elem => createFiles(elem, projectName))
+    obj.children.forEach(function (elem) {
+      file = ejs.render(fs.readFileSync('./templates/reactTemplate.ejs', 'utf-8'), {component: elem});
+      createFiles(elem, projectName, file);
+    });
   });
-};
+}
+
+module.exports = createFiles;
