@@ -1,0 +1,109 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+ 
+
+
+  
+  </style>
+
+</head>
+<body>
+  
+  
+ 
+    <div id='container' class="ui-widget-content">MAIN CONTAINER
+    <!-- <div class='boxButton'>CREATE CHILD</div> -->
+     <!-- <input id='componentName' type='text' placeholder="NAME YOUR COMPONENT"></input> -->
+    </div>
+    
+  <script>
+    $(function() {
+       //create button & input field on the main container 
+      createButtonAndInput('container', createComponent);
+      createSubmitButton();
+      var allNames = [];
+
+      function createBox(boxName, context) {
+       $('<div class="box"><div>').attr('id', boxName).text(boxName)
+          .appendTo('#' + context)
+          .draggable({
+            containment: '#' + context,
+            // preventCollision: true,
+          })
+          .resizable();  //{containment: '#mainContainer'}
+      }
+
+      function createButtonAndInput(context, func){
+        var button = $('<div></div>').addClass('boxButton')
+        button.text('CREATE CHILD')
+        button.on('click', func);
+        button.appendTo('#' + context);
+
+        var inputField = $('<input placeholder="NAME YOUR COMPONENT"></input>')
+        inputField.appendTo('#' + context); 
+      }
+
+      function createComponent(){
+
+        //getting the value of the input field & the name of the parent component
+        var componentName = $(this).parent().find('input').val()
+        var parentName = $(this).parent().attr('id')
+
+        //validate the user input
+        if(componentName === '') {
+          alert('enter a component name!')
+        } else if(allNames.indexOf(componentName) !== -1) {
+          alert('duplicate name')
+        } else {
+          //push the component name to an array in order to keep track of names & prevent dups
+          allNames.push(componentName); 
+
+          //clear out the input field
+          $('#' + componentName).val('');
+
+          //create a new box
+          createBox(componentName, parentName);
+       
+          //create a new button & input field
+          createButtonAndInput(componentName, createComponent)
+            
+        } //closes else statement
+        console.log(allNames)
+      }
+
+      // //WORKING ON THIS TO PROCESS DATA OBJECT**************
+      // function setUpData() {
+
+
+      // }
+
+      // AFTER SETUPDATA FUNCTION IS DONE, NEED TO ADD ON CLICK LISTENER TO THIS FUNCTION
+      function createSubmitButton(){
+        var submitButton = $('<div></div>').attr('id', 'submitButton')
+        submitButton.text('CREATE FILES!')
+        submitButton.appendTo('body');
+
+
+      }
+
+
+
+
+
+    }); //closes anon function
+    
+  
+  </script>
+ 
+ 
+</body>
+</html>
