@@ -16,14 +16,14 @@ var output =  function () {
   //Creates a file from React template and passes in an object with 'component'
   //as the key and the master component object as the value. EJS template is looking for 'component' object
   var file = ejs.render(fs.readFileSync('reactTemplate.ejs', 'utf-8'), {component: component});
-
+  console.log(file);
   //Run createFiles function that creates a React file for each component and their subsequent subcomponents
   createFiles(component, 'OverReact');
 }
 
 function createFiles (obj, projectName) {
   if (!obj) return;
-  fs.writeFileSync(`./${obj.name}.jsx`, file);
+  fs.writeFileSync(`./${obj.name}.js`, file);
   if (!obj.children) return;
   obj.children.forEach(function (elem) {
     file = ejs.render(fs.readFileSync('reactTemplate.ejs', 'utf-8'), {component: elem});
