@@ -1,0 +1,19 @@
+{
+  "name": "overreact",
+  "version": "1.0.0",
+  "description": "Wireframing React projects with the functionality to boilerplate. This is the production project for Codesmith Cohort 3 members - Susan, Rico, and Brian",
+  "main": "outputTest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheEvilCorp/OverReact.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheEvilCorp/OverReact/issues"
+  },
+  "homepage": "https://github.com/TheEvilCorp/OverReact#readme"
+}
