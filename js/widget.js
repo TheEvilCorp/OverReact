@@ -58,7 +58,7 @@
       }
 
       var big = [];
-      for( var i = 0; i < 100; i ++) {
+      for( var i = 0; i < 200; i ++) {
         big.push({name: 'hello ' + i, children: []});
       }
       // //WORKING ON THIS TO PROCESS DATA OBJECT**************
@@ -81,16 +81,16 @@
       function setUpData() {
         $.ajax({
           method: 'POST',
-          url: 'http://localhost:3000/stuff',
+          url: 'http://localhost:3000/submit',
           contentType: 'application/json',
           data: JSON.stringify({
             projectName: 'OverReact',
-            parent: component}),
+            main: component}),
           success: function(){
-            console.log('SENT COMPONENT OBJECT');
+            window.location.href = "/download";
           },
           error: function(err){
-            console.log('ERROR: ', err)
+            console.log('ERROR: ', err);
           }
         });
       }
