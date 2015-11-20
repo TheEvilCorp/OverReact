@@ -1,7 +1,7 @@
     $(function() {
 
       //create button & input field on the main container
-      $('#container').text('MAIN CONTAINER')
+      $('#container').text('MAIN CONTAINER');
       createButtonAndInput('container', createComponent);
       createSubmitButton();
 
@@ -19,8 +19,8 @@
       }
 
       function createButtonAndInput(context, func){
-        var button = $('<div></div>').addClass('boxButton')
-        button.text('CREATE CHILD')
+        var button = $('<div></div>').addClass('boxButton');
+        button.text('CREATE CHILD');
         button.on('click', func);
         button.appendTo('#' + context);
 
@@ -32,8 +32,8 @@
       function createComponent(){
 
         //getting the value of the input field & the name of the parent component
-        var componentName = $(this).parent().find('input').val()
-        var parentName = $(this).parent().attr('id')
+        var componentName = $(this).parent().find('input').val();
+        var parentName = $(this).parent().attr('id');
 
         //validate the user input
         if(componentName === '') {
