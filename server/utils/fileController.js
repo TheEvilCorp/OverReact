@@ -1,13 +1,11 @@
 var fs = require('fs');
 var ejs = require('ejs');
-var root =  __dirname + '/../';
 var createFiles = require('./createFiles');
-var zip = require('./zipFunction');
 
-
-function fileController (component, projectName) {
+function fileController (req, res, next) {
   //EJS template will only require ReactDOM and render on the master component because its parent
   //attribute is set to 'true'
+  var component = req.body.main;
   component.parent = true;
 
   //Creates a file from React template and passes in an object with 'component'
@@ -15,10 +13,8 @@ function fileController (component, projectName) {
   var file = ejs.render(fs.readFileSync(__dirname + '/templates/reactTemplate.ejs', 'utf-8'), {component: component});
 
   //Run createFiles function that creates a React file for each component and their subsequent subcomponents
-  createFiles(component, projectName).then(zip(projectName));
+  createFiles(component, req.body.projectName);
+  next();
 }
-
-
-
 
 module.exports = fileController;

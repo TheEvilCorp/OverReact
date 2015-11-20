@@ -80,13 +80,13 @@
       function setUpData() {
         $.ajax({
           method: 'POST',
-          url: 'http://localhost:3000/stuff',
+          url: 'http://localhost:3000/submit',
           contentType: 'application/json',
           data: JSON.stringify({
             projectName: 'OverReact',
-            parent: component}),
+            main: component}),
           success: function(){
-            window.location.href = "/test";
+            window.location.href = "/download";
           },
           error: function(err){
             console.log('ERROR: ', err);
