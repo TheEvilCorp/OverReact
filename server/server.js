@@ -19,6 +19,7 @@ app.get('/', function(req,res) {
 app.post('/stuff', function(req,res) {
   console.log(req.body);
   fs.stat(`./${req.body.projectName}`, function(err, stats) {
+    console.log(stats);
     if(!stats) {
       fs.mkdirSync(`./${req.body.projectName}`)
     }
