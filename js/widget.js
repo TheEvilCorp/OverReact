@@ -76,24 +76,55 @@
           }]}, {name: 'Pokemon', children: big}]
       };
 
+      function readData(){
+        var dataObj = {name: 'container', children:[]};
+        createDataObj(dataObj, '#container');
+        //JUST FOR TESTING
+        setTimeout(function(){
+          console.log(dataObj)
+        }, 5000)
+      }
+      function createDataObj(dataObj, elemID){
+        console.log(elemID)
+        var childArray = $(elemID).children('div.box').toArray()
+        console.log(childArray)
+        console.log(childArray.length)
+        console.log(Array.isArray(childArray));
 
 
-      function setUpData() {
-        $.ajax({
-          method: 'POST',
-          url: 'http://localhost:3000/stuff',
-          contentType: 'application/json',
-          data: JSON.stringify({
-            projectName: 'OverReact',
-            parent: component}),
-          success: function(){
-            console.log('SENT COMPONENT OBJECT');
-          },
-          error: function(err){
-            console.log('ERROR: ', err)
+        childArray.forEach(function(child){
+
+          var childID = $(child).attr('id')
+          console.log(childID)
+          dataObj.children.push({name: childID, children:[]})
+          console.log('CHILD.CHILDREN: ', $(child).children('div.box'))
+          if($(child).children('div.box') !== []) {
+            createDataObj(dataObj, childID)
           }
         });
       }
+
+
+
+
+
+
+      // function sendData() {
+      //   $.ajax({
+      //     method: 'POST',
+      //     url: 'http://localhost:3000/stuff',
+      //     contentType: 'application/json',
+      //     data: JSON.stringify({
+      //       projectName: 'OverReact',
+      //       parent: component}),
+      //     success: function(){
+      //       console.log('SENT COMPONENT OBJECT');
+      //     },
+      //     error: function(err){
+      //       console.log('ERROR: ', err)
+      //     }
+      //   });
+      // }
 
 
       // AFTER SETUPDATA FUNCTION IS DONE, NEED TO ADD ON CLICK LISTENER TO THIS FUNCTION
@@ -101,7 +132,7 @@
         var submitButton = $('<div></div>').attr('id', 'submitButton');
         submitButton.text('CREATE FILES!');
         submitButton.appendTo('body');
-        submitButton.on('click', setUpData);
+        submitButton.on('click', readData);
       };
 
     }); //closes anon function
