@@ -57,9 +57,12 @@
         console.log(allNames)
       }
 
-      // //WORKING ON THIS TO PROCESS DATA OBJECT**************
-      // function setUpData() {
-      // }
+      //WORKING ON THIS TO PROCESS DATA OBJECT**************
+      function setUpData() {
+
+
+
+      }
 
       // AFTER SETUPDATA FUNCTION IS DONE, NEED TO ADD ON CLICK LISTENER TO THIS FUNCTION
       function createSubmitButton(){
