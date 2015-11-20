@@ -1,7 +1,7 @@
     $(function() {
 
       //create button & input field on the main container
-      $('#container').text('MAIN CONTAINER')
+      $('#container').text('MAIN CONTAINER');
       createButtonAndInput('container', createComponent);
       createSubmitButton();
 
@@ -19,8 +19,8 @@
       }
 
       function createButtonAndInput(context, func){
-        var button = $('<div></div>').addClass('boxButton')
-        button.text('CREATE CHILD')
+        var button = $('<div></div>').addClass('boxButton');
+        button.text('CREATE CHILD');
         button.on('click', func);
         button.appendTo('#' + context);
 
@@ -32,8 +32,8 @@
       function createComponent(){
 
         //getting the value of the input field & the name of the parent component
-        var componentName = $(this).parent().find('input').val()
-        var parentName = $(this).parent().attr('id')
+        var componentName = $(this).parent().find('input').val();
+        var parentName = $(this).parent().attr('id');
 
         //validate the user input
         if(componentName === '') {
@@ -58,23 +58,24 @@
       }
 
       var big = [];
-      for( var i = 0; i < 100; i ++) {
-        big.push({name: 'hello ' + i, children: []});
+      for( var i = 0; i < 200; i ++) {
+        big.push({name: 'hello' + i, children: []});
       }
       // //WORKING ON THIS TO PROCESS DATA OBJECT**************
       var component = {
-        name: 'Pokedex',
+        name: 'Container',
         children: [
-          {name: 'PokeList', children: [{name: 'PokeItem', children: []}, {
-            name: 'Pokedex',
+          {name: 'PokeList1', children: [{name: 'PokeItem1', children: []}, {
+            name: 'Pokedex1',
             children: [
-              {name: 'PokeList', children: [{name: 'PokeItem', children: []}]}, {name: 'Pokemon', children: []}]
+              {name: 'PokeList2', children: [{name: 'PokeItem2', children: []}]}, {name: 'Pokemon1', children: []}]
           }, {
-            name: 'Pokedex',
+            name: 'Pokedex2',
             children: [
-              {name: 'PokeList', children: [{name: 'PokeItem', children: []}]}, {name: 'Pokemon', children: []}]
-          }]}, {name: 'Pokemon', children: big}]
+              {name: 'PokeList3', children: [{name: 'PokeItem3', children: []}]}, {name: 'Pokemon3', children: []}]
+          }]}, {name: 'Pokemon4', children: big}]
       };
+
 
       function readData(){
         var dataObj = {name: 'container', children:[]};
@@ -98,9 +99,9 @@
           console.log(childID)
           dataObj.children.push({name: childID, children:[]})
           console.log('CHILD.CHILDREN: ', $(child).children('div.box'))
-          if($(child).children('div.box') !== []) {
-            createDataObj(dataObj, childID)
-          }
+          // if($(child).children('div.box') !== []) {
+          //   createDataObj(dataObj, childID)
+          // }
         });
       }
 
@@ -116,7 +117,7 @@
       //     contentType: 'application/json',
       //     data: JSON.stringify({
       //       projectName: 'OverReact',
-      //       parent: component}),
+      //       main: component}),
       //     success: function(){
       //       console.log('SENT COMPONENT OBJECT');
       //     },
