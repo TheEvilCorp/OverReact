@@ -59,21 +59,21 @@
 
       var big = [];
       for( var i = 0; i < 200; i ++) {
-        big.push({name: 'hello ' + i, children: []});
+        big.push({name: 'hello' + i, children: []});
       }
       // //WORKING ON THIS TO PROCESS DATA OBJECT**************
       var component = {
-        name: 'Pokedex',
+        name: 'Container',
         children: [
-          {name: 'PokeList', children: [{name: 'PokeItem', children: []}, {
-            name: 'Pokedex',
+          {name: 'PokeList1', children: [{name: 'PokeItem1', children: []}, {
+            name: 'Pokedex1',
             children: [
-              {name: 'PokeList', children: [{name: 'PokeItem', children: []}]}, {name: 'Pokemon', children: []}]
+              {name: 'PokeList2', children: [{name: 'PokeItem2', children: []}]}, {name: 'Pokemon1', children: []}]
           }, {
-            name: 'Pokedex',
+            name: 'Pokedex2',
             children: [
-              {name: 'PokeList', children: [{name: 'PokeItem', children: []}]}, {name: 'Pokemon', children: []}]
-          }]}, {name: 'Pokemon', children: big}]
+              {name: 'PokeList3', children: [{name: 'PokeItem3', children: []}]}, {name: 'Pokemon3', children: []}]
+          }]}, {name: 'Pokemon4', children: big}]
       };
 
 
