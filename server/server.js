@@ -9,7 +9,7 @@ var exec = require('child_process').exec;
 
 var app = express();
 var server = http.createServer(app);
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../')));
 
 app.get('/', function(req,res) {
@@ -17,15 +17,15 @@ app.get('/', function(req,res) {
 });
 
 app.post('/stuff', function(req,res) {
-  // console.log(req.body);
-  fs.stat(`./${req.body.projectname}`, function(err, stats) {
+  console.log(req.body);
+  fs.stat(`./${req.body.projectName}`, function(err, stats) {
     if(!stats) {
-      fs.mkdirSync(`./${req.body.projectname}`)
+      fs.mkdirSync(`./${req.body.projectName}`)
     }
-    fileController(req.body.parent, req.body.projectname);
-    exec('zip -r -X archive_name.zip evil_corp; echo lol', function(err, stdout, stderr) {
-      console.log(stdout);
-    });
+    fileController(req.body.parent, req.body.projectName);
+    // exec(`zip -r -X archive_name.zip ${req.body.projectName}; echo lol`, function(err, stdout, stderr) {
+    //   console.log(stdout);
+    // });
     res.send('ok');
   });
 });
