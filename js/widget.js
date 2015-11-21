@@ -1,7 +1,6 @@
     $(function() {
 
       //create button & input field on the main container
-      $('#container').text('MAIN CONTAINER');
       createButtonAndInput('container', createComponent);
       createSubmitButton();
 
@@ -9,31 +8,41 @@
       var allNames = [];
 
       function createBox(boxName, context) {
+        context = $('#' + context);
+        console.log(context);
        $('<div class="box"><div>').attr('id', boxName).text(boxName)
-          .appendTo('#' + context)
+          .appendTo(context)
           .draggable({
-            containment: '#' + context,
+            containment: '#' + context[0].id,
             // preventCollision: true,
           })
-          .resizable();  //{containment: '#mainContainer'}
+          .resizable({
+            containment: '#' + context[0].id
+          });  //{containment: '#mainContainer'}
+        $('#' + boxName).css({
+          height: context.height() * 0.30,
+          width: context.width() * 0.75,
+          top: context.css('top') + 25,
+          left: context.css('left') + 25,
+        });
       }
 
       function createButtonAndInput(context, func){
-        var button = $('<div></div>').addClass('boxButton');
-        button.text('CREATE CHILD');
-        button.on('click', func);
-        button.appendTo('#' + context);
-
-        var inputField = $('<input placeholder="NAME YOUR COMPONENT"></input>');
+        var inputField = $('<form><input placeholder="component name..."></input></form>');
         inputField.appendTo('#' + context);
-
+        inputField.css({
+          float: 'right'
+        });
+        inputField.on('submit', function(e){
+          e.preventDefault();
+          func($(this));
+        });
       }
 
-      function createComponent(){
-
+      function createComponent(node){
         //getting the value of the input field & the name of the parent component
-        var componentName = $(this).parent().find('input').val();
-        var parentName = $(this).parent().attr('id');
+        var componentName = node.find('input').val();
+        var parentName = node.parent().attr('id');
 
         //validate the user input
         if(componentName === '') {
@@ -45,7 +54,7 @@
           allNames.push(componentName);
 
           //clear out the input field - NEED TO FIX THIS (REMOVED ID FROM NEW INPUT FIELD)
-          $('#' + parentName).find('input').val('');
+          node.find('input').val('');
 
           //create a new box
           createBox(componentName, parentName);
@@ -102,6 +111,10 @@
         submitButton.text('CREATE FILES!');
         submitButton.appendTo('body');
         submitButton.on('click', setUpData);
-      };
+        submitButton.css({
+          position: 'fixed',
+          display: 'inline'
+        });
+      }
 
     }); //closes anon function
