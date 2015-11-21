@@ -1,12 +1,11 @@
-input {
+form {
   float: right;
 }
 
 #container {
 	width: 600px;
 	height: 600px;
-	border: 2px solid blue;
-	padding: 1px;
+	border: 1px solid blue;
 }
 .deleteBtn {
 	float: right;
@@ -18,30 +17,11 @@ input {
 	color: red;
 }
 
-.box { 
-	width: 300px; 
-	height: 150px; 
-	padding: 0.5em; 
+.box {
 	border: 1px solid red;
-	display: inline-block;
-	position: absolute;
-	top: 50px;
-	left: 50px;
-	padding: 1px;
 }
-.boxButton {
-	width: 100px;
-	height: 20px;
-	background-color: #a0a0a0;
-	display: inline-block;
-	float: right;
-	font-size: 0.7em;
-	text-align: center;
-	padding-top: 5px;
-}
+
 #submitButton {
 	background-color: red;
 	width: 300px;
-
-
 }
