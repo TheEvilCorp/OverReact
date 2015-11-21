@@ -57,7 +57,7 @@
         console.log(allNames)
       }
       var big = [];
-      for( var i = 0; i < 100; i ++) {
+      for( var i = 0; i < 200; i ++) {
         big.push({name: 'hello ' + i, children: []});
       }
       // //WORKING ON THIS TO PROCESS DATA OBJECT**************

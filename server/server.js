@@ -22,13 +22,24 @@ app.post('/stuff', function(req,res) {
     if(!stats) {
       fs.mkdirSync(`./${req.body.projectName}`)
     }
-    fileController(req.body.parent, req.body.projectName);
+    var promises = [];
+    var finishHim = Promise.all(promises, zipShit('OverReact'));
+
+    fileController(req.body.parent, req.body.projectName, promises, finishHim);
+
     // exec(`zip -r -X archive_name.zip ${req.body.projectName}; echo lol`, function(err, stdout, stderr) {
     //   console.log(stdout);
     // });
     res.send('ok');
   });
 });
+
+function zipShit (projectName) {
+  console.log('zipping');
+  exec(`zip -r -X archive_name.zip ${projectName}; echo lol`, function(err, stdout, stderr) {
+    console.log(stdout);
+  });
+}
 
 
 app.get('/test', function(req, res) {
