@@ -1,13 +1,20 @@
-/*form {
+form {
   float: right;
-  display: inline-block;
-  position:relative;
-}*/
+}
 
 #container {
 	width: 600px;
 	height: 600px;
 	border: 1px solid blue;
+}
+.deleteBtn {
+	float: right;
+	color: #a0a0a0;
+	background-color: white;
+	border: none;
+}
+.deleteBtn:hover {
+	color: red;
 }
 
 .box {

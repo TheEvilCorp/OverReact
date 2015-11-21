@@ -18,10 +18,10 @@ function handleErrors() {
 
 function buildScript(file, watch) {
   var props = {
-    entries : ['./src/app.js'],
+    entries : ['./js/widget.js'],
     debug : true,
     transform : babelify.configure({
-                presets: ["react", "es2015"]
+                presets: ["es2015"]
                 })
   };
 
@@ -48,10 +48,10 @@ function buildScript(file, watch) {
 
 // run once
 gulp.task('scripts', function() {
-  return buildScript('app.js', false);
+  return buildScript('widget.js', false);
 });
 
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['scripts'], function() {
-  return buildScript('app.js', true);
+  return buildScript('widget.js', true);
 });
