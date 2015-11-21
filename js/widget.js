@@ -1,7 +1,7 @@
     $(function() {
 
       //create button & input field on the main container
-      $('#container').text('MAIN CONTAINER')
+      $('#container').text('MAIN CONTAINER');
       createButtonAndInput('container', createComponent);
       createSubmitButton();
 
@@ -19,21 +19,32 @@
       }
 
       function createButtonAndInput(context, func){
-        var button = $('<div></div>').addClass('boxButton')
-        button.text('CREATE CHILD')
+        if(context !== 'container') {
+          var deleteBtn = $('<button class="deleteBtn">X</button>')
+          deleteBtn.addClass('deleteBtn'); 
+          deleteBtn.on('click', deleteComponent);
+          deleteBtn.appendTo('#' + context);
+        }
+
+        var button = $('<div></div>').addClass('boxButton');
+        button.text('CREATE CHILD');
         button.on('click', func);
         button.appendTo('#' + context);
 
         var inputField = $('<input placeholder="NAME YOUR COMPONENT"></input>')
         inputField.appendTo('#' + context);
-
+      }
+      function deleteComponent(){
+        var parentName = $(this).parent().attr('id');
+        $('#' + parentName).remove();
+        var index = allNames.indexOf(parentName);
+        allNames.splice(index,1);
       }
 
       function createComponent(){
-
         //getting the value of the input field & the name of the parent component
-        var componentName = $(this).parent().find('input').val()
-        var parentName = $(this).parent().attr('id')
+        var componentName = $(this).parent().find('input').val();
+        var parentName = $(this).parent().attr('id');
 
         //validate the user input
         if(componentName === '') {
@@ -57,51 +68,46 @@
         console.log(allNames)
       }
 
-      var big = [];
-      for( var i = 0; i < 200; i ++) {
-        big.push({name: 'hello' + i, children: []});
+      function createDataObj(dataObj, elemID){
+        var childArray = $(elemID).children('div.box').toArray();
+        var childName, childID, newObj;
+
+        childArray.forEach(function(child){
+          childName = $(child).attr('id');
+          childID = '#' + childName;
+          newObj = {name: childName, children:[]}
+          dataObj.children.push(newObj);
+          if($(child).children('div.box').toArray().length > 0) {
+            return createDataObj(newObj, childID)
+          }
+        });
       }
-      // //WORKING ON THIS TO PROCESS DATA OBJECT**************
-      var component = {
-        name: 'Container',
-        children: [
-          {name: 'PokeList1', children: [{name: 'PokeItem1', children: []}, {
-            name: 'Pokedex1',
-            children: [
-              {name: 'PokeList2', children: [{name: 'PokeItem2', children: []}]}, {name: 'Pokemon1', children: []}]
-          }, {
-            name: 'Pokedex2',
-            children: [
-              {name: 'PokeList3', children: [{name: 'PokeItem3', children: []}]}, {name: 'Pokemon3', children: []}]
-          }]}, {name: 'Pokemon4', children: big}]
-      };
 
+      function sendData() {   
+        var dataObj = {name: 'container', children:[]};
+        createDataObj(dataObj, '#container');
 
-
-      function setUpData() {
         $.ajax({
           method: 'POST',
           url: 'http://localhost:3000/submit',
           contentType: 'application/json',
           data: JSON.stringify({
             projectName: 'OverReact',
-            main: component}),
+            main: dataObj}),
           success: function(){
-            window.location.href = "/download";
+            window.location.href = '/download';
           },
           error: function(err){
-            console.log('ERROR: ', err);
+            console.log('ERROR: ', err)
           }
         });
       }
 
-
-      // AFTER SETUPDATA FUNCTION IS DONE, NEED TO ADD ON CLICK LISTENER TO THIS FUNCTION
       function createSubmitButton(){
         var submitButton = $('<div></div>').attr('id', 'submitButton');
         submitButton.text('CREATE FILES!');
         submitButton.appendTo('body');
-        submitButton.on('click', setUpData);
+        submitButton.on('click', sendData);
       };
 
     }); //closes anon function

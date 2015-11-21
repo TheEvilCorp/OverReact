@@ -8,6 +8,15 @@ input {
 	border: 2px solid blue;
 	padding: 1px;
 }
+.deleteBtn {
+	float: right;
+	color: #a0a0a0;
+	background-color: white;
+	border: none;
+}
+.deleteBtn:hover {
+	color: red;
+}
 
 .box { 
 	width: 300px; 
