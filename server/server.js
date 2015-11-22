@@ -8,6 +8,7 @@ var exec = require('child_process').exec;
 var fileController = require('./utils/fileController');
 var mkDir = require('./utils/mkDir');
 var zipFunction = require('./utils/zipFunction');
+var addStandardFiles = require('./utils/addStandardFiles');
 
 //configure express
 var app = express();
@@ -21,7 +22,7 @@ app.get('/', function(req,res) {
 });
 
 //post route for when the user is done setting up their component layout, kicks off middleware chain to create directory, write files to created directory, then zip file.
-app.post('/submit', mkDir, fileController, zipFunction, function(req,res) {
+app.post('/submit', mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
   res.send('ok');
 });
 
@@ -30,5 +31,4 @@ app.get('/download', function(req, res) {
   res.download(__dirname + "/../archive_name.zip");
 });
 
-
-app.listen(3000);
+app.listen(8000);

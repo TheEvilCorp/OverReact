@@ -14,7 +14,7 @@ module.exports = function (boxName, context) {
   $('#' + boxName).css({
     height: context.height() * 0.30,
     width: context.width() * 0.75,
-    top: context.css('top') + 25,
-    left: context.css('left') + 25,
+    top: context.position().top + 5,
+    left: context.position().left + 5,
   });
 };

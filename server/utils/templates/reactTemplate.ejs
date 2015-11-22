@@ -10,7 +10,8 @@ var <%- component.name %> = React.createClass({
   render: function () {
     return (
       <div>
-        <div><%- component.name %></div><% if (component.children) for (i = 0; i < component.children.length; i++) { %>
+        <%- component.name %>
+        <% if (component.children) for (i = 0; i < component.children.length; i++) { %>
           <<%- component.children[i].name %> /><% } %>
       </div>
     )
@@ -19,4 +20,4 @@ var <%- component.name %> = React.createClass({
 
 module.exports = <%- component.name %>;
 
-<% if (component.parent) { %>ReactDOM.render(<%- component.name %>, document.getElementById('#container'));<% } %>
+<% if (component.parent) { %>ReactDOM.render(< <%- component.name %> />, document.getElementById('container'));<% } %>
