@@ -4,7 +4,7 @@ var ejs = require('ejs');
 
 function createFiles(obj, projectName, file) {
   //writes a file to the directory created in mkDir, using the React template ejs.
-  fs.writeFileSync(`./${projectName}/${obj.name}.js`, file);
+  fs.writeFileSync(`./${projectName}/src/${obj.name}.js`, file);
   //escape out of the recursive call
   if(!obj.children) return;
   //else create files for all of the child components

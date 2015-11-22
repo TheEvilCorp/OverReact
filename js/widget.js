@@ -8,14 +8,14 @@ $(function() {
   var allNames = [];
 
   //place click handler on the submit button. Click handler will send post to create files.
-  var submitButton = $('#submitButton');
-  submitButton.on('click', postFunction);
+  $('#submitButton').on('click', postFunction);
 
-  //create button & input field on the main container
+  //create input field on the main container
   createInput('container', createComponent);
 
+  //node parameter is the form dom element
   function createComponent(node){
-    //getting the value of the input field & the name of the parent component
+    //get the value of the input field & the name of the parent component
     var componentName = node.find('input').val();
     var parentName = node.parent().attr('id');
 

@@ -6,6 +6,7 @@ form {
 	width: 600px;
 	height: 600px;
 	border: 1px solid blue;
+	position: relative;
 }
 .deleteBtn {
 	float: right;
@@ -18,7 +19,10 @@ form {
 }
 
 .box {
+	display: inline-block;
 	border: 1px solid red;
+	position: relative;
+
 }
 
 #submitButton {
