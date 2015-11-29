@@ -9,6 +9,7 @@ var fileController = require('./utils/fileController');
 var mkDir = require('./utils/mkDir');
 var zipFunction = require('./utils/zipFunction');
 var addStandardFiles = require('./utils/addStandardFiles');
+var capitalize = require('./utils/capitalize');
 
 //configure express
 var app = express();
@@ -22,7 +23,7 @@ app.get('/', function(req,res) {
 });
 
 //post route for when the user is done setting up their component layout, kicks off middleware chain to create directory, write files to created directory, then zip file.
-app.post('/submit', mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
+app.post('/submit', capitalize, mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
   res.send('ok');
 });
 

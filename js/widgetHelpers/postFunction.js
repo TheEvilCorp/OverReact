@@ -2,7 +2,7 @@ var createDataObj = require('./createDataObj');
 
 module.exports = function() {
   //interprets the DOM into an object
-  var dataObj = {name: 'container', children:[]};
+  var dataObj = {name: 'app', children:[]};
   createDataObj(dataObj, '#container');
   //post request to create React files and download the zip
   $.ajax({
