@@ -1,4 +1,3 @@
-var allNames = require('./../widget');
 //function called to create a delete button for new boxes
 var createDeleteBtn = function(parent, array){
   var deleteBtn = $('<button>X</button>');
