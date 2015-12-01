@@ -15,7 +15,12 @@
     "babel-preset-react": "^6.0.15",
     "babelify": "^7.2.0",
     "browserify": "^10.2.4",
-    "express": "^4.13.3",
+    <% if(server === 'express'){%>
+    "express" : "^4.13.3",
+    <%} else {%>
+    "hapi": "^11.1.2",
+    "inert": "^3.2.0",
+    <%}%>
     "gulp": "^3.9.0",
     "gulp-notify": "^2.2.0",
     "http": "0.0.0",
