@@ -13,13 +13,16 @@ module.exports = function(req, res, next){
 	//create package.json
 	file = ejs.render(fs.readFileSync(__dirname + '/templates/packageJSONTemplate.ejs', 'utf-8'), {
 		projectName: req.body.projectName,
-		server: req.body.server
+		server: req.body.server,
+		task: req.body.task
 	});
 	promises.push(fs.writeFileAsync(`./${req.body.projectName}/package.json`, file));
 
-	//create gulp
-	file = ejs.render(fs.readFileSync(__dirname + '/templates/gulpTemplate.ejs', 'utf-8'), {error: '<%= error.message %>'});
-	promises.push(fs.writeFileAsync(`./${req.body.projectName}/gulpfile.js`, file));
+	//create task runner file
+	file = ejs.render(fs.readFileSync(__dirname + `/templates/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}Template.ejs`, 'utf-8'), {
+		error: '<%= error.message %>'
+	});
+	promises.push(fs.writeFileAsync(`./${req.body.projectName}/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}file.js`, file));
 
 	//create server file
 	file = ejs.render(fs.readFileSync(__dirname +  `/templates/${req.body.server === 'hapi' ? 'hapi' : 'express'}ServerTemplate.ejs`, 'utf-8'));

@@ -12,7 +12,8 @@ module.exports = function() {
     data: JSON.stringify({
       projectName: 'OverReact',
       main: dataObj,
-      server: 'express'
+      server: 'express',
+      task: 'grunt'
     }),
     //this initiates download once the file is zipped
     success: function(){
