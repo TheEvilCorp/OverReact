@@ -3,11 +3,16 @@ var createInput = require('./widgetHelpers/createInput');
 var postFunction = require('./widgetHelpers/postFunction');
 var createDeleteBtn = require('./widgetHelpers/createDeleteBtn');
 
-$(function() {
+// $(function() {
+module.exports = function(){
+
   //component name array to keep track of names and prevent duplication
   var allNames = [];
 
-  //place click handler on the submit button. Click handler will send post to create files.
+  //Create submit button and place click handler on the submit button. 
+  //Click handler will send post to create files.
+  var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files')
+  submitBtn.prependTo('#application')
   $('#submitButton').on('click', postFunction);
 
   //create input field on the main container
@@ -38,4 +43,4 @@ $(function() {
       createDeleteBtn(componentName, allNames);
     }
   }
-});//closes anon function
+};//closes module.exports function
