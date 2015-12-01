@@ -10,12 +10,11 @@ var Options = React.createClass({
     return (
       <div className='options-container'>
         Options
-        
+        <button id="saveButton">Save Template</button>
+        <button id="loadButton">Load Template</button>
       </div>
     )
   }
 });
 
 module.exports = Options;
-
-
