@@ -13,7 +13,9 @@ var createDeleteBtn = function(parent, array){
 function deleteComponent(button, array){
   var parentName = button.parentNode.id;
   button.parentNode.remove();
-  var index = array.indexOf(parentName);
+  var index = array.map(function(e) {
+    return e.name;
+  }).indexOf(parentName);
   array.splice(index,1);
 }
 

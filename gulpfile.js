@@ -21,7 +21,7 @@ function buildScript(file, watch) {
     entries : ['./js/' + file],
     debug : true,
     transform : babelify.configure({
-                presets: ["es2015"]
+                presets: ["react", "es2015"]
                 })
   };
 
@@ -48,10 +48,10 @@ function buildScript(file, watch) {
 
 // run once
 gulp.task('scripts', function() {
-  return buildScript('widget.js', false);
+  return buildScript('./../src/App.js', false);
 });
 
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['scripts'], function() {
-  return buildScript('widget.js', true);
+  return buildScript('./../src/App.js', true);
 });
