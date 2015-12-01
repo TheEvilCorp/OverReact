@@ -12,6 +12,6 @@ var createDataObj = function (dataObj, elemID){
       return createDataObj(newObj, childID);
     }
   });
-}
+};
 
 module.exports = createDataObj;
