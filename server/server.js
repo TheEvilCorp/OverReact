@@ -9,10 +9,11 @@ var fileController = require('./utils/fileController');
 var mkDir = require('./utils/mkDir');
 var zipFunction = require('./utils/zipFunction');
 var addStandardFiles = require('./utils/addStandardFiles');
+var capitalize = require('./utils/capitalize');
 
 //configure express
 var app = express();
-var server = http.createServer(app);
+// var server = http.createServer(app);
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../')));
 
@@ -22,13 +23,16 @@ app.get('/', function(req,res) {
 });
 
 //post route for when the user is done setting up their component layout, kicks off middleware chain to create directory, write files to created directory, then zip file.
-app.post('/submit', mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
+app.post('/submit', capitalize, mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
+  projectName = req.body.projectName;
   res.send('ok');
 });
 
 //on submit route response being sent successfully, the client will set location to /download to initiate the download of the zip
-app.get('/download', function(req, res) {
+app.get('/download/*', function(req, res) {
   res.download(__dirname + "/../archive_name.zip");
+  // console.log(req.url);
+  exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf archive_name.zip`);
 });
 
 app.listen(8000);

@@ -18,7 +18,7 @@ function handleErrors() {
 
 function buildScript(file, watch) {
   var props = {
-    entries : ['./js/widget.js'],
+    entries : ['./js/' + file],
     debug : true,
     transform : babelify.configure({
                 presets: ["es2015"]

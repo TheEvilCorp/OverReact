@@ -5,10 +5,10 @@ module.exports = function (boxName, context) {
   $('<div class="box"><div>').attr('id', boxName).text(boxName)
     .appendTo(context)
     .draggable({
-      containment: '#' + context[0].id,
+      containment: 'parent',
     })
     .resizable({
-      containment: '#' + context[0].id
+      containment: 'parent'
     });
   //initial styling
   $('#' + boxName).css({

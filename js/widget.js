@@ -16,7 +16,7 @@ $(function() {
   //node parameter is the form dom element
   function createComponent(node){
     //get the value of the input field & the name of the parent component
-    var componentName = node.find('input').val();
+    var componentName = node.find('input').val().toLowerCase();
     var parentName = node.parent().attr('id');
 
     if(allNames.indexOf(componentName) !== -1) {
