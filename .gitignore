@@ -1,4 +1,4 @@
 node_modules
 bower_components
 build
-npm_debug*
+npm_debug.log
