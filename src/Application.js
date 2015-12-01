@@ -20,5 +20,3 @@ var Application = React.createClass({
 });
 
 module.exports = Application;
-
-
