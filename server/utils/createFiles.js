@@ -1,5 +1,4 @@
-var Promise = require('bluebird');
-var fs = Promise.promisifyAll(require('fs'));
+var fs = require('fs');
 var ejs = require('ejs');
 
 function createFiles(obj, projectName, file) {
