@@ -37,7 +37,8 @@ form {
 .box {
 	display: inline-block;
 	border: 1px solid red;
-	position: relative;
+	position: absolute;
+	background-color: white;
 
 }
 
@@ -53,5 +54,3 @@ form {
 	margin-left: 50px;
 	border: 1px solid black;
 }
-
-
