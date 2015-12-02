@@ -1,4 +1,3 @@
-
 .instruction-grid {
 	margin-top: 30px;
 	margin-left: 70px;
@@ -10,7 +9,6 @@
 }
 
 /*Application Section*/
-
 
 form {
   float: right;
@@ -39,7 +37,6 @@ form {
 	border: 1px solid red;
 	position: absolute;
 	background-color: white;
-
 }
 
 #submitButton {
