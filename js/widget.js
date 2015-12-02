@@ -58,6 +58,7 @@ module.exports = function(){
     //get the value of the input field & the name of the parent component
     var componentName;
     var parentName;
+    var boxOffset;
 
     if (obj) {
       componentName = obj.name;
@@ -71,6 +72,10 @@ module.exports = function(){
       alert('duplicate name');
     } else {
       //push the component name to an array in order to keep track of names & prevent dupes
+      boxOffset = allNames.map(function(e) {return e.context}).lastIndexOf(parentName);
+      if (boxOffset === -1) {
+        boxOffset = 0;
+      }
       allNames.push({name: componentName, context: parentName, style: null});
 
       //clear out the input field
@@ -80,7 +85,7 @@ module.exports = function(){
       if (obj) {
         createBox(componentName, parentName, obj.style);
       } else {
-          createBox(componentName, parentName);
+          createBox(componentName, parentName, undefined, allNames[boxOffset].name);
       }
 
       //create Delete Button
