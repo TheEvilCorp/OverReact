@@ -5,14 +5,26 @@ var createDeleteBtn = require('./widgetHelpers/createDeleteBtn');
 
 // $(function() {
 module.exports = function(){
-
+  //make container droppable
+  $('#container').droppable({
+    greedy: true,
+    accept: '.box',
+    hoverClass: 'ui-state-hover',
+    activeClass: 'active',
+    drop: function( event, ui ) {
+      console.log(ui.draggable);
+      // console.log(ui.draggable[0].attr('id'));
+      ui.draggable.appendTo($(this));
+      return;
+    }
+  });
   //component name array to keep track of names and prevent duplication
   var allNames = [];
   var savedTemplate = [];
 
-  //Create submit button and place click handler on the submit button. 
+  //Create submit button and place click handler on the submit button.
   //Click handler will send post to create files.
-  var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files')
+  var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
   submitBtn.prependTo('#application')
   $('#submitButton').on('click', postFunction);
 
@@ -69,9 +81,6 @@ module.exports = function(){
       } else {
           createBox(componentName, parentName);
       }
-
-      //create input field
-      createInput(componentName, createComponent);
 
       //create Delete Button
       createDeleteBtn(componentName, allNames);

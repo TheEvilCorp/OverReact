@@ -37,7 +37,8 @@ form {
 .box {
 	display: inline-block;
 	border: 1px solid red;
-	position: relative;
+	position: absolute;
+	background-color: white;
 
 }
 
@@ -54,4 +55,10 @@ form {
 	border: 1px solid black;
 }
 
+.ui-state-hover {
+	background: rgba(9, 189, 246, 0.54);
+}
 
+.class {
+	background: red;
+}
