@@ -2,6 +2,7 @@ var createBox = require('./widgetHelpers/createBox');
 var createInput = require('./widgetHelpers/createInput');
 var postFunction = require('./widgetHelpers/postFunction');
 var createDeleteBtn = require('./widgetHelpers/createDeleteBtn');
+var alsoResizeChildren = require('./widgetHelpers/alsoResizeChildren');
 
 // $(function() {
 module.exports = function(){
@@ -11,10 +12,9 @@ module.exports = function(){
     accept: '.box',
     hoverClass: 'ui-state-hover',
     activeClass: 'active',
-    drop: function( event, ui ) {
-      console.log(ui.draggable);
-      // console.log(ui.draggable[0].attr('id'));
+    drop: function( e, ui ) {
       ui.draggable.appendTo($(this));
+      alsoResizeChildren($('#container'));
       return;
     }
   });
