@@ -13,6 +13,7 @@ module.exports = function(){
     hoverClass: 'ui-state-hover',
     activeClass: 'active',
     drop: function( e, ui ) {
+      if($(this).attr('id') === ui.draggable.parent()[0].id) return;
       ui.draggable.appendTo($(this));
       alsoResizeChildren($('#container'));
       return;

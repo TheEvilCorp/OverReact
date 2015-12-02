@@ -18,8 +18,11 @@ module.exports = function (boxName, context, style) {
       hoverClass: 'ui-state-hover',
       activeClass: 'active',
       drop: function( e, ui ) {
-        console.log('drop');
+        //if dropping into same div, return out
+        if($(this).attr('id') === ui.draggable.parent()[0].id) return;
+        //append the div that is being dragged into the div that will be its parent
         ui.draggable.appendTo($(this));
+        //re-set all divs resizable to also resize their children
         alsoResizeChildren($('#container'));
         return;
       }
