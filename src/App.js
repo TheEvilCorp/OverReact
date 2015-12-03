@@ -3,7 +3,7 @@ var $ = require('jquery');
 var ReactDOM = require('react-dom');
 var Home = require('./Home');
 var Application = require('./Application');
-var Whatnext = require('./Whatnext');
+var WhatNext = require('./WhatNext');
 var Footer = require('./Footer');
 var Navbar = require('react-bootstrap').Navbar;
 
@@ -15,15 +15,15 @@ var App = React.createClass({
   render: function () {
     return (
       <div>     
-          <Navbar fixedTop={true}>
+          <Navbar fixedTop={true} id='nav-section'>
             <Navbar.Brand className='text-center'>
-              <a href="#">OverReact</a>
+              <a href="#" id='nav-title'>OverReact</a>
             </Navbar.Brand>
           </Navbar>
 
           <Home />
           <Application />
-          <Whatnext />
+          <WhatNext />
           <Footer />
       </div>
     )
