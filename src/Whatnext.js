@@ -2,13 +2,13 @@ var React = require('react');
 var $ = require('jquery');
 
 
-var Whatnext = React.createClass({
+var WhatNext = React.createClass({
   getInitialState: function() {
     return {};
   },
   render: function () {
     return (
-      <div>
+      <div id='whatNext-section'>
         Whatnext
         
       </div>
@@ -16,6 +16,6 @@ var Whatnext = React.createClass({
   }
 });
 
-module.exports = Whatnext;
+module.exports = WhatNext;
 
 

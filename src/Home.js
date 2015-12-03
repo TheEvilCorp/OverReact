@@ -11,17 +11,15 @@ var Home = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        Home
-          <Jumbotron>
-            <h3 className='text-center'>The React file generator</h3>
+      <div id='home-section'>
+            <h1 className='text-center'>The React file generator</h1>
             <p className='text-center'>Layout your React components and download your starter files with one click</p>
             <p className='text-center'>Additional Info</p>
             <p className='text-center'>Additional Info</p>
             <p className='text-center'>Additional Info</p>
-            <p className='text-center'><Button bsStyle="primary">Get Started</Button></p>
+            <p className='text-center'><Button bsStyle="primary" bsSize="large" id='getStarted-btn'>Get Started</Button></p>
             <Instructions />
-          </Jumbotron>
+
       </div>
     )
   }
