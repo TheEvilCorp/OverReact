@@ -18,14 +18,19 @@ module.exports = function (boxName, context, style, lastSibling, left) {
       greedy: true,
       accept: '.box',
       hoverClass: 'ui-state-hover',
-      activeClass: 'active',
+      tolerance: 'fit',
       drop: function( e, ui ) {
+        var droppedInto = $(this);
         //if dropping into same div, return out
-        if($(this).attr('id') === ui.draggable.parent()[0].id) return;
+        if(droppedInto.attr('id') === ui.draggable.parent()[0].id) return;
         //append the div that is being dragged into the div that will be its parent
-        ui.draggable.appendTo($(this));
+        ui.draggable.appendTo(droppedInto);
         //re-set all divs resizable to also resize their children
         alsoResizeChildren($('#container'));
+        $(ui.draggable).css({
+          top: ui.draggable.offset().top - droppedInto.offset().top,
+          left: ui.draggable.offset().left - droppedInto.offset().left,
+        });
         return;
       }
     });
@@ -46,7 +51,7 @@ module.exports = function (boxName, context, style, lastSibling, left) {
         $('#' + boxName).css({
           height: context.height() * 0.30,
           width: context.width() * 0.75,
-          top: $(context).position().top - 981 + 5
+          // top: $(context).position().top - 981 + 5
         });
       }
   }

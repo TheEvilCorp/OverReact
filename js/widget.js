@@ -16,6 +16,10 @@ module.exports = function(){
       if($(this).attr('id') === ui.draggable.parent()[0].id) return;
       ui.draggable.appendTo($(this));
       alsoResizeChildren($('#container'));
+      $(ui.draggable).css({
+        top: ui.draggable.offset().top - $(this).offset().top,
+        left: ui.draggable.offset().left - $(this).offset().left,
+      });
       return;
     }
   });
