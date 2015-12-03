@@ -36,6 +36,12 @@ module.exports = function(){
   //create input field on the main container
   createInput('container', createComponent);
 
+  function tester() {
+    for (var i = 0; i < 20; i++) {
+      createComponent($(this), undefined, i.toString());
+    }
+  }
+
   //add save and load stuffs
   $('#saveButton').on('click',function(e){
     savedTemplate = [];
@@ -43,7 +49,6 @@ module.exports = function(){
       allNames[i].style = $('#' + allNames[i].name).attr('style');
       savedTemplate.push(allNames[i]);
     }
-    console.log(allNames);
   });
 
 
@@ -51,14 +56,13 @@ module.exports = function(){
     $('.box').each(function(i){this.remove()});
     allNames = [];
     for (var i = 0; i < savedTemplate.length; i++) {
-      console.log('cloning...');
       createComponent(null, savedTemplate[i]);
     }
 
   });
 
   //node parameter is the form dom element
-  function createComponent(node, obj){
+  function createComponent(node, obj) {
     //get the value of the input field & the name of the parent component
     var componentName;
     var parentName;
