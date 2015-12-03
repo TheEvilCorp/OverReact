@@ -2,6 +2,7 @@ var createBox = require('./widgetHelpers/createBox');
 var createInput = require('./widgetHelpers/createInput');
 var postFunction = require('./widgetHelpers/postFunction');
 var createDeleteBtn = require('./widgetHelpers/createDeleteBtn');
+var alsoResizeChildren = require('./widgetHelpers/alsoResizeChildren');
 
 // $(function() {
 module.exports = function(){
@@ -11,10 +12,14 @@ module.exports = function(){
     accept: '.box',
     hoverClass: 'ui-state-hover',
     activeClass: 'active',
-    drop: function( event, ui ) {
-      console.log(ui.draggable);
-      // console.log(ui.draggable[0].attr('id'));
+    drop: function( e, ui ) {
+      if($(this).attr('id') === ui.draggable.parent()[0].id) return;
       ui.draggable.appendTo($(this));
+      alsoResizeChildren($('#container'));
+      $(ui.draggable).css({
+        top: ui.draggable.offset().top - $(this).offset().top,
+        left: ui.draggable.offset().left - $(this).offset().left,
+      });
       return;
     }
   });
@@ -25,7 +30,7 @@ module.exports = function(){
   //Create submit button and place click handler on the submit button.
   //Click handler will send post to create files.
   var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
-  submitBtn.prependTo('#application')
+  submitBtn.appendTo('.options-section')
   $('#submitButton').on('click', postFunction);
 
   //create input field on the main container

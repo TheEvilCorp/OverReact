@@ -1,3 +1,5 @@
+var alsoResizeChildren = require('./alsoResizeChildren');
+
 //creates a new box div and appends it to the parent node (context). Sets the box to be resizable and draggable. Applies default CSS for dynamic resizing of boxes inside child boxes.
 module.exports = function (boxName, context, style, lastSibling, left) {
   context = $('#' + context);
@@ -7,36 +9,34 @@ module.exports = function (boxName, context, style, lastSibling, left) {
   $('<div class="box"><div>').attr('id', boxName).text(boxName)
     .appendTo(context)
     .draggable({
-      containment: 'parent'
+      containment: '#container'
     })
     .resizable({
-      containment: 'parent'
+      containment: 'parent',
     })
     .droppable({
       greedy: true,
       accept: '.box',
       hoverClass: 'ui-state-hover',
-      activeClass: 'active',
-      drop: function( event, ui ) {
-        console.log(ui, 'hey');
-        // console.log($(this));
-
-        ui.draggable.appendTo($(this));
+      tolerance: 'fit',
+      drop: function( e, ui ) {
+        var droppedInto = $(this);
+        //if dropping into same div, return out
+        if(droppedInto.attr('id') === ui.draggable.parent()[0].id) return;
+        //append the div that is being dragged into the div that will be its parent
+        ui.draggable.appendTo(droppedInto);
+        //re-set all divs resizable to also resize their children
+        alsoResizeChildren($('#container'));
+        $(ui.draggable).css({
+          top: ui.draggable.offset().top - droppedInto.offset().top,
+          left: ui.draggable.offset().left - droppedInto.offset().left,
+        });
         return;
       }
     });
 
     //if the new box is not a direct child of the main container, set its parent resizable to resize all of the children for that parent
-    // if(context[0].id !== 'container') {
-    //   var resizeChildren = [];
-    //   context.find('.box').each(function(){
-    //     resizeChildren.push('#'+$(this).attr('id'));
-    //   });
-    //   resizeChildren = resizeChildren.join(',');
-    //   $('#' + context[0].id).resizable({
-    //     alsoResize: resizeChildren
-    //   });
-    // }
+
   //initial styling
 
   if (style) {
