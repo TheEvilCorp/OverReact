@@ -6,7 +6,9 @@ module.exports = function (boxName, context, style, lastSibling, left) {
   //create and append box
   $('<div class="box"><div>').attr('id', boxName).text(boxName)
     .appendTo(context)
-    .draggable()
+    .draggable({
+      containment: 'parent'
+    })
     .resizable({
       containment: 'parent'
     })
@@ -36,20 +38,44 @@ module.exports = function (boxName, context, style, lastSibling, left) {
     //   });
     // }
   //initial styling
+
   if (style) {
     $('#' + boxName).attr('style', style);
   } else {
+
       if (lastSibling) {
-        $('#' + boxName).css({
-          height: 30,
-          width: context.width() * 0.75,
-          top: $(context).position().top - 981 + 5
+        //find the lowest box element
+        var allHeights = [];
+
+        $('.box').each(function(node) {
+          var stats = [];
+          allHeights.push($('#container').height() - ($(this).height() + $(this).position().top));
         });
+
+        var distToBottom = Math.min(...allHeights);
+
+        var boxPos = {
+          height: 100,
+          width: context.width() * 0.75,
+          top: $('#' + lastSibling).position().top + 30
+        };
+
+        if (distToBottom < 100) {
+          boxPos.top = 30 ;
+          boxPos.left = 30;
+        }
+
+        if ($('#' + lastSibling).position().left === 30) {
+          boxPos.top = $('#' + lastSibling).position().top + 30;
+        }
+
+        $('#' + boxName).css(boxPos);
+
       } else {
         $('#' + boxName).css({
           height: context.height() * 0.30,
           width: context.width() * 0.75,
-          top: $(context).position().top - 981 + 5
+          top: 0
         });
       }
   }
