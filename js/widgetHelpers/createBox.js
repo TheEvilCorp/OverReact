@@ -38,20 +38,44 @@ module.exports = function (boxName, context, style, lastSibling, left) {
     //if the new box is not a direct child of the main container, set its parent resizable to resize all of the children for that parent
 
   //initial styling
+
   if (style) {
     $('#' + boxName).attr('style', style);
   } else {
+
       if (lastSibling) {
-        $('#' + boxName).css({
-          height: 30,
-          width: context.width() * 0.75,
-          top: $(context).position().top - 981 + 5
+        //find the lowest box element
+        var allHeights = [];
+
+        $('.box').each(function(node) {
+          var stats = [];
+          allHeights.push($('#container').height() - ($(this).height() + $(this).position().top));
         });
+
+        var distToBottom = Math.min(...allHeights);
+
+        var boxPos = {
+          height: 100,
+          width: context.width() * 0.75,
+          top: $('#' + lastSibling).position().top + 30
+        };
+
+        if (distToBottom < 100) {
+          boxPos.top = 30 ;
+          boxPos.left = 30;
+        }
+
+        if ($('#' + lastSibling).position().left === 30) {
+          boxPos.top = $('#' + lastSibling).position().top + 30;
+        }
+
+        $('#' + boxName).css(boxPos);
+
       } else {
         $('#' + boxName).css({
           height: context.height() * 0.30,
           width: context.width() * 0.75,
-          // top: $(context).position().top - 981 + 5
+          top: 0
         });
       }
   }
