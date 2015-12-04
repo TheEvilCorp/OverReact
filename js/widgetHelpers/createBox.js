@@ -1,7 +1,7 @@
 var alsoResizeChildren = require('./alsoResizeChildren');
 
 //creates a new box div and appends it to the parent node (context). Sets the box to be resizable and draggable. Applies default CSS for dynamic resizing of boxes inside child boxes.
-module.exports = function (boxName, context, style, lastSibling, left) {
+module.exports = function (boxName, context, style, lastSibling) {
   context = $('#' + context);
   var containerTop = $('#overReact-container').position().top;
 
@@ -61,13 +61,12 @@ module.exports = function (boxName, context, style, lastSibling, left) {
         };
 
         if (distToBottom < 100) {
-          boxPos.top = 30 ;
-          boxPos.left = 30;
+          boxPos.top = 30
         }
 
-        if ($('#' + lastSibling).position().left === 30) {
-          boxPos.top = $('#' + lastSibling).position().top + 30;
-        }
+        // if ($('#' + lastSibling).position().left === 30) {
+        //   boxPos.top = $('#' + lastSibling).position().top + 30;
+        // }
 
         $('#' + boxName).css(boxPos);
 
