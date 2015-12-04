@@ -18,6 +18,9 @@ medium turquoise: #008C9E
 turquoise: #00B4CC
 bright turquoise: #00DFFC*/
 
+.container-fluid {
+  padding: 0px;
+}
 
 #nav-section,
 #footer-section {
@@ -30,12 +33,6 @@ bright turquoise: #00DFFC*/
 #footer-section {
   width: 100%;
 }*/
-.container {
-  width: 100%;
-  padding: 0px;
-
-  
-}
 
 
 /*Navbar Section*/
