@@ -47,7 +47,7 @@ module.exports = function(){
   });
 
   $('#loadButton').on('click',function(e){
-    $('.box').each(function(i){ this.remove() });
+    $('.box').remove();
     savedTemplate.objects.forEach(function(item){
       createComponent(item, true);
     });
