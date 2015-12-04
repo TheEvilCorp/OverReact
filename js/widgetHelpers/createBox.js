@@ -1,10 +1,7 @@
 var alsoResizeChildren = require('./alsoResizeChildren');
 
 //creates a new box div and appends it to the parent node (context). Sets the box to be resizable and draggable. Applies default CSS for dynamic resizing of boxes inside child boxes.
-module.exports = function (boxName, context, style, lastSibling, left) {
-  console.log('style: ' + style)
-  console.log('lastSibling: ' + lastSibling)
-  console.log('left: ' + left)
+module.exports = function (boxName, context, style, lastSibling) {
   context = $('#' + context);
   var containerTop = $('#container').position().top;
 
@@ -49,7 +46,7 @@ module.exports = function (boxName, context, style, lastSibling, left) {
       if (lastSibling) {
         //find the lowest box element
         var allHeights = [];
-        
+
         $('.box').each(function(node) {
           var stats = [];
           var currDist = $('#container').height() - ($(this).height() + $(this).position().top);
