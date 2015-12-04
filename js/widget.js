@@ -3,6 +3,8 @@ var createInput = require('./widgetHelpers/createInput');
 var postFunction = require('./widgetHelpers/postFunction');
 var createDeleteBtn = require('./widgetHelpers/createDeleteBtn');
 var alsoResizeChildren = require('./widgetHelpers/alsoResizeChildren');
+var dropOptions = require('./widgetHelpers/dropOptions');
+var generateNames = require('./widgetHelpers/generateNamesArr');
 
 // $(function() {
 module.exports = function(){
@@ -45,10 +47,12 @@ module.exports = function(){
   //add save and load stuffs
   $('#saveButton').on('click',function(e){
     savedTemplate = [];
-    for (var i = 0; i < allNames.length; i++) {
-      allNames[i].style = $('#' + allNames[i].name).attr('style');
-      savedTemplate.push(allNames[i]);
-    }
+    console.log(generateNames());
+
+    // for (var i = 0; i < allNames.length; i++) {
+    //   allNames[i].style = $('#' + allNames[i].name).attr('style');
+    //   savedTemplate.push(allNames[i]);
+    // }
   });
 
   $('#loadButton').on('click',function(e){
