@@ -10,7 +10,7 @@ var Application = React.createClass({
   },
   render: function () {
     return (
-      <div id='application'>
+      <div id='application-section'>
           <Gui />
           <Options />
       </div>
