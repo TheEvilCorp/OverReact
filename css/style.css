@@ -18,10 +18,20 @@ medium turquoise: #008C9E
 turquoise: #00B4CC
 bright turquoise: #00DFFC*/
 
+.container-fluid {
+  padding: 0px;
+}
 
 #nav-section,
 #footer-section {
   background-color: #61dafb;
+}
+
+#home-section h1,
+#home-section p, 
+#whatNext-section {
+  text-align: center;
+  color: #4F4F4F;
 }
 
 /*#home-section, 
@@ -30,12 +40,6 @@ bright turquoise: #00DFFC*/
 #footer-section {
   width: 100%;
 }*/
-.container {
-  width: 100%;
-  padding: 0px;
-
-  
-}
 
 
 /*Navbar Section*/
@@ -56,15 +60,11 @@ bright turquoise: #00DFFC*/
 
 /*Home Section*/
 
-#home-section h1,
-#home-section p {
-  text-align: center;
-  color: #4F4F4F;
-}
+
 
 #home-section {
   margin-top: -35px;
-  height: 100%;
+  height: 120%;
   background-color: #E0E0E0;
 
  
@@ -91,12 +91,17 @@ bright turquoise: #00DFFC*/
   padding-left: 30px;
   padding-right: 30px; 
 }
-.instructions {
-/*  width: 25%;
-	height: 25%;
-	border: 1px solid black;
-	border-radius: 10px;*/
+#instruction-section h3 {
+  text-align: center;
 }
+.thumbnail {
+	height: 360px;
+}
+.thumbnail p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 
 /*Application Section*/
 #application-section {
@@ -106,7 +111,7 @@ bright turquoise: #00DFFC*/
 
 #overReact-container, 
 #options-section {
-  border: 5px solid #61dafb;
+
   border-radius: 5px;
   flex: none;
 }
@@ -118,6 +123,7 @@ bright turquoise: #00DFFC*/
 	width: 750px;
 	height: 500px;
 	position: relative;
+  border: 5px solid #61dafb;
 }
 
 form {
@@ -146,14 +152,17 @@ form {
 
 
 #options-section {
-  /*flex: none;*/
-  /*display: inline-block;*/
   width: 300px;
   height: 500px;
   margin-left: 50px;
   margin-top: 80px;
+  background-color: #C4C4C4;
+  border: 5px solid #C4C4C4;
 }
-
+.form-group { 
+  background-color: white; 
+  padding: 5px;
+}
 
 #submitButton {
 	background-color: red;
@@ -164,10 +173,20 @@ form {
 
 /*What Next Section*/
 #whatNext-section {
-  background-color: #F2F2F2;
+  padding: 35px;
+  background-color: #BABABA;
   height: 80%;
+  text-align: center;
 }
-
+#whatNext-section p {
+  font-size: 1.5em;
+}
+.well {
+  width: 600px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+}
 
 /*Footer Section*/
 #footer-section {

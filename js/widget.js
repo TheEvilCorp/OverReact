@@ -33,7 +33,7 @@ module.exports = function(){
   //Create submit button and place click handler on the submit button.
   //Click handler will send post to create files.
   var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
-  submitBtn.appendTo('.options-section')
+  submitBtn.appendTo('.options-section');
   $('#submitButton').on('click', function() {
     postFunction();
   });
@@ -47,7 +47,7 @@ module.exports = function(){
   });
 
   $('#loadButton').on('click',function(e){
-    $('.box').each(function(i){this.remove()});
+    $('.box').each(function(i){ this.remove() });
     savedTemplate.objects.forEach(function(item){
       createComponent(item, true);
     });
@@ -62,7 +62,6 @@ module.exports = function(){
       node.find('input').val('');
       alert('React does not allow duplicate component names');
     } else {
-
         //clear out the input field
         if (!fromLoadButton) node.find('input').val('');
 
