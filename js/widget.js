@@ -49,57 +49,51 @@ module.exports = function(){
       allNames[i].style = $('#' + allNames[i].name).attr('style');
       savedTemplate.push(allNames[i]);
     }
-    console.log(allNames);
   });
-
 
   $('#loadButton').on('click',function(e){
     $('.box').each(function(i){this.remove()});
     allNames = [];
     for (var i = 0; i < savedTemplate.length; i++) {
-      console.log('cloning...');
-      createComponent(null, savedTemplate[i]);
+      createComponent(null, savedTemplate[i], true);
     }
-
   });
 
   //node parameter is the form dom element
-  function createComponent(node, obj){
+  function createComponent(node, obj, fromLoadButton) {
     //get the value of the input field & the name of the parent component
-    var componentName;
-    var parentName;
-    var boxOffset;
+    var componentName, parentName, boxOffset;
 
-    if (obj) {
+    if (fromLoadButton) {
       componentName = obj.name;
       parentName = obj.context;
+      obj.offset = undefined;
     } else {
-      componentName = node.find('input').val().toLowerCase();
+      componentName = node.find('input').val();
       parentName = node.parent().attr('id');
+      obj = {style: undefined};
     }
 
     if(allNames.map(function(e) {return e.name}).indexOf(componentName) !== -1) {
+      node.find('input').val('');
       alert('duplicate name');
     } else {
-      //push the component name to an array in order to keep track of names & prevent dupes
-      boxOffset = allNames.map(function(e) {return e.context}).lastIndexOf(parentName);
-      if (boxOffset === -1) {
-        boxOffset = 0;
+
+        boxOffset = allNames.map(function(e) {return e.context}).lastIndexOf(parentName);
+        if (boxOffset === -1) boxOffset = 0;
+
+        //push the component name to an array in order to keep track of names & prevent dupes
+        allNames.push({name: componentName, context: parentName, style: null});
+        obj.offset = allNames[boxOffset].name;
+
+        //clear out the input field
+        if (!fromLoadButton) node.find('input').val('');
+
+        //create a new box
+        createBox(componentName, parentName, obj.style, obj.offset);
+
+        //create Delete Button
+        createDeleteBtn(componentName, allNames);
       }
-      allNames.push({name: componentName, context: parentName, style: null});
-
-      //clear out the input field
-      if (!obj) node.find('input').val('');
-
-      //create a new box
-      if (obj) {
-        createBox(componentName, parentName, obj.style);
-      } else {
-          createBox(componentName, parentName, undefined, allNames[boxOffset].name);
-      }
-
-      //create Delete Button
-      createDeleteBtn(componentName, allNames);
-    }
   }
 };//closes module.exports function

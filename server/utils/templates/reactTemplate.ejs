@@ -1,12 +1,8 @@
 var React = require('react');
-var $ = require('jquery');
 <% if (component.parent) { %>var ReactDOM = require('react-dom');<% } %><% if (component.children) for (var i = 0; i < component.children.length; i++) { %>
 var <%- component.children[i].name %> = require('./<%- component.children[i].name %>');<% } %>
 
 var <%- component.name %> = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
   render: function () {
     return (
       <div id='<%-component.name%>'>
