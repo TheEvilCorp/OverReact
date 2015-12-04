@@ -20,4 +20,4 @@ var <%- component.name %> = React.createClass({
 
 module.exports = <%- component.name %>;
 
-<% if (component.parent) { %>ReactDOM.render(<<%- component.name %> />, document.getElementById('container'));<% } %>
+<% if (component.parent) { %>ReactDOM.render(<<%- component.name %> />, document.getElementById('main-container'));<% } %>

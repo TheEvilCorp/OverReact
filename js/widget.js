@@ -6,8 +6,8 @@ var alsoResizeChildren = require('./widgetHelpers/alsoResizeChildren');
 
 // $(function() {
 module.exports = function(){
-  //make container droppable
-  $('#container').droppable({
+  //make overReact-container droppable
+  $('#overReact-container').droppable({
     // greedy: true,
     accept: '.box',
     hoverClass: 'ui-state-hover',
@@ -23,7 +23,7 @@ module.exports = function(){
       //append the div that is being dragged into the div that will be its parent
       ui.draggable.appendTo(droppedInto);
       //re-set all divs resizable to also resize their children
-      alsoResizeChildren($('#container'));
+      alsoResizeChildren($('#overReact-container'));
     }
   });
   //component name array to keep track of names and prevent duplication
@@ -39,8 +39,8 @@ module.exports = function(){
     console.log(allNames);
   });
 
-  //create input field on the main container
-  createInput('container', createComponent);
+  //create input field on the main overReact-container
+  createInput('overReact-container', createComponent);
 
   //add save and load stuffs
   $('#saveButton').on('click',function(e){

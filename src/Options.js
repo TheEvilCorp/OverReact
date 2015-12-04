@@ -8,7 +8,7 @@ var Options = React.createClass({
   },
   render: function () {
     return (
-      <div className='options-section'>
+      <div id='options-section'>
         Options
         <button id="saveButton">Save Template</button>
         <button id="loadButton">Load Template</button>

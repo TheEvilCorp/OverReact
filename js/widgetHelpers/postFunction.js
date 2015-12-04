@@ -5,11 +5,11 @@ module.exports = function() {
   var dataObj = {
     name: 'app',
     children:[],
-    position: $('#container').position(),
-    height: $('#container').height(),
-    width: $('#container').width()
+    position: $('#overReact-container').position(),
+    height: $('#overReact-container').height(),
+    width: $('#overReact-container').width()
   };
-  createDataObj(dataObj, '#container');
+  createDataObj(dataObj, '#overReact-container');
   //post request to create React files and download the zip
   $.ajax({
     method: 'POST',

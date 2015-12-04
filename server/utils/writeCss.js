@@ -6,7 +6,7 @@ function writeCss(obj, projectName, file) {
   var cssStream = fs.createWriteStream(`./${projectName}/css/style.css`);
   //execute this when all writes are down
   cssStream.on('finish', function() {
-    console.log('write finish');
+    // console.log('write finish');
     return;
   })
   createCssFiles(obj, file, cssStream);
