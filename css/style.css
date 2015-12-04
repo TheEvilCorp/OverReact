@@ -156,8 +156,12 @@ form {
   height: 500px;
   margin-left: 50px;
   margin-top: 80px;
-  background-color: #C4C4C4;
-  border: 5px solid #C4C4C4;
+  background-color: #E0E0E0;
+  border: 5px solid #E0E0E0;
+}
+#options-section h3 {
+  text-align: center;
+  color: white;
 }
 .form-group { 
   background-color: white; 
