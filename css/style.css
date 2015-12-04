@@ -17,9 +17,7 @@ grey 88: #E0E0E0*/
 medium turquoise: #008C9E
 turquoise: #00B4CC
 bright turquoise: #00DFFC*/
-*{
-  border: 1px solid black;
-}
+
 
 .container-fluid {
   padding: 0px;
@@ -159,13 +157,12 @@ form {
   height: 500px;
   margin-left: 50px;
   margin-top: 80px;
-  background-color: #C4C4C4;
   border: 5px solid #C4C4C4;
 }
-.form-group { 
-  background-color: white; 
-  padding: 5px;
+#options-section .input {
+  width: 50px;
 }
+
 
 #submitButton {
 	background-color: red;
