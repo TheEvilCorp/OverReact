@@ -1,5 +1,6 @@
 var React = require('react');
 var $ = require('jquery');
+var Input = require('react-bootstrap').Input
 
 
 var Options = React.createClass({
@@ -9,9 +10,16 @@ var Options = React.createClass({
   render: function () {
     return (
       <div id='options-section'>
-        Options
-        <button id="saveButton">Save Template</button>
-        <button id="loadButton">Load Template</button>
+        <div className='container'>   
+          Options
+ 
+
+
+
+          <button id='saveButton'>Save Template</button>
+          <button id='loadButton'>Load Template</button>
+        </div>
+     
       </div>
     )
   }
