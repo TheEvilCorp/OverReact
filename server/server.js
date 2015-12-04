@@ -24,15 +24,14 @@ app.get('/', function(req,res) {
 
 //post route for when the user is done setting up their component layout, kicks off middleware chain to create directory, write files to created directory, then zip file.
 app.post('/submit', capitalize, mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
-  projectName = req.body.projectName;
   res.send('ok');
 });
 
 //on submit route response being sent successfully, the client will set location to /download to initiate the download of the zip
 app.get('/download/*', function(req, res) {
-  res.download(__dirname + "/../archive_name.zip");
+  res.download(__dirname + `/../${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
   // console.log(req.url);
-  exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf archive_name.zip`);
+  exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
 });
 
 app.listen(8000);

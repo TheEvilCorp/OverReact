@@ -5,7 +5,7 @@ var <%- component.children[i].name %> = require('./<%- component.children[i].nam
 var <%- component.name %> = React.createClass({
   render: function () {
     return (
-      <div>
+      <div id='<%-component.name%>'>
         <%- component.name %>
         <% if (component.children) for (i = 0; i < component.children.length; i++) { %>
           <<%- component.children[i].name %> /><% } %>
@@ -16,4 +16,4 @@ var <%- component.name %> = React.createClass({
 
 module.exports = <%- component.name %>;
 
-<% if (component.parent) { %>ReactDOM.render(<<%- component.name %> />, document.getElementById('container'));<% } %>
+<% if (component.parent) { %>ReactDOM.render(<<%- component.name %> />, document.getElementById('main-container'));<% } %>

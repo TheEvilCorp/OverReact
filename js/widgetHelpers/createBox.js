@@ -6,7 +6,8 @@ module.exports = function (boxName, context, style, lastSibling) {
   var containerTop = $('#overReact-container').position().top;
 
   //create and append box
-  $('<div class="box"><div>').attr('id', boxName).text(boxName)
+  $('<div class="box"><div>').attr('id', boxName)
+    .append(`<span>${boxName}</span>`)
     .appendTo(context)
     .draggable({
       containment: '#overReact-container'
@@ -15,7 +16,7 @@ module.exports = function (boxName, context, style, lastSibling) {
       containment: 'parent',
     })
     .droppable({
-      greedy: true,
+      // greedy: true,
       accept: '.box',
       hoverClass: 'ui-state-hover',
       tolerance: 'fit',
@@ -23,14 +24,15 @@ module.exports = function (boxName, context, style, lastSibling) {
         var droppedInto = $(this);
         //if dropping into same div, return out
         if(droppedInto.attr('id') === ui.draggable.parent()[0].id) return;
-        //append the div that is being dragged into the div that will be its parent
-        ui.draggable.appendTo(droppedInto);
-        //re-set all divs resizable to also resize their children
-        alsoResizeChildren($('#overReact-container'));
+        //adjust the css on drop
         $(ui.draggable).css({
           top: ui.draggable.offset().top - droppedInto.offset().top,
           left: ui.draggable.offset().left - droppedInto.offset().left,
         });
+        //append the div that is being dragged into the div that will be its parent
+        ui.draggable.appendTo(droppedInto);
+        //re-set all divs resizable to also resize their children
+        alsoResizeChildren($('#overReact-container'));
         return;
       }
     });
@@ -78,4 +80,19 @@ module.exports = function (boxName, context, style, lastSibling) {
         });
       }
   }
+  $('#' + boxName).find('span').on('dblclick', function(e) {
+    console.log($(this));
+    e.preventDefault();
+    $(this).prepend('<form><input class="rename" placeholder="new name..."></input></form>')
+    .css({
+      top: 0,
+      left: 0,
+      position: 'absolute',
+      margin: '5px'
+    })
+    .on('submit', function(e) {
+      e.preventDefault();
+      $(e.target).parent().text($(e.target).find('input').val());
+    });
+  });
 };

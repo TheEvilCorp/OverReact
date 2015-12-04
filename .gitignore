@@ -1,5 +1,5 @@
 node_modules
 bower_components
 build
+bundle.js
 npm_debug.log
-
