@@ -6,7 +6,8 @@ module.exports = function (boxName, context, style, lastSibling, left) {
   var containerTop = $('#overReact-container').position().top;
 
   //create and append box
-  $('<div class="box"><div>').attr('id', boxName).text(boxName)
+  $('<div class="box"><div>').attr('id', boxName)
+    .append(`<span>${boxName}</span>`)
     .appendTo(context)
     .draggable({
       containment: '#overReact-container'
@@ -80,4 +81,19 @@ module.exports = function (boxName, context, style, lastSibling, left) {
         });
       }
   }
+  $('#' + boxName).find('span').on('dblclick', function(e) {
+    console.log($(this));
+    e.preventDefault();
+    $(this).prepend('<form><input class="rename" placeholder="new name..."></input></form>')
+    .css({
+      top: 0,
+      left: 0,
+      position: 'absolute',
+      margin: '5px'
+    })
+    .on('submit', function(e) {
+      e.preventDefault();
+      $(e.target).parent().text($(e.target).find('input').val());
+    });
+  });
 };
