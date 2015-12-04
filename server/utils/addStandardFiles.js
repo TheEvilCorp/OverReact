@@ -1,6 +1,7 @@
-var Promise = require('bluebird')
+var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
 var ejs = require('ejs');
+var writeCss = require('./writeCss');
 
 
 module.exports = function(req, res, next){
@@ -9,7 +10,6 @@ module.exports = function(req, res, next){
 	//create an index.html
 	var file = ejs.render(fs.readFileSync(__dirname + '/templates/indexTemplate.ejs', 'utf-8'), {projectName: req.body.projectName});
 	promises.push(fs.writeFileAsync(`./${req.body.projectName}/index.html`, file));
-
 	//create package.json
 	file = ejs.render(fs.readFileSync(__dirname + '/templates/packageJSONTemplate.ejs', 'utf-8'), {
 		projectName: req.body.projectName,
@@ -27,6 +27,8 @@ module.exports = function(req, res, next){
 	//create server file
 	file = ejs.render(fs.readFileSync(__dirname +  `/templates/${req.body.server === 'hapi' ? 'hapi' : 'express'}ServerTemplate.ejs`, 'utf-8'));
 	promises.push(fs.writeFileAsync(`./${req.body.projectName}/server/server.js`, file));
-
+	//create css
+	file = ejs.render(fs.readFileSync(__dirname + '/templates/styleTemplate.ejs', 'utf-8'), {component: req.body.main});
+	writeCss(req.body.main, req.body.projectName, file);
 	Promise.all(promises).then(next());
 }

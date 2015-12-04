@@ -1,0 +1,13 @@
+<%if(component.name === 'App') {%>
+body div div{
+  border: 1px solid black;
+}
+<%}%>
+#<%-component.name%> {
+  position: <%if(component.name === 'App') {%>relative;<%} else {%>absolute;<%}%>
+  width: <%-component.width%>;
+  height: <%-component.height%>;
+  <% if(component.name !== 'App') {%>top: <%-component.position.top%>;
+  left: <%-component.position.left%>;
+  <%}%>
+}
