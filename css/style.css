@@ -157,12 +157,13 @@ form {
   height: 500px;
   margin-left: 50px;
   margin-top: 80px;
+  background-color: #C4C4C4;
   border: 5px solid #C4C4C4;
 }
-#options-section .input {
-  width: 50px;
+.form-group { 
+  background-color: white; 
+  padding: 5px;
 }
-
 
 #submitButton {
 	background-color: red;
