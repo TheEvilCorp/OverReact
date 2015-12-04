@@ -2,7 +2,13 @@ var createDataObj = require('./createDataObj');
 var projectName = 'OverReact';
 module.exports = function() {
   //interprets the DOM into an object
-  var dataObj = {name: 'app', children:[]};
+  var dataObj = {
+    name: 'app',
+    children:[],
+    position: $('#container').position(),
+    height: $('#container').height(),
+    width: $('#container').width()
+  };
   createDataObj(dataObj, '#container');
   //post request to create React files and download the zip
   $.ajax({

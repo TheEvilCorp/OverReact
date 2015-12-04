@@ -15,7 +15,7 @@ module.exports = function (boxName, context, style, lastSibling, left) {
       containment: 'parent',
     })
     .droppable({
-      greedy: true,
+      // greedy: true,
       accept: '.box',
       hoverClass: 'ui-state-hover',
       tolerance: 'fit',
@@ -23,14 +23,14 @@ module.exports = function (boxName, context, style, lastSibling, left) {
         var droppedInto = $(this);
         //if dropping into same div, return out
         if(droppedInto.attr('id') === ui.draggable.parent()[0].id) return;
-        //append the div that is being dragged into the div that will be its parent
-        ui.draggable.appendTo(droppedInto);
-        //re-set all divs resizable to also resize their children
-        alsoResizeChildren($('#container'));
         $(ui.draggable).css({
           top: ui.draggable.offset().top - droppedInto.offset().top,
           left: ui.draggable.offset().left - droppedInto.offset().left,
         });
+        //append the div that is being dragged into the div that will be its parent
+        ui.draggable.appendTo(droppedInto);
+        //re-set all divs resizable to also resize their children
+        alsoResizeChildren($('#container'));
         return;
       }
     });

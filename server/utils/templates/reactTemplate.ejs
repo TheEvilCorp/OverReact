@@ -9,7 +9,7 @@ var <%- component.name %> = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div id='<%-component.name%>'>
         <%- component.name %>
         <% if (component.children) for (i = 0; i < component.children.length; i++) { %>
           <<%- component.children[i].name %> /><% } %>

@@ -8,19 +8,22 @@ var alsoResizeChildren = require('./widgetHelpers/alsoResizeChildren');
 module.exports = function(){
   //make container droppable
   $('#container').droppable({
-    greedy: true,
+    // greedy: true,
     accept: '.box',
     hoverClass: 'ui-state-hover',
     activeClass: 'active',
     drop: function( e, ui ) {
+      //escape out if dropping into same div
       if($(this).attr('id') === ui.draggable.parent()[0].id) return;
-      ui.draggable.appendTo($(this));
-      alsoResizeChildren($('#container'));
+      var droppedInto = $(this);
       $(ui.draggable).css({
-        top: ui.draggable.offset().top - $(this).offset().top,
-        left: ui.draggable.offset().left - $(this).offset().left,
+        top: ui.draggable.offset().top - droppedInto.offset().top,
+        left: ui.draggable.offset().left - droppedInto.offset().left,
       });
-      return;
+      //append the div that is being dragged into the div that will be its parent
+      ui.draggable.appendTo(droppedInto);
+      //re-set all divs resizable to also resize their children
+      alsoResizeChildren($('#container'));
     }
   });
   //component name array to keep track of names and prevent duplication
@@ -31,7 +34,10 @@ module.exports = function(){
   //Click handler will send post to create files.
   var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
   submitBtn.appendTo('.options-section')
-  $('#submitButton').on('click', postFunction);
+  $('#submitButton').on('click', function() {
+    postFunction();
+    console.log(allNames);
+  });
 
   //create input field on the main container
   createInput('container', createComponent);
