@@ -14,7 +14,7 @@ var Gui = React.createClass({
 
   render: function () {
     return (
-      <div id='container'>
+      <div id='overReact-container'>
         
         
       </div>
