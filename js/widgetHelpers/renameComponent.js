@@ -1,5 +1,15 @@
 var createInput = require('./createInput');
 
+//renames the component and removes input field
+function renameComponent(node) {
+  var oldNameNode = $(node).parent().find('span');
+  var newName = $(node).find('input').val();
+  oldNameNode.text(newName);
+  $(node).parent().attr('id', newName);
+  $(node).remove();
+}
+
+//creates an input for the box being renamed and sets focus to that input
 module.exports = function(node) {
   createInput(node, renameComponent);
   $('#' + node).find('form').css({
@@ -8,11 +18,4 @@ module.exports = function(node) {
     position: 'absolute',
   });
   $('#' + node).find('input').focus();
-}
-
-function renameComponent(node) {
-  var oldNameNode = $(node).parent().find('span');
-  var newName = $(node).find('input').val();
-  oldNameNode.text(newName);
-  $(node).remove();
-}
+};
