@@ -30,5 +30,7 @@ module.exports = function(req, res, next){
 	//create css
 	file = ejs.render(fs.readFileSync(__dirname + '/templates/styleTemplate.ejs', 'utf-8'), {component: req.body.main});
 	writeCss(req.body.main, req.body.projectName, file);
+
+	//execute next after all promises finsish
 	Promise.all(promises).then(next());
 }
