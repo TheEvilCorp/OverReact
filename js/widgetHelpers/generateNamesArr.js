@@ -8,12 +8,20 @@ module.exports = function () {
       parent: $(this).parent().attr('id'),
       position: $(this).position(),
       height: $(this).height(),
-      width: $(this).width()
+      width: $(this).width(),
+      distToBottom: $('#overReact-container').height() - ($(this).height() + $(this).position().top),
+      style: `height: ${$(this).height()}px;
+      width: ${$(this).width()}px;
+      top: ${$(this).position().top}px;
+      left: ${$(this).position().left}px;`
     });
   });
 
   return {
-    namesArray: output.map(function(e) { return e.name }),
-    objects: output
+    names: output.map(function(e) { return e.name }),
+    objects: output,
+    lowestElem: output.sort(function(a,b){
+      return a.distToBottom - b.distToBottom;
+    })[0]
   };
 }

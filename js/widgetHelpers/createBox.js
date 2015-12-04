@@ -1,9 +1,9 @@
 var alsoResizeChildren = require('./alsoResizeChildren');
+var generateNames = require('./generateNamesArr');
 
 //creates a new box div and appends it to the parent node (context). Sets the box to be resizable and draggable. Applies default CSS for dynamic resizing of boxes inside child boxes.
-module.exports = function (boxName, context, style, lastSibling) {
-  context = $('#' + context);
-  var containerTop = $('#overReact-container').position().top;
+module.exports = function (boxName, node, fromLoadButton) {
+  var context = fromLoadButton ? $('#' + node.parent) : $('#overReact-container');
 
   //create and append box
   $('<div class="box"><div>').attr('id', boxName)
@@ -41,47 +41,32 @@ module.exports = function (boxName, context, style, lastSibling) {
 
   //initial styling
 
-  if (style) {
-    $('#' + boxName).attr('style', style);
+  if (fromLoadButton) {
+    $('#' + boxName).attr('style', node.style);
   } else {
-
-      if (lastSibling) {
-        //find the lowest box element
-        var allHeights = [];
-
-        $('.box').each(function(node) {
-          var stats = [];
-          allHeights.push($('#overReact-container').height() - ($(this).height() + $(this).position().top));
-        });
-
-        var distToBottom = Math.min(...allHeights);
+      if (generateNames().names.length !== 0) {
 
         var boxPos = {
-          height: 100,
-          width: context.width() * 0.75,
-          top: $('#' + lastSibling).position().top + 30
+          height: 75,
+          width: 300,
+          top: generateNames().lowestElem.position.top + 30
         };
 
-        if (distToBottom < 100) {
+        if (generateNames().lowestElem.distToBottom < 100) {
           boxPos.top = 30
         }
-
-        // if ($('#' + lastSibling).position().left === 30) {
-        //   boxPos.top = $('#' + lastSibling).position().top + 30;
-        // }
 
         $('#' + boxName).css(boxPos);
 
       } else {
         $('#' + boxName).css({
-          height: context.height() * 0.30,
-          width: context.width() * 0.75,
-          top: 0
+          height: 75,
+          width: 300,
+          top: 30
         });
       }
   }
   $('#' + boxName).find('span').on('dblclick', function(e) {
-    console.log($(this));
     e.preventDefault();
     $(this).prepend('<form><input class="rename" placeholder="new name..."></input></form>')
     .css({
