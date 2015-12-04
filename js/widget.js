@@ -45,7 +45,17 @@ module.exports = function(){
 
   //add save and load stuffs
   $('#saveButton').on('click',function(e){
+<<<<<<< HEAD
     savedTemplate = generateNames();
+=======
+    savedTemplate = [];
+    console.log(generateNames());
+
+    // for (var i = 0; i < allNames.length; i++) {
+    //   allNames[i].style = $('#' + allNames[i].name).attr('style');
+    //   savedTemplate.push(allNames[i]);
+    // }
+>>>>>>> mergebranch
   });
 
   $('#loadButton').on('click',function(e){
