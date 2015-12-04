@@ -17,6 +17,9 @@ grey 88: #E0E0E0*/
 medium turquoise: #008C9E
 turquoise: #00B4CC
 bright turquoise: #00DFFC*/
+*{
+  border: 1px solid black;
+}
 
 .container-fluid {
   padding: 0px;
@@ -28,13 +31,13 @@ bright turquoise: #00DFFC*/
 }
 
 #home-section h1,
-#home-section p, 
+#home-section p,
 #whatNext-section {
   text-align: center;
   color: #4F4F4F;
 }
 
-/*#home-section, 
+/*#home-section,
 #application-section,
 #whatNext-section,
 #footer-section {
@@ -67,7 +70,7 @@ bright turquoise: #00DFFC*/
   height: 120%;
   background-color: #E0E0E0;
 
- 
+
 }
 #home-section > h1 {
   font-size: 3em;
@@ -89,7 +92,7 @@ bright turquoise: #00DFFC*/
 
 #instruction-section {
   padding-left: 30px;
-  padding-right: 30px; 
+  padding-right: 30px;
 }
 #instruction-section h3 {
   text-align: center;
@@ -109,7 +112,7 @@ bright turquoise: #00DFFC*/
   height: 100%;
 }
 
-#overReact-container, 
+#overReact-container,
 #options-section {
 
   border-radius: 5px;
@@ -185,13 +188,10 @@ form {
   margin: auto;
   margin-top: 20px;
   border-radius: 10px;
+  text-align: justify;
 }
 
 /*Footer Section*/
 #footer-section {
   height: 10%;
 }
-
-
-
-
