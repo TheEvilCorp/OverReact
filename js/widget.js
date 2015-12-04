@@ -28,7 +28,6 @@ module.exports = function(){
     }
   });
   //component name array to keep track of names and prevent duplication
-  var allNames = [];
   var savedTemplate = [];
 
   //Create submit button and place click handler on the submit button.
@@ -37,7 +36,6 @@ module.exports = function(){
   submitBtn.appendTo('.options-section')
   $('#submitButton').on('click', function() {
     postFunction();
-    console.log(allNames);
   });
 
   //create input field on the main overReact-container
@@ -45,17 +43,7 @@ module.exports = function(){
 
   //add save and load stuffs
   $('#saveButton').on('click',function(e){
-<<<<<<< HEAD
     savedTemplate = generateNames();
-=======
-    savedTemplate = [];
-    console.log(generateNames());
-
-    // for (var i = 0; i < allNames.length; i++) {
-    //   allNames[i].style = $('#' + allNames[i].name).attr('style');
-    //   savedTemplate.push(allNames[i]);
-    // }
->>>>>>> mergebranch
   });
 
   $('#loadButton').on('click',function(e){
