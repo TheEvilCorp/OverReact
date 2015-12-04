@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var http = require('http');
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
 var exec = require('child_process').exec;

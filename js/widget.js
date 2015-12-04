@@ -33,7 +33,7 @@ module.exports = function(){
   //Create submit button and place click handler on the submit button.
   //Click handler will send post to create files.
   var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
-  submitBtn.appendTo('.options-section')
+  submitBtn.appendTo('.options-section');
   $('#submitButton').on('click', function() {
     postFunction();
     console.log(allNames);
@@ -52,7 +52,7 @@ module.exports = function(){
   });
 
   $('#loadButton').on('click',function(e){
-    $('.box').each(function(i){this.remove()});
+    $('.box').each(function(i){this.remove();});
     allNames = [];
     for (var i = 0; i < savedTemplate.length; i++) {
       createComponent(null, savedTemplate[i], true);
@@ -74,12 +74,12 @@ module.exports = function(){
       obj = {style: undefined};
     }
 
-    if(allNames.map(function(e) {return e.name}).indexOf(componentName) !== -1) {
+    if(allNames.map(function(e) {return e.name;}).indexOf(componentName) !== -1) {
       node.find('input').val('');
       alert('duplicate name');
     } else {
 
-        boxOffset = allNames.map(function(e) {return e.context}).lastIndexOf(parentName);
+        boxOffset = allNames.map(function(e) {return e.context;}).lastIndexOf(parentName);
         if (boxOffset === -1) boxOffset = 0;
 
         //push the component name to an array in order to keep track of names & prevent dupes
