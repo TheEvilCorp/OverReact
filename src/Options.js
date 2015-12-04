@@ -10,11 +10,10 @@ var Options = React.createClass({
   render: function () {
     return (
       <div id='options-section'>
-        <div className='container'>   
-          Options
- 
-
-
+        <h4>Options</h4>
+        <div className='form-group'>   
+          
+          <Input type='text' label='Project Name'></Input>
 
           <button id='saveButton'>Save Template</button>
           <button id='loadButton'>Load Template</button>
