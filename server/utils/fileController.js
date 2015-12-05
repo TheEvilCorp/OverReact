@@ -13,7 +13,7 @@ function fileController (req, res, next) {
   var file = ejs.render(fs.readFileSync(__dirname + '/templates/reactTemplate.ejs', 'utf-8'), {component: component});
 
   //Run createFiles function that creates a React file for each component and their subsequent child components
-  createFiles(component, req.body.projectName, file);
+  createFiles(component, req.body, file);
   next();
 }
 
