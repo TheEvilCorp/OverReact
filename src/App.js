@@ -14,7 +14,7 @@ var App = React.createClass({
   },
   render: function () {
     return (
-      <div>     
+      <div>
           <Navbar fixedTop={true} id='nav-section'>
             <Navbar.Brand className='text-center'>
               <a href="#" id='nav-title'>OverReact</a>
