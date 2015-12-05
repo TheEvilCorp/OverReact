@@ -1,12 +1,10 @@
-  
+  //Retrieves form data
   function readFormData(){
-    console.log('reading form data')
     var formData = {};
   
     //Retrieve projectName from user input 
     formData.projectName = $('#projectName').val();
     if(formData.projectName === "") formData.projectName = 'myReactProject';
-    console.log("PROJECT NAME VAL: ", $('#projectName').val() )
     
     //Read checkboxes & radio button selections
     var basic, express, gulp
@@ -25,10 +23,12 @@
       if(gulp) formData.task = 'gulp';
       else formData.task = 'grunt';
     }
-    console.log(formData.projectName + ' ' + formData.server + ' ' + formData.task) 
+    console.log(formData.projectName + ' ' + formData.server + ' ' + formData.task)  
+    
     return formData;
-
   }
+
+
 
   module.exports = readFormData;
 
