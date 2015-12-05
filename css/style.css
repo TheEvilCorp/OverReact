@@ -126,6 +126,7 @@ body{
 #application-section {
   /*display: flex;*/
   height: 650px;
+  padding-top: 25px;
 }
 
 #overReact-container,

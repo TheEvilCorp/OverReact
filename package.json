@@ -9,7 +9,7 @@
     "start-dev": "gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
-    "postinstall": "gulp scripts"
+    "postinstall": "gulp scripts css"
   },
   "engines": {
     "node": "4.2.1"
