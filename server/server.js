@@ -9,11 +9,12 @@ var mkDir = require('./utils/mkDir');
 var zipFunction = require('./utils/zipFunction');
 var addStandardFiles = require('./utils/addStandardFiles');
 var capitalize = require('./utils/capitalize');
+var compression = require('compression');
 
 //configure express
 var app = express();
 // var server = http.createServer(app);
-app.use(express.compress());
+app.use(compression()));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../')));
 
