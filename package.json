@@ -8,7 +8,7 @@
     "start": "gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
-    "postinstall": "gulp"
+    "postinstall": "gulp & npm run start-server"
   },
   "engines": {
     "node": "4.2.1"
