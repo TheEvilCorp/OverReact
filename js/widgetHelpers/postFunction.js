@@ -1,6 +1,6 @@
 var createDataObj = require('./createDataObj');
 var projectName = 'OverReact';
-module.exports = function() {
+module.exports = function(id, hash) {
   //interprets the DOM into an object
   var dataObj = {
     name: 'app',
@@ -19,11 +19,13 @@ module.exports = function() {
       projectName: 'OverReact',
       main: dataObj,
       server: 'hapi',
-      task: 'gulp'
+      task: 'gulp',
+      id: id,
+      hash: hash
     }),
     //this initiates download once the file is zipped
     success: function(){
-      window.location.href = `/download/:${projectName}`;
+      window.location.href = `/download/:${hash}`;
     },
     error: function(err){
       console.log('ERROR: ', err);

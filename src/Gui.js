@@ -9,19 +9,17 @@ var Gui = React.createClass({
   },
   componentDidMount: function(){
     widget();
-
   },
 
   render: function () {
     return (
-      <div id='overReact-container'>
-        
-        
+      <div>
+        Your session code is: {this.props.hash}
+        <div id='overReact-container'></div>
       </div>
+
     )
   }
 });
 
 module.exports = Gui;
-
-

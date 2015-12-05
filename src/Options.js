@@ -2,6 +2,7 @@ var React = require('react');
 var $ = require('jquery');
 var Input = require('react-bootstrap').Input
 var Button = require('react-bootstrap').Button
+var postFunction = require('../js/widgetHelpers/postFunction');
 
 var Options = React.createClass({
   getInitialState: function() {
@@ -23,8 +24,9 @@ var Options = React.createClass({
     $('#express').prop('checked', true);
     $('#gulp').prop('checked', true);
   },
-
-
+  post: function() {
+    postFunction(this.props.id, this.props.hash);
+  },
   handleChange: function(){
     // this.setState({isChecked: !this.state.isChecked});
     // console.log(this.state.isChecked);
@@ -44,9 +46,10 @@ var Options = React.createClass({
     return (
       <div id='options-section'>
         <h3>Options</h3>
-        <Button id='submitButton'>Download Files</Button>
+        {this.props.hash}
+        <Button id='submitButton' onClick={this.post}>Download Files</Button>
 
-        <div className='form-group'>   
+        <div className='form-group'>
           <Input type='text' label='Project Name'></Input>
           <hr></hr>
           <p id='basic-options'>Basic Options</p>
@@ -72,12 +75,12 @@ var Options = React.createClass({
             </label>
           </div>
           <hr></hr>
-          <div id='template-buttons'> 
+          <div id='template-buttons'>
             <Button id='saveButton'>Save Template</Button>
             <Button id='loadButton'>Load Template</Button>
           </div>
         </div>
-     
+
       </div>
     )
   }
