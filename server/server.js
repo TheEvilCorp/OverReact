@@ -14,7 +14,7 @@ var compression = require('compression');
 //configure express
 var app = express();
 // var server = http.createServer(app);
-app.use(compression()));
+app.use(compression());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../')));
 
