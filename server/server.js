@@ -13,6 +13,7 @@ var capitalize = require('./utils/capitalize');
 //configure express
 var app = express();
 // var server = http.createServer(app);
+app.use(express.compress());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../')));
 
