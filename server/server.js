@@ -15,6 +15,7 @@ var app = express();
 // var server = http.createServer(app);
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../')));
+app.use(express.static(__dirname));
 
 //have the index html send on root route
 app.get('/', function(req,res) {
