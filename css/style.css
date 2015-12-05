@@ -136,7 +136,7 @@ body{
 
 #overReact-container {
 	margin: 50px 35px 50px 35px;
-	width: 900px;
+	width: 850px;
 	height: 550px;
 	position: relative;
   border: 5px solid #61dafb;
@@ -168,21 +168,66 @@ body{
 
 
 #options-section {
-  width: 250px;
+  width: 300px;
   height: 550px;
-  margin: 50px 20px;
+  margin: 50px 30px 50px 10px;
   background-color: #C4C4C4;
   border: 5px solid #C4C4C4;
   float: right;
-}
-.form-group {
-  background-color: white;
-  padding: 5px;
+  /*width: 300px;
+  height: 500px;
+  margin-left: 50px;
+  margin-top: 80px;
+  background-color: #D3D3D3;
+  border: 5px solid #D3D3D3;
+}*/
 }
 
+#options-section h3 {
+  display: inline-block;
+  margin: 8px 10px 10px 10px;
+  color: white;
+}
 #submitButton {
-	background-color: red;
-	width: 300px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  background-color: #FC913A;
+  color: white;
+}
+#options-section p {
+  margin-left: 8px;
+  font-weight: bold;
+}
+#options-section label {
+  font-weight: normal;
+}
+
+#basic-options,
+#basic-options input {
+  margin-bottom: 0px;
+}
+
+.form-group {
+  background-color: white;
+  padding: 8px 8px 0px 8px;
+}
+
+hr {
+  margin-bottom: 8px;
+}
+.btn-group {
+  border: 1px solid red;
+  display: block;
+}
+.radio-btns {
+  margin-left: 8px;
+}
+#template-buttons {
+  text-align: center;
+  padding: 10px 0px 20px 0px;
+}
+#template-buttons button {
+  margin: 5px;
 }
 
 
