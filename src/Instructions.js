@@ -21,36 +21,35 @@ var Instructions = React.createClass({
       //       <Col md={3} className='instructions'>INSTRUCTIONS</Col>
       //     </Row>
       //   </Grid>
-        
+
       // </div>
 
-      <Grid id='instruction-section'>
-        <Row>
-        <Col xs={6} md={4} className='instructions'>
-          <Thumbnail src="/images/instruction1.png" alt="242x200">
+      <div id='instruction-section'>
+        <div className='instructions'>
+          <div>
+            <img src="/images/instruction1.png" alt="242x200"/>
             <h3>Create your first component</h3>
             <p>Input a component name and hit enter.</p>
-          </Thumbnail>
-        </Col>
-        <Col xs={6} md={4} className='instructions'>
-          <Thumbnail src="/images/instruction2.png" alt="242x200">
+          </div>
+        </div>
+        <div className='instructions'>
+          <div>
+            <img src="/images/instruction2.png" alt="242x200"/>
             <h3>Layout your components</h3>
             <p>Drag, drop, resize and nest components.</p>
-            <p>Double-click on component name to edit.</p>  
-          </Thumbnail>
-        </Col>
-        <Col xs={6} md={4} className='instructions'>
-          <Thumbnail src="/images/instruction4.png" alt="242x200">
+            <p>Double-click on component name to edit.</p>
+          </div>
+        </div>
+        <div className='instructions'>
+          <div>
+            <img src="/images/instruction4.png" alt="242x200"/>
             <h3>Select Options</h3>
             <p>Click "Download" to get the starter files</p>
-          </Thumbnail>
-        </Col>
-        </Row>
-      </Grid>
+          </div>
+        </div>
+      </div>
     )
   }
 });
 
 module.exports = Instructions;
-
-

@@ -11,10 +11,9 @@ var Home = React.createClass({
   },
   render: function () {
     return (
-      <div id='home-section'> 
-        <h1>The React file generator</h1>
-        <p>Wireframe your React components and download</p>
-        <p>your starter files with one click</p>
+      <div id='home-section'>
+        <h1>The React File Generator</h1>
+        <p>Wireframe React components and download starter files with one click</p>
         <p><Button bsStyle="primary" bsSize="large" id='getStarted-btn'>Get Started</Button></p>
         <Instructions />
       </div>
@@ -23,5 +22,3 @@ var Home = React.createClass({
 });
 
 module.exports = Home;
-
-

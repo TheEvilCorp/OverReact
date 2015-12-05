@@ -18,6 +18,10 @@ medium turquoise: #008C9E
 turquoise: #00B4CC
 bright turquoise: #00DFFC*/
 
+body{
+  width: 1280px;
+  margin: 0 auto;
+}
 
 .container-fluid {
   padding: 0px;
@@ -47,12 +51,11 @@ bright turquoise: #00DFFC*/
 
 
 #nav-section {
-  height: 10%;
+  height: 60px;
 }
 #nav-title {
-  margin-top: 5px;
   color: white;
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: bolder;
   float: left;
   text-align: center;
@@ -64,41 +67,56 @@ bright turquoise: #00DFFC*/
 
 
 #home-section {
-  margin-top: -35px;
-  height: 120%;
+  width: 1280px;
+  margin-top: -55px;
+  height: 650px;
   background-color: #E0E0E0;
-
-
 }
+
 #home-section > h1 {
-  font-size: 3em;
+  font-size: 2em;
   margin-top: 70px;
-  margin-bottom: 50px;
-  padding-top: 100px;
+  margin-bottom: 20px;
+  padding-top: 80px;
 }
+
 #home-section > p {
-  font-size: 1.7em;
+  font-size: 1.5em;
+  line-height: 1em;
 }
 #getStarted-btn {
   background-color: #61dafb;
   border-color: #61dafb;
   padding: 10px 20px;
   border-radius: 50px;
-  margin: 20px;
+  margin: 30px;
 }
-
 
 #instruction-section {
-  padding-left: 30px;
-  padding-right: 30px;
+  width: 1280px;
+  margin: auto;
 }
+
 #instruction-section h3 {
   text-align: center;
 }
-.thumbnail {
-	height: 360px;
+.instructions{
+  width: 330px;
+  height: 330px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 75px 0 35px;
+  background-color: white;
 }
-.thumbnail p {
+
+.instructions:last-child {
+  margin-right: 0px;
+}
+.instructions img {
+  width: 300px;
+  margin: 10px;
+}
+.instructions p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -106,28 +124,26 @@ bright turquoise: #00DFFC*/
 
 /*Application Section*/
 #application-section {
-	display: flex;
-  height: 100%;
+  /*display: flex;*/
+  height: 650px;
 }
 
 #overReact-container,
 #options-section {
-
+  /*flex: none;*/
   border-radius: 5px;
-  flex: none;
 }
-
-
 
 #overReact-container {
-	margin: 80px 50px;
-	width: 750px;
-	height: 500px;
+	margin: 50px 35px 50px 35px;
+	width: 850px;
+	height: 550px;
 	position: relative;
   border: 5px solid #61dafb;
+  float: left;
 }
 
-form {
+#overReact-container form {
   float: right;
 }
 
@@ -148,18 +164,25 @@ form {
   padding-left: 5px;
 	position: absolute;
 	background-color: white;
-
 }
 
 
 #options-section {
   width: 300px;
+  height: 550px;
+  margin: 50px 30px 50px 10px;
+  background-color: #C4C4C4;
+  border: 5px solid #C4C4C4;
+  float: right;
+  /*width: 300px;
   height: 500px;
   margin-left: 50px;
   margin-top: 80px;
   background-color: #D3D3D3;
   border: 5px solid #D3D3D3;
+}*/
 }
+
 #options-section h3 {
   display: inline-block;
   margin: 8px 10px 10px 10px;
@@ -184,10 +207,11 @@ form {
   margin-bottom: 0px;
 }
 
-.form-group { 
-  background-color: white; 
+.form-group {
+  background-color: white;
   padding: 8px 8px 0px 8px;
 }
+
 hr {
   margin-bottom: 8px;
 }
@@ -212,7 +236,7 @@ hr {
 #whatNext-section {
   padding: 35px;
   background-color: #BABABA;
-  height: 80%;
+  height: 650px;
   text-align: center;
 }
 #whatNext-section p {
@@ -228,5 +252,5 @@ hr {
 
 /*Footer Section*/
 #footer-section {
-  height: 10%;
+  height: 60px;
 }

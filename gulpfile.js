@@ -5,6 +5,9 @@ var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var notify = require('gulp-notify');
 var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
+var buffer = require('vinyl-buffer');
+var minifyCss = require('gulp-minify-css');
 
 function handleErrors() {
   var args = Array.prototype.slice.call(arguments);
@@ -26,13 +29,16 @@ function buildScript(file, watch) {
   };
 
   //watchify if watch set to true. otherwise browserify once
-  var bundler = watch ? watchify(browserify(props)) : browserify(props);
+  var bundler =
+    watch ? watchify(browserify(props)) : browserify(props);
 
   function rebundle(){
     var stream = bundler.bundle();
     return stream
       .on('error', handleErrors)
       .pipe(source('bundle.js'))
+      .pipe(buffer())
+      .pipe(uglify())
       .pipe(gulp.dest('./build/'));
   }
 
@@ -51,7 +57,18 @@ gulp.task('scripts', function() {
   return buildScript('./../src/App.js', false);
 });
 
+//bundle css
+gulp.task('css', function() {
+  return gulp.src('./css/style.css')
+    .on('error', function(err) {
+      console.log(err);
+    })
+    .pipe(minifyCss())
+    .pipe(gulp.dest('dist'));
+});
+
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['scripts'], function() {
+gulp.task('default', ['scripts','css'], function() {
+  gulp.watch(['./css/*.css'],['css']);
   return buildScript('./../src/App.js', true);
 });
