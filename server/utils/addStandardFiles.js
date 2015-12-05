@@ -5,6 +5,7 @@ var writeCss = require('./writeCss');
 
 
 module.exports = function(req, res, next){
+	if(req.body.server === 'none' && req.body.task === 'none') return next();
 	var promises = [];
 
 	//create an index.html
@@ -19,14 +20,19 @@ module.exports = function(req, res, next){
 	promises.push(fs.writeFileAsync(`./${req.body.projectName}/package.json`, file));
 
 	//create task runner file
-	file = ejs.render(fs.readFileSync(__dirname + `/templates/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}Template.ejs`, 'utf-8'), {
+	if(req.body.task !== 'none') {
+		file = ejs.render(fs.readFileSync(__dirname + `/templates/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}Template.ejs`, 'utf-8'), {
 		error: '<%= error.message %>'
-	});
-	promises.push(fs.writeFileAsync(`./${req.body.projectName}/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}file.js`, file));
+		});
+		promises.push(fs.writeFileAsync(`./${req.body.projectName}/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}file.js`, file));
+	}
 
 	//create server file
-	file = ejs.render(fs.readFileSync(__dirname +  `/templates/${req.body.server === 'hapi' ? 'hapi' : 'express'}ServerTemplate.ejs`, 'utf-8'));
-	promises.push(fs.writeFileAsync(`./${req.body.projectName}/server/server.js`, file));
+	if(req.body.server !== 'none') {
+		file = ejs.render(fs.readFileSync(__dirname +  `/templates/${req.body.server === 'hapi' ? 'hapi' : 'express'}ServerTemplate.ejs`, 'utf-8'));
+		promises.push(fs.writeFileAsync(`./${req.body.projectName}/server/server.js`, file));
+	}
+
 	//create css
 	file = ejs.render(fs.readFileSync(__dirname + '/templates/styleTemplate.ejs', 'utf-8'), {component: req.body.main});
 	writeCss(req.body.main, req.body.projectName, file);
