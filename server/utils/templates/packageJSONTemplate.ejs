@@ -19,24 +19,19 @@
     "babel-preset-react": "^6.0.15",
     "babelify": "^7.2.0",
     <%#=====================express vs hapi=====================%>
-    <% if(server === 'express'){%>
-    "express" : "^4.13.3",
-    <%} else {%>
-    "hapi": "^11.1.2",
+    <% if(server !== 'none') { if(server === 'express'){%>"express" : "^4.13.3",<%} else {%>"hapi": "^11.1.2",
     "inert": "^3.2.0",
-    <%}%>
+    <%}}%>
     <%#===================== gulp vs grunt =====================%>
-    <% if(task === 'gulp') {%>
-    "gulp": "^3.9.0",
+    <% if(task !== 'none'){ if(task === 'gulp') {%>"gulp": "^3.9.0",
     "gulp-notify": "^2.2.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.2",
     "browserify": "^10.2.4"
-    <%} else {%>
-    "grunt": "^0.4.5",
+    <%} else {%>"grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-browserify": "^4.0.1",
     "grunt-contrib-watch": "^0.6.1"
-    <%}%>
+    <%}}%>
   }
 }

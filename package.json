@@ -9,7 +9,7 @@
     "start-dev": "gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
-    "postinstall": "gulp scripts"
+    "postinstall": "gulp scripts css"
   },
   "engines": {
     "node": "4.2.1"
@@ -37,6 +37,7 @@
     "bluebird": "^3.0.5",
     "body-parser": "^1.14.1",
     "browserify": "^10.2.4",
+    "compression": "^1.6.0",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "fs": "0.0.2",

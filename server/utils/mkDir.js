@@ -5,9 +5,13 @@ var mkDir = function(req, res, next) {
   fs.stat(`./${req.body.projectName}`, function(err, stats) {
     if(!stats) {
       fs.mkdirSync(`./${req.body.projectName}`);
-      fs.mkdirSync(`./${req.body.projectName}/server`);
-      fs.mkdirSync(`./${req.body.projectName}/css`);
-      fs.mkdirSync(`./${req.body.projectName}/src`);
+      if(req.body.server !== 'none' || req.body.task !== 'none'){
+        if(req.body.server !== 'none') {
+          fs.mkdirSync(`./${req.body.projectName}/server`);
+        }
+        fs.mkdirSync(`./${req.body.projectName}/css`);
+        fs.mkdirSync(`./${req.body.projectName}/src`);
+      }
     }
     next();
   });

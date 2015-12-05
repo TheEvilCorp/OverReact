@@ -18,8 +18,8 @@ module.exports = function() {
     data: JSON.stringify({
       projectName: 'OverReact',
       main: dataObj,
-      server: 'express',
-      task: 'grunt'
+      server: 'hapi',
+      task: 'gulp'
     }),
     //this initiates download once the file is zipped
     success: function(){
