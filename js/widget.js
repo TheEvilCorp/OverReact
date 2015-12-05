@@ -32,8 +32,8 @@ module.exports = function(){
 
   //Create submit button and place click handler on the submit button.
   //Click handler will send post to create files.
-  var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
-  submitBtn.appendTo('.options-section');
+  // var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
+  // submitBtn.appendTo('.options-section');
   $('#submitButton').on('click', function() {
     postFunction();
   });
