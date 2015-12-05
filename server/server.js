@@ -33,4 +33,4 @@ app.get('/download/*', function(req, res) {
   exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
 });
 
-app.listen(8000);
+app.listen(process.env.PORT || 8000);
