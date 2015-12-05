@@ -15,16 +15,11 @@ var app = express();
 // var server = http.createServer(app);
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../')));
-// app.use(express.static(__dirname));
 
 //have the index html send on root route
 app.get('/', function(req,res) {
   res.sendFile('/index.html');
 });
-
-// app.get('/build*', function(req,res) {
-//   res.sendFile('/build/build.js')
-// });
 
 //post route for when the user is done setting up their component layout, kicks off middleware chain to create directory, write files to created directory, then zip file.
 app.post('/submit', capitalize, mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {

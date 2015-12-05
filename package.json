@@ -5,10 +5,11 @@
   "main": "outputTest.js",
   "scripts": {
     "start-server": "node server/server.js",
-    "start": "gulp & npm run start-server",
+    "start": "node server/server.js",
+    "start-dev": "gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
-    "postinstall": "gulp & npm run start-server"
+    "postinstall": "gulp scripts"
   },
   "engines": {
     "node": "4.2.1"
