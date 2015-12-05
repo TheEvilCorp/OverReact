@@ -1,3 +1,6 @@
 node_modules
 bower_components
-npm_debug*
+build
+bundle.js
+dist
+npm_debug.log
