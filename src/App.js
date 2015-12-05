@@ -3,7 +3,7 @@ var $ = require('jquery');
 var ReactDOM = require('react-dom');
 var Home = require('./Home');
 var Application = require('./Application');
-var WhatNext = require('./WhatNext');
+var WhatNext = require('./Whatnext');
 var Footer = require('./Footer');
 var Navbar = require('react-bootstrap').Navbar;
 
