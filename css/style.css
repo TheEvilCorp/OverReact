@@ -157,17 +157,53 @@ form {
   height: 500px;
   margin-left: 50px;
   margin-top: 80px;
-  background-color: #C4C4C4;
-  border: 5px solid #C4C4C4;
+  background-color: #D3D3D3;
+  border: 5px solid #D3D3D3;
 }
-.form-group { 
-  background-color: white; 
-  padding: 5px;
+#options-section h3 {
+  display: inline-block;
+  margin: 8px 10px 10px 10px;
+  color: white;
+}
+#submitButton {
+  margin-bottom: 10px;
+  margin-left: 30px;
+  background-color: #FC913A;
+  color: white;
+}
+#options-section p {
+  margin-left: 8px;
+  font-weight: bold;
+}
+#options-section label {
+  font-weight: normal;
 }
 
-#submitButton {
-	background-color: red;
-	width: 300px;
+#basic-options,
+#basic-options input {
+  margin-bottom: 0px;
+}
+
+.form-group { 
+  background-color: white; 
+  padding: 8px 8px 0px 8px;
+}
+hr {
+  margin-bottom: 8px;
+}
+.btn-group {
+  border: 1px solid red;
+  display: block;
+}
+.radio-btns {
+  margin-left: 8px;
+}
+#template-buttons {
+  text-align: center;
+  padding: 10px 0px 20px 0px;
+}
+#template-buttons button {
+  margin: 5px;
 }
 
 
