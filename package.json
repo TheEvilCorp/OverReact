@@ -1,12 +1,18 @@
 {
-  "name": "OverrReact",
+  "name": "OverReact",
   "version": "1.0.0",
   "description": "Wireframing React projects with the functionality to boilerplate. This is the production project for Codesmith Cohort 3 members - Susan, Rico, and Brian",
   "main": "outputTest.js",
   "scripts": {
     "start-server": "node server/server.js",
-    "start": "gulp & npm run start-server",
-    "gulp": "gulp"
+    "start": "node server/server.js",
+    "start-dev": "gulp & npm run start-server",
+    "gulp": "gulp",
+    "web": "npm start",
+    "postinstall": "gulp scripts"
+  },
+  "engines": {
+    "node": "4.2.1"
   },
   "repository": {
     "type": "git",
