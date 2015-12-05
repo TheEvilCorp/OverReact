@@ -6,7 +6,11 @@
   "scripts": {
     "start-server": "node server/server.js",
     "start": "gulp & npm run start-server",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "web": "npm start"
+  },
+  "engines": {
+    "node": "4.2.1"
   },
   "repository": {
     "type": "git",
