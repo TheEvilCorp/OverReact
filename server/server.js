@@ -10,6 +10,7 @@ var zipFunction = require('./utils/zipFunction');
 var addStandardFiles = require('./utils/addStandardFiles');
 var capitalize = require('./utils/capitalize');
 var compression = require('compression');
+var request = require('request');
 
 //configure express
 var app = express();
@@ -32,7 +33,8 @@ app.post('/submit', capitalize, mkDir, addStandardFiles, fileController, zipFunc
 app.get('/download/*', function(req, res) {
   res.download(__dirname + `/../${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
   // console.log(req.url);
-  exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
+  // exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
+
 });
 
 app.listen(process.env.PORT || 8000);

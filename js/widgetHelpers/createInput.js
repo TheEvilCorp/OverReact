@@ -9,7 +9,8 @@ module.exports = function(context, func) {
     required
     pattern="[a-zA-Z0-9_ ]+"
     placeholder="Component Name..."
-    title="${errorMessage}">
+    title="${errorMessage}"
+    class="form-control">
     </input></form>`
   );
   inputField.appendTo(('#' + context));
