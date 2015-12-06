@@ -116,9 +116,16 @@ body{
   width: 300px;
   margin: 10px;
 }
+#selectOptions {
+  margin-top: 20px;
+}
 .instructions p {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+.instructions hr {
+  width: 150px;
+  border: 1px solid white;
 }
 
 
@@ -136,10 +143,10 @@ body{
 }
 
 #overReact-container {
-	margin: 50px 35px 50px 35px;
-	width: 850px;
-	height: 550px;
-	position: relative;
+  margin: 50px 35px 50px 35px;
+  width: 850px;
+  height: 550px;
+  position: relative;
   border: 5px solid #61dafb;
   float: left;
 }
@@ -149,22 +156,22 @@ body{
 }
 
 .deleteBtn {
-	float: right;
-	color: #a0a0a0;
-	background-color: white;
-	border: none;
+  float: right;
+  color: #a0a0a0;
+  background-color: white;
+  border: none;
 }
 .deleteBtn:hover {
-	color: red;
+  color: red;
 }
 
 .box {
-	display: inline-block;
-	border: 2px solid #A3A3A3;
+  display: inline-block;
+  border: 2px solid #A3A3A3;
   color: #A3A3A3;
   padding-left: 5px;
-	position: absolute;
-	background-color: white;
+  position: absolute;
+  background-color: white;
 }
 
 
@@ -186,12 +193,14 @@ body{
 
 #options-section h3 {
   display: inline-block;
-  margin: 8px 10px 10px 10px;
+  margin: 10px 10px 12px 10px;
   color: white;
 }
 #submitButton {
-  margin-bottom: 10px;
-  margin-left: 30px;
+  margin-top: 4px;
+  margin-left: 65px;
+/*  margin-bottom: 10px;
+  margin-left: 30px;*/
   background-color: #FC913A;
   color: white;
 }
@@ -211,6 +220,7 @@ body{
 .form-group {
   background-color: white;
   padding: 8px 8px 0px 8px;
+  border-radius: 5px;
 }
 
 hr {
@@ -237,7 +247,7 @@ hr {
 #whatNext-section {
   padding: 35px;
   background-color: #BABABA;
-  height: 650px;
+  height: 550px;
   text-align: center;
 }
 #whatNext-section p {

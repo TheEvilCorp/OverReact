@@ -2,85 +2,120 @@ var React = require('react');
 var $ = require('jquery');
 var Input = require('react-bootstrap').Input
 var Button = require('react-bootstrap').Button
+// var handleRadioButton = require('./../js/widgetHelpers/handleRadioBtnChange');
+// var enableRadioBtns = require('./../js/widgetHelpers/enableRadioButtons');
 
 var Options = React.createClass({
   getInitialState: function() {
     return {
-      isChecked: false
+      basic: false,
+      express: true,
+      hapi: false,
+      gulp: true,
+      grunt:false
     };
   },
-  disableRadioButtons: function() {
-    $('#express').prop('checked', false);
-    $('#hapi').prop('checked', false);
-    $('#gulp').prop('checked', false);
-    $('#grunt').prop('checked', false);
+  disableRadioButtons: function(){
+    this.setState({ express: false });
+    this.setState({ hapi: false });
+    this.setState({ gulp: false });
+    this.setState({ grunt: false });
   },
-  disableBasicOptions: function(){
-    $('#js-only').prop('checked',false);
+  enableRadioButtons: function() {
+      
+    this.setState({ basic: false });
+  
+    //if the basic option is not chosen, at least one server and one task runner will be chosen
+    if(!$('#express').prop('checked') && !$('#hapi').prop('checked')) {
+      $('#express').prop('checked', true);
+      this.setState({ express: true });
+      this.setState({ hapi: false });
+    } 
+    if(!$('#gulp').prop('checked') && !$('#grunt').prop('checked')) {
+      $('#gulp').prop('checked', true);
+      this.setState({ gulp: true });
+      this.setState({ grunt: false });
+    }
   },
-  setButtonDefaults: function() {
-    $('#js-only').prop('checked',false);
-    $('#express').prop('checked', true);
-    $('#gulp').prop('checked', true);
+  handleBasicBtnChange: function(e) {
+    
+    if(!this.state.basic) {
+      this.setState({ basic: true });
+      this.disableRadioButtons();
+    } else {
+      this.setState({ basic: false });
+      this.enableRadioButtons();
+    }
   },
+  handleRadioBtnChange: function(e) {
+    // handleRadioButton()
+    // enableRadioBtns();
+    // var id = e.target.id;
+    this.setState({ express: $('#express').prop('checked')});
+    this.setState({ hapi: $('#hapi').prop('checked')});
+    this.setState({ gulp: $('#gulp').prop('checked')});
+    this.setState({ grunt: $('#grunt').prop('checked')});
 
-
-  handleChange: function(){
-    // this.setState({isChecked: !this.state.isChecked});
-    // console.log(this.state.isChecked);
-    // if(this.state.isChecked) {
-    //   disableRadioButtons();
-    // } else {
-    //   setButtonDefaults();
-    // }
-
-  },
-  componentDidMount: function(){
-    $('#express').prop('checked', true);
-    $('#gulp').prop('checked', true);
+    if($('#express').prop('checked')) {
+      this.setState({ express: true });
+      this.setState({ hapi: false });
+    }
+    if($('#hapi').prop('checked')) {
+      this.setState({ hapi: true });
+      this.setState({ express: false });
+    }
+    if($('#gulp').prop('checked')) {
+      this.setState({ gulp: true });
+      this.setState({ grunt: false });
+    }
+    if($('#grunt').prop('checked')) {
+      this.setState({ grunt: true });
+      this.setState({ gulp: false });
+    }
+    this.enableRadioButtons();
   },
 
   render: function () {
     return (
       <div id='options-section'>
         <h3>Options</h3>
-        <Button id='submitButton'>Download Files</Button>
-
         <div className='form-group'>   
-          <Input type='text' label='Project Name'></Input>
+          <Input type='text' label='Project Name' id='projectName' onKeyPress={this.handleProjectName} required />
           <hr></hr>
           <p id='basic-options'>Basic Options</p>
-          <Input type="checkbox" label="React javascript files only" id='js-only' onChange={this.handleChange} readOnly />
+          <Input type="checkbox" label="React javascript files only" id='basic' onChange={this.handleBasicBtnChange} readOnly checked={this.state.basic} />
           <hr></hr>
           <div className='radio-sections'>
             <p>Choose a server</p>
             <label className="radio-inline" className='radio-btns'>
-              <input name="servers" id="express" value="express" type="radio" onChange={this.handleChange} >  Express</input>
+              <Input name="servers" id="express" value="express" type="radio" onChange={this.handleRadioBtnChange} label='Express' checked={this.state.express} />  
             </label>
             <label className="radio-inline" className='radio-btns'>
-              <input name="servers" id="hapi" value="hapi" type="radio" onChange={this.handleChange}>  Hapi</input>
+              <Input name="servers" id="hapi" value="hapi" type="radio" onChange={this.handleRadioBtnChange} label='Hapi' checked={this.state.hapi} />
             </label>
           </div>
           <hr></hr>
           <div className='radio-sections'>
             <p>Choose a task runner</p>
             <label className="radio-inline" className='radio-btns'>
-              <input name="taskRunners" id="gulp" value="gulp" type="radio" onChange={this.handleChange}>  Gulp</input>
+              <Input name="taskRunners" id="gulp" value="gulp" type="radio" onChange={this.handleRadioBtnChange} label='Gulp' checked={this.state.gulp} />
             </label>
             <label className="radio-inline" className='radio-btns'>
-              <input name="taskRunners" id="grunt" value="grunt" type="radio" onChange={this.handleChange}>  Grunt</input>
+              <Input name="taskRunners" id="grunt" value="grunt" type="radio" onChange={this.handleRadioBtnChange} label='Grunt' checked={this.state.grunt} />
             </label>
           </div>
           <hr></hr>
-          <div id='template-buttons'> 
-            <Button id='saveButton'>Save Template</Button>
-            <Button id='loadButton'>Load Template</Button>
-          </div>
         </div>
-     
+        <Button id='submitButton' bsSize='large'>Download Files</Button>
       </div>
     )
   }
 });
 
 module.exports = Options;
+
+        // <div id='template-buttons'> 
+          //   <Button id='saveButton'>Save Template</Button>
+          //   <Button id='loadButton'>Load Template</Button>
+          // </div>
+
