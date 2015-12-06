@@ -4,6 +4,7 @@ var createFiles = require('./createFiles');
 
 function fileController (req, res, next) {
   //EJS template will only require ReactDOM for the master component because its the parent component, and this is where the parent renders to the DOM
+
   var component = req.body.main;
 
   component.parent = true;
