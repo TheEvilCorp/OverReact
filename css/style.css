@@ -116,9 +116,16 @@ body{
   width: 300px;
   margin: 10px;
 }
+#selectOptions {
+  margin-top: 20px;
+}
 .instructions p {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+.instructions hr {
+  width: 150px;
+  border: 1px solid white;
 }
 
 
@@ -186,12 +193,14 @@ body{
 
 #options-section h3 {
   display: inline-block;
-  margin: 8px 10px 10px 10px;
+  margin: 10px 10px 12px 10px;
   color: white;
 }
 #submitButton {
-  margin-bottom: 10px;
-  margin-left: 30px;
+  margin-top: 4px;
+  margin-left: 65px;
+/*  margin-bottom: 10px;
+  margin-left: 30px;*/
   background-color: #FC913A;
   color: white;
 }
@@ -211,6 +220,7 @@ body{
 .form-group {
   background-color: white;
   padding: 8px 8px 0px 8px;
+  border-radius: 5px;
 }
 
 hr {
@@ -237,7 +247,7 @@ hr {
 #whatNext-section {
   padding: 35px;
   background-color: #BABABA;
-  height: 650px;
+  height: 550px;
   text-align: center;
 }
 #whatNext-section p {

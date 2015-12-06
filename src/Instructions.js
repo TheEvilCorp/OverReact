@@ -13,17 +13,6 @@ var Instructions = React.createClass({
   },
   render: function () {
     return (
-      // <div>
-      //   <Grid >
-      //     <Row className="show-grid instruction-grid">
-      //       <Col md={3} className='instructions'>INSTRUCTIONS</Col>
-      //       <Col md={3} className='instructions'>INSTRUCTIONS</Col>
-      //       <Col md={3} className='instructions'>INSTRUCTIONS</Col>
-      //     </Row>
-      //   </Grid>
-
-      // </div>
-
       <div id='instruction-section'>
         <div className='instructions'>
           <div>
@@ -42,8 +31,9 @@ var Instructions = React.createClass({
         </div>
         <div className='instructions'>
           <div>
-            <img src="/images/instruction4.png" alt="242x200"/>
-            <h3>Select Options</h3>
+            <img src="/images/instruction3.png" alt="242x200"/>
+            <hr></hr>
+            <h3 id="selectOptions">Select Options</h3>
             <p>Click "Download" to get the starter files</p>
           </div>
         </div>
