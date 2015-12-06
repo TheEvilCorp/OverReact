@@ -34,9 +34,9 @@ module.exports = function(){
   //Click handler will send post to create files.
   // var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
   // submitBtn.appendTo('.options-section');
-  $('#submitButton').on('click', function() {
-    postFunction();
-  });
+  // $('#submitButton').on('click', function() {
+  //   postFunction(id, hash);
+  // });
 
   //create input field on the main overReact-container
   createInput('overReact-container', createComponent);

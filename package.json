@@ -49,6 +49,7 @@
     "gulp-uglify": "^1.5.1",
     "jquery": "^2.1.4",
     "nodemon": "^1.8.1",
+    "over-react": "^0.1.0",
     "path": "^0.12.7",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
