@@ -6,7 +6,7 @@ var hat = require('hat');
 var config = require('config');
 
 // initialize connection to MongoDB
-mongoose.connect(config.get('mongo'));
+mongoose.connect(config.get('mongo.MONGO_URI'));
 mongoose.connection.once('open', function() {
   console.log('Welcome to Evil Corp...');
 });
