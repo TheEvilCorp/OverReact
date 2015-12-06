@@ -38,6 +38,7 @@
     "body-parser": "^1.14.1",
     "browserify": "^10.2.4",
     "compression": "^1.6.0",
+    "config": "^1.17.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
