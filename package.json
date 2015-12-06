@@ -6,7 +6,7 @@
   "scripts": {
     "start-server": "node server/server.js",
     "start": "export NODE_ENV=production; node server/server.js",
-    "start-dev": "gulp & npm run start-server",
+    "start-dev": "export NODE_ENV=development; gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
     "postinstall": "gulp scripts css"
@@ -38,6 +38,7 @@
     "body-parser": "^1.14.1",
     "browserify": "^10.2.4",
     "compression": "^1.6.0",
+    "config": "^1.17.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "fs": "0.0.2",

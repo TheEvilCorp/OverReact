@@ -3,9 +3,11 @@ var Schema = mongoose.Schema;
 var Session = require('./sessionModel');
 var bodyParser = require('body-parser');
 var hat = require('hat');
+var config = require('config');
+var mongo = config.get('mongodb');
 
 // initialize connection to MongoDB
-mongoose.connect('mongodb://localhost/overreactsessions');
+mongoose.connect(`mongodb://${mongo.username}:${mongo.password}@ds063919.mongolab.com:63919/heroku_6947c9dp`);
 mongoose.connection.once('open', function() {
   console.log('Welcome to Evil Corp...');
 });
