@@ -112,7 +112,7 @@ var Options = React.createClass({
           </div>
           <hr></hr>
         </div>
-        <Button id='submitButton' bsSize='large'>Download Files</Button>
+        <Button onClick={this.post} id='submitButton' bsSize='large'>Download Files</Button>
       </div>
     )
   }

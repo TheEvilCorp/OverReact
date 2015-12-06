@@ -26,7 +26,7 @@ module.exports = function(id, hash) {
       main: dataObj,
       server: form.server,
       task: form.task,
-      template: 'es6',
+      template: 'es5',
       id: id,
       hash: hash
     }),
