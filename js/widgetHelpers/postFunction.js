@@ -1,6 +1,9 @@
 var createDataObj = require('./createDataObj');
-var projectName = 'OverReact';
+var readFormData = require('./readFormData');
+
 module.exports = function(id, hash) {
+  //Retrieves data from form
+  var form = readFormData();
   //interprets the DOM into an object
   var dataObj = {
     name: 'app',
@@ -9,17 +12,20 @@ module.exports = function(id, hash) {
     height: $('#overReact-container').height(),
     width: $('#overReact-container').width()
   };
+
   createDataObj(dataObj, '#overReact-container');
+  console.log(form)
+
   //post request to create React files and download the zip
   $.ajax({
     method: 'POST',
     url: '/submit',
     contentType: 'application/json',
     data: JSON.stringify({
-      projectName: 'OverReact',
+      projectName: form.projectName,
       main: dataObj,
-      server: 'hapi',
-      task: 'gulp',
+      server: form.server,
+      task: form.task,
       id: id,
       hash: hash
     }),

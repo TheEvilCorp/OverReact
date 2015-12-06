@@ -33,7 +33,7 @@ app.post('/submit', sessionController.saveTemplate, capitalize, mkDir, addStanda
 
 //on submit route response being sent successfully, the client will set location to /download to initiate the download of the zip
 app.get('/download/*', function(req, res) {
-  res.download(__dirname + `/../${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
+  res.download(__dirname + `/../zips/${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
   // console.log(req.url);
   // exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
 });
