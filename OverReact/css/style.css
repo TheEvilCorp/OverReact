@@ -1,0 +1,38 @@
+
+body div div{
+  border: 1px solid black;
+}
+
+#App {
+  position: relative;
+  width: 840;
+  height: 540;
+  
+}
+
+#Daniel {
+  position: absolute;
+  width: 327;
+  height: 71;
+  top: 30;
+  left: 0;
+  
+}
+
+#Brian {
+  position: absolute;
+  width: 327;
+  height: 71;
+  top: 86;
+  left: 356;
+  
+}
+
+#Rico {
+  position: absolute;
+  width: 327;
+  height: 71;
+  top: 322;
+  left: 272;
+  
+}
