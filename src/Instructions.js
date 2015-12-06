@@ -8,9 +8,7 @@ var Thumbnail = require('react-bootstrap').Thumbnail;
 var Button = require('react-bootstrap').Button;
 
 var Instructions = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
+
   render: function () {
     return (
       <div id='instruction-section'>
