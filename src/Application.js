@@ -9,8 +9,8 @@ var Application = React.createClass({
   render: function () {
     return (
       <div id='application-section'>
-          <Gui />
-          <Options />
+          <Gui id={this.props.id} hash={this.props.hash}/>
+          <Options id={this.props.id} hash={this.props.hash}/>
       </div>
     )
   }

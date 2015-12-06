@@ -1,10 +1,9 @@
 var createDataObj = require('./createDataObj');
-var readFormData = require('./readFormData')
+var readFormData = require('./readFormData');
 
-module.exports = function() {
+module.exports = function(id, hash) {
   //Retrieves data from form
   var form = readFormData();
-
   //interprets the DOM into an object
   var dataObj = {
     name: 'app',
@@ -26,11 +25,13 @@ module.exports = function() {
       projectName: form.projectName,
       main: dataObj,
       server: form.server,
-      task: form.task
+      task: form.task,
+      id: id,
+      hash: hash
     }),
     //this initiates download once the file is zipped
     success: function(){
-      window.location.href = `/download/:${form.projectName}`;
+      window.location.href = `/download/:${hash}`;
     },
     error: function(err){
       console.log('ERROR: ', err);

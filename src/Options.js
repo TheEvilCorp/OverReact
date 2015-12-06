@@ -4,6 +4,7 @@ var Input = require('react-bootstrap').Input
 var Button = require('react-bootstrap').Button
 var handleRadioButton = require('./../js/widgetHelpers/handleRadioBtnChange');
 var enableRadioBtns = require('./../js/widgetHelpers/enableRadioButtons');
+var postFunction = require('../js/widgetHelpers/postFunction');
 
 var Options = React.createClass({
   getInitialState: function() {
@@ -15,6 +16,7 @@ var Options = React.createClass({
       grunt:false
     };
   },
+
   // disableRadioButtons: function(){
   //   this.setState({ express: false });
   //   this.setState({ hapi: false });
@@ -50,9 +52,18 @@ var Options = React.createClass({
       enableRadioBtns(this);
     }
   },
+
   handleRadioBtnChange: function() {
     handleRadioButton(this)
     enableRadioBtns(this)
+  },
+  post: function() {
+    postFunction(this.props.id, this.props.hash);
+  },
+  handleRadioBtnChange: function(e) {
+    // handleRadioButton()
+    // enableRadioBtns();
+
     // var id = e.target.id;
     // this.setState({ express: $('#express').prop('checked')});
     // this.setState({ hapi: $('#hapi').prop('checked')});
@@ -82,7 +93,7 @@ var Options = React.createClass({
     return (
       <div id='options-section'>
         <h3>Options</h3>
-        <div className='form-group'>   
+        <div className='form-group'>
           <Input type='text' label='Project Name' id='projectName' onKeyPress={this.handleProjectName} required />
           <hr></hr>
           <p id='basic-options'>Basic Options</p>
@@ -91,7 +102,7 @@ var Options = React.createClass({
           <div className='radio-sections'>
             <p>Choose a server</p>
             <label className="radio-inline" className='radio-btns'>
-              <Input name="servers" id="express" value="express" type="radio" onChange={this.handleRadioBtnChange} label='Express' checked={this.state.express} />  
+              <Input name="servers" id="express" value="express" type="radio" onChange={this.handleRadioBtnChange} label='Express' checked={this.state.express} />
             </label>
             <label className="radio-inline" className='radio-btns'>
               <Input name="servers" id="hapi" value="hapi" type="radio" onChange={this.handleRadioBtnChange} label='Hapi' checked={this.state.hapi} />
@@ -109,7 +120,7 @@ var Options = React.createClass({
           </div>
           <hr></hr>
         </div>
-        <Button id='submitButton' bsSize='large'>Download Files</Button>
+        <Button id='submitButton' bsSize='large' onClick={this.post} >Download Files</Button>
       </div>
     )
   }
@@ -117,8 +128,7 @@ var Options = React.createClass({
 
 module.exports = Options;
 
-        // <div id='template-buttons'> 
+        // <div id='template-buttons'>
           //   <Button id='saveButton'>Save Template</Button>
           //   <Button id='loadButton'>Load Template</Button>
           // </div>
-
