@@ -10,10 +10,11 @@ function fileController (req, res, next) {
   // console.log(component)
 
   //Creates a file from React template and passes in an object with 'component' as the key and the master component object as the value. EJS template is looking for 'component' object
-  var file = ejs.render(fs.readFileSync(__dirname + '/templates/reactTemplate.ejs', 'utf-8'), {component: component});
+  var template = req.body.template === 'es6' ? 'es6Template.ejs' : 'reactTemplate.ejs' ;
+  var file = ejs.render(fs.readFileSync(__dirname + `/templates/${template}`, 'utf-8'), {component: component});
 
   //Run createFiles function that creates a React file for each component and their subsequent child components
-  createFiles(component, req.body, file);
+  createFiles(component, req.body, file, template);
   next();
 }
 

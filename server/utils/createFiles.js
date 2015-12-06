@@ -1,7 +1,7 @@
 var fs = require('fs');
 var ejs = require('ejs');
 
-function createFiles(obj, dataObj, file) {
+function createFiles(obj, dataObj, file, template) {
   //writes a file to the directory created in mkDir, using the React template ejs.
   var path = dataObj.server === 'none' && dataObj.task === 'none' ? `${obj.name}.js` : `src/${obj.name}.js`
   fs.writeFileSync(`./${dataObj.projectName}/${path}`, file);
@@ -9,8 +9,8 @@ function createFiles(obj, dataObj, file) {
   if(!obj.children) return;
   //else create files for all of the child components
   return obj.children.map(function (elem) {
-    file = ejs.render(fs.readFileSync(__dirname + '/templates/reactTemplate.ejs', 'utf-8'), {component: elem});
-    return createFiles(elem, dataObj, file);
+    file = ejs.render(fs.readFileSync(__dirname + `/templates/${template}`, 'utf-8'), {component: elem});
+    return createFiles(elem, dataObj, file, template);
   });
 }
 

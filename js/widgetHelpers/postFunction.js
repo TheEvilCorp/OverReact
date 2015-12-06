@@ -26,7 +26,8 @@ module.exports = function() {
       projectName: form.projectName,
       main: dataObj,
       server: form.server,
-      task: form.task
+      task: form.task,
+      template: 'es6'
     }),
     //this initiates download once the file is zipped
     success: function(){
