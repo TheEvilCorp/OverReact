@@ -3,6 +3,8 @@ var $ = require('jquery');
 var Input = require('react-bootstrap').Input
 var Button = require('react-bootstrap').Button
 var postFunction = require('../js/widgetHelpers/postFunction');
+// var handleRadioButton = require('./../js/widgetHelpers/handleRadioBtnChange');
+// var enableRadioBtns = require('./../js/widgetHelpers/enableRadioButtons');
 
 var Options = React.createClass({
   getInitialState: function() {
@@ -20,29 +22,25 @@ var Options = React.createClass({
     this.setState({ gulp: false });
     this.setState({ grunt: false });
   },
-
-
   enableRadioButtons: function() {
-    this.setState({ express: true });
-    this.setState({ hapi: false });
-    this.setState({ gulp: true });
-    this.setState({ grunt: false });
 
+    this.setState({ basic: false });
 
-    //takes care of bootstrap radio button bug - sometimes button is clicked, state will change, but button will not reflect clicked status with blue fill
-    // if(!$('#express').prop('checked') && !$('#hapi').prop('checked')) {
-    //   $('#express').prop('checked', true);
-    //   this.setState({ express: true });
-    //   this.setState({ hapi: false });
-    // }
-    // if(!$('#gulp').prop('checked') && !$('#grunt').prop('checked')) {
-    //   $('#gulp').prop('checked', true);
-    //   this.setState({ gulp: true });
-    //   this.setState({ grunt: false });
-    // }
+    //if the basic option is not chosen, at least one server and one task runner will be chosen
+    if(!$('#express').prop('checked') && !$('#hapi').prop('checked')) {
+      $('#express').prop('checked', true);
+      this.setState({ express: true });
+      this.setState({ hapi: false });
+    }
+    if(!$('#gulp').prop('checked') && !$('#grunt').prop('checked')) {
+      $('#gulp').prop('checked', true);
+      this.setState({ gulp: true });
+      this.setState({ grunt: false });
+    }
+
   },
   handleBasicBtnChange: function(e) {
-    //state of checked property explicitly checked because of bootstrap button bug - sometimes button is clicked, state will change, but checkbox does not reflect checked status
+
     if(!this.state.basic) {
       this.setState({ basic: true });
       this.disableRadioButtons();
@@ -55,55 +53,40 @@ var Options = React.createClass({
     postFunction(this.props.id, this.props.hash);
   },
   handleRadioBtnChange: function(e) {
-    var id = e.target.id;
-    console.log('ID: ', id)
-    // this.setState({ express: $('#express').prop('checked')});
-    // this.setState({ hapi: $('#hapi').prop('checked')});
-    // this.setState({ gulp: $('#gulp').prop('checked')});
-    // this.setState({ grunt: $('#grunt').prop('checked')});
+    // handleRadioButton()
+    // enableRadioBtns();
+    // var id = e.target.id;
+    this.setState({ express: $('#express').prop('checked')});
+    this.setState({ hapi: $('#hapi').prop('checked')});
+    this.setState({ gulp: $('#gulp').prop('checked')});
+    this.setState({ grunt: $('#grunt').prop('checked')});
 
-    if(id === 'express') {
-      this.setState({ express: !this.state.express });
-      this.setState({ hapi: !this.state.express });
+    if($('#express').prop('checked')) {
+      this.setState({ express: true });
+      this.setState({ hapi: false });
     }
-    if(id === 'hapi') {
-      this.setState({ hapi: !this.state.hapi });
-      this.setState({ express: !this.state.hapi });
+    if($('#hapi').prop('checked')) {
+      this.setState({ hapi: true });
+      this.setState({ express: false });
     }
 
-    // if($('#hapi').prop('checked')) {
-    //   this.setState({ hapi: true });s
-    //   this.setState({ express: false });
-
-    // }
-    // if($('#gulp').prop('checked')) {
-    //   this.setState({ gulp: true });
-    //   this.setState({ grunt: false });
-    // }
-    // if($('#grunt').prop('checked')) {
-    //   this.setState({ grunt: true });
-    //   this.setState({ gulp: false });
-    // }
-    // this.enableRadioButtons();
+    if($('#gulp').prop('checked')) {
+      this.setState({ gulp: true });
+      this.setState({ grunt: false });
+    }
+    if($('#grunt').prop('checked')) {
+      this.setState({ grunt: true });
+      this.setState({ gulp: false });
+    }
+    this.enableRadioButtons();
   },
 
   render: function () {
-    console.log('IN PROP EXPRESS: ', $('#express').prop('checked'))
-    console.log('in state express: ', this.state.express)
-    console.log('IN PROP HAPI: ', $('#hapi').prop('checked'))
-    console.log('in state hapi: ', this.state.hapi)
-    console.log('IN PROP GULP: ', $('#gulp').prop('checked'))
-    console.log('in state gulp: ', this.state.gulp)
-    console.log('IN PROP GRUNT: ', $('#grunt').prop('checked'))
-    console.log('in state grunt: ', this.state.grunt)
     return (
       <div id='options-section'>
         <h3>Options</h3>
-        {this.props.hash}
-        <Button id='submitButton' onClick={this.post}>Download Files</Button>
-
         <div className='form-group'>
-          <Input type='text' label='Project Name' id='projectName' onKeyPress = {this.handleProjectName} required />
+          <Input type='text' label='Project Name' id='projectName' onKeyPress={this.handleProjectName} required />
           <hr></hr>
           <p id='basic-options'>Basic Options</p>
           <Input type="checkbox" label="React javascript files only" id='basic' onChange={this.handleBasicBtnChange} readOnly checked={this.state.basic} />
@@ -128,15 +111,16 @@ var Options = React.createClass({
             </label>
           </div>
           <hr></hr>
-          <div id='template-buttons'>
-            <Button id='saveButton'>Save Template</Button>
-            <Button id='loadButton'>Load Template</Button>
-          </div>
         </div>
-
+        <Button id='submitButton' bsSize='large'>Download Files</Button>
       </div>
     )
   }
 });
 
 module.exports = Options;
+
+        // <div id='template-buttons'>
+          //   <Button id='saveButton'>Save Template</Button>
+          //   <Button id='loadButton'>Load Template</Button>
+          // </div>

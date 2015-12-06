@@ -11,7 +11,8 @@ var addStandardFiles = require('./utils/addStandardFiles');
 var capitalize = require('./utils/capitalize');
 var compression = require('compression');
 var sessionController = require('./utils/sessionController');
-//
+var request = require('request');
+
 //configure express
 var app = express();
 // var server = http.createServer(app);

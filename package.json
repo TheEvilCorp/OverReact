@@ -5,8 +5,8 @@
   "main": "outputTest.js",
   "scripts": {
     "start-server": "node server/server.js",
-    "start": "node server/server.js",
-    "start-dev": "gulp & npm start",
+    "start": "export NODE_ENV=production; node server/server.js",
+    "start-dev": "gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
     "postinstall": "gulp scripts css"
