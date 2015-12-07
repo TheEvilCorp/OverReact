@@ -6,14 +6,13 @@ var mkDir = function(req, res, next) {
   fs.stat(`./zips/${req.body.hash}/${req.body.projectName}`, function(err, stats) {
     console.log('mkDir: creating folders');
     if(!stats) {
-      fs.mkdirSync(`./zips/${req.body.hash}/`);
-      fs.mkdirSync(`./zips/${req.body.hash}/${req.body.projectName}`);
+      fs.mkdirSync(`./${req.body.projectName}/`);
       if(req.body.server !== 'none' || req.body.task !== 'none'){
         if(req.body.server !== 'none') {
-          fs.mkdirSync(`./zips/${req.body.hash}/${req.body.projectName}/server`);
+          fs.mkdirSync(`./${req.body.projectName}/server`);
         }
-        fs.mkdirSync(`./zips/${req.body.hash}/${req.body.projectName}/css`);
-        fs.mkdirSync(`./zips/${req.body.hash}/${req.body.projectName}/src`);
+        fs.mkdirSync(`./${req.body.projectName}/css`);
+        fs.mkdirSync(`./${req.body.projectName}/src`);
       }
     }
     next();
