@@ -4,22 +4,26 @@ var widget = require('./../js/widget')
 
 
 var Gui = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
-  componentDidMount: function(){
-    widget();
-  },
-
-  render: function () {
-    return (
+  componentDidMount: () => widget(),
+  clearAll: () => $('.box').remove(),
+  render: () =>
       <div>
-        Your session code is: {this.props.hash}
+        <div>Your session code is: {this.props.hash}<br /></div>
+        <button onClick={this.clearAll}>CLEAR ALL</button>
         <div id='overReact-container'></div>
       </div>
-
-    )
-  }
+  //
+  //
+  // function () {
+  //   return (
+  //     <div>
+  //       <div>Your session code is: {this.props.hash}<br /></div>
+  //       <button onClick={this.clearAll}>CLEAR ALL</button>
+  //       <div id='overReact-container'></div>
+  //     </div>
+  //
+  //   )
+  // }
 });
 
 module.exports = Gui;

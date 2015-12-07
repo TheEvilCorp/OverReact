@@ -2,9 +2,9 @@ var React = require('react');
 var $ = require('jquery');
 var Input = require('react-bootstrap').Input
 var Button = require('react-bootstrap').Button
+var handleRadioButton = require('./../js/widgetHelpers/handleRadioBtnChange');
+var enableRadioBtns = require('./../js/widgetHelpers/enableRadioButtons');
 var postFunction = require('../js/widgetHelpers/postFunction');
-// var handleRadioButton = require('./../js/widgetHelpers/handleRadioBtnChange');
-// var enableRadioBtns = require('./../js/widgetHelpers/enableRadioButtons');
 
 var Options = React.createClass({
   getInitialState: function() {
@@ -16,69 +16,28 @@ var Options = React.createClass({
       grunt:false
     };
   },
-  disableRadioButtons: function(){
-    this.setState({ express: false });
-    this.setState({ hapi: false });
-    this.setState({ gulp: false });
-    this.setState({ grunt: false });
-  },
-  enableRadioButtons: function() {
-
-    this.setState({ basic: false });
-
-    //if the basic option is not chosen, at least one server and one task runner will be chosen
-    if(!$('#express').prop('checked') && !$('#hapi').prop('checked')) {
-      $('#express').prop('checked', true);
-      this.setState({ express: true });
-      this.setState({ hapi: false });
-    }
-    if(!$('#gulp').prop('checked') && !$('#grunt').prop('checked')) {
-      $('#gulp').prop('checked', true);
-      this.setState({ gulp: true });
-      this.setState({ grunt: false });
-    }
-
-  },
-  handleBasicBtnChange: function(e) {
-
+  
+  handleBasicBtnChange: function() {
+    
     if(!this.state.basic) {
       this.setState({ basic: true });
-      this.disableRadioButtons();
+      this.setState({ express: false });
+      this.setState({ hapi: false });
+      this.setState({ gulp: false });
+      this.setState({ grunt: false });
     } else {
       this.setState({ basic: false });
-      this.enableRadioButtons();
+      enableRadioBtns(this);
     }
   },
+
+  handleRadioBtnChange: function() {
+    handleRadioButton(this)
+    enableRadioBtns(this)
+  },
+  
   post: function() {
     postFunction(this.props.id, this.props.hash);
-  },
-  handleRadioBtnChange: function(e) {
-    // handleRadioButton()
-    // enableRadioBtns();
-    // var id = e.target.id;
-    this.setState({ express: $('#express').prop('checked')});
-    this.setState({ hapi: $('#hapi').prop('checked')});
-    this.setState({ gulp: $('#gulp').prop('checked')});
-    this.setState({ grunt: $('#grunt').prop('checked')});
-
-    if($('#express').prop('checked')) {
-      this.setState({ express: true });
-      this.setState({ hapi: false });
-    }
-    if($('#hapi').prop('checked')) {
-      this.setState({ hapi: true });
-      this.setState({ express: false });
-    }
-
-    if($('#gulp').prop('checked')) {
-      this.setState({ gulp: true });
-      this.setState({ grunt: false });
-    }
-    if($('#grunt').prop('checked')) {
-      this.setState({ grunt: true });
-      this.setState({ gulp: false });
-    }
-    this.enableRadioButtons();
   },
 
   render: function () {
@@ -112,7 +71,7 @@ var Options = React.createClass({
           </div>
           <hr></hr>
         </div>
-        <Button onClick={this.post} id='submitButton' bsSize='large'>Download Files</Button>
+        <Button id='submitButton' bsSize='large' onClick={this.post} >Download Files</Button>
       </div>
     )
   }

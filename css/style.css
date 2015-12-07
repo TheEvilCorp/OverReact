@@ -132,7 +132,7 @@ body{
 /*Application Section*/
 #application-section {
   /*display: flex;*/
-  height: 650px;
+  height: 700px;
   padding-top: 25px;
 }
 
@@ -241,13 +241,11 @@ hr {
   margin: 5px;
 }
 
-
-
 /*What Next Section*/
 #whatNext-section {
   padding: 35px;
   background-color: #BABABA;
-  height: 550px;
+  height: 600px;
   text-align: center;
 }
 #whatNext-section p {

@@ -48,11 +48,13 @@
     "gulp-notify": "^2.2.0",
     "gulp-uglify": "^1.5.1",
     "hat": "0.0.3",
+    "jquery": "^2.1.4",
     "mongoose": "^4.2.9",
     "path": "^0.12.7",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.0",
+    "request": "^2.67.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.2"

@@ -4,3 +4,5 @@ build
 bundle.js
 dist
 npm_debug.log
+config
+zips
