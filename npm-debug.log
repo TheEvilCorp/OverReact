@@ -3,14 +3,14 @@
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'run',
 1 verbose cli   'start-dev' ]
-2 info using npm@2.14.3
-3 info using node@v4.1.0
+2 info using npm@2.14.7
+3 info using node@v4.2.1
 4 verbose run-script [ 'prestart-dev', 'start-dev', 'poststart-dev' ]
 5 info prestart-dev OverReact@1.0.0
 6 info start-dev OverReact@1.0.0
 7 verbose unsafe-perm in lifecycle true
 8 info OverReact@1.0.0 Failed to exec start-dev script
-9 verbose stack Error: OverReact@1.0.0 start-dev: `gulp & npm run start-server`
+9 verbose stack Error: OverReact@1.0.0 start-dev: `export NODE_ENV=development; gulp & npm run start-server`
 9 verbose stack Exit status 1
 9 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:214:16)
 9 verbose stack     at emitTwo (events.js:87:13)
@@ -18,22 +18,22 @@
 9 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
 9 verbose stack     at emitTwo (events.js:87:13)
 9 verbose stack     at ChildProcess.emit (events.js:172:7)
-9 verbose stack     at maybeClose (internal/child_process.js:817:16)
+9 verbose stack     at maybeClose (internal/child_process.js:818:16)
 9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 10 verbose pkgid OverReact@1.0.0
-11 verbose cwd /Users/Susan/Documents/CODESMITH/OverReact
-12 error Darwin 14.5.0
+11 verbose cwd /Users/Rico/Documents/GitHub/OverReact
+12 error Darwin 14.0.0
 13 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "start-dev"
-14 error node v4.1.0
-15 error npm  v2.14.3
+14 error node v4.2.1
+15 error npm  v2.14.7
 16 error code ELIFECYCLE
-17 error OverReact@1.0.0 start-dev: `gulp & npm run start-server`
+17 error OverReact@1.0.0 start-dev: `export NODE_ENV=development; gulp & npm run start-server`
 17 error Exit status 1
-18 error Failed at the OverReact@1.0.0 start-dev script 'gulp & npm run start-server'.
+18 error Failed at the OverReact@1.0.0 start-dev script 'export NODE_ENV=development; gulp & npm run start-server'.
 18 error This is most likely a problem with the OverReact package,
 18 error not with npm itself.
 18 error Tell the author that this fails on your system:
-18 error     gulp & npm run start-server
+18 error     export NODE_ENV=development; gulp & npm run start-server
 18 error You can get their info via:
 18 error     npm owner ls OverReact
 18 error There is likely additional logging output above.

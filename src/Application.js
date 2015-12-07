@@ -10,7 +10,7 @@ var Application = React.createClass({
     return (
       <div id='application-section'>
           <Gui id={this.props.id} hash={this.props.hash}/>
-          <Options id={this.props.id} hash={this.props.hash}/>
+          <Options id={this.props.id} hash={this.props.hash} submit={this.props.submit}/>
       </div>
     )
   }

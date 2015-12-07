@@ -6,6 +6,7 @@ var Application = require('./Application');
 var WhatNext = require('./Whatnext');
 var Footer = require('./Footer');
 var Navbar = require('react-bootstrap').Navbar;
+var Modal = require('react-bootstrap').Modal;
 
 //
 
@@ -14,7 +15,8 @@ var App = React.createClass({
   getInitialState: function() {
     return {
       id: null,
-      hash: null
+      hash: null,
+      modal: false
     }
   },
   componentDidMount: function() {
@@ -28,9 +30,13 @@ var App = React.createClass({
       }
     });
   },
+  submit: function () {
+    this.setState({modal: true});
+  },
   render: function () {
     return (
       <div>
+          <Modal />
           <Navbar fixedTop={true} id='nav-section'>
             <Navbar.Brand className='text-center'>
               <a href="#" id='nav-title'>OverReact</a>
@@ -38,7 +44,7 @@ var App = React.createClass({
           </Navbar>
 
           <Home />
-          <Application id={this.state.id} hash={this.state.hash}/>
+          <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>
           <WhatNext />
           <Footer />
       </div>
