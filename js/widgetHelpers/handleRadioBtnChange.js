@@ -1,27 +1,25 @@
 
-  
-function handleRadioBtnChange(e) {
-  console.log('handle radio button change in module')
-  this.setState({ express: $('#express').prop('checked')});
-  this.setState({ hapi: $('#hapi').prop('checked')});
-  this.setState({ gulp: $('#gulp').prop('checked')});
-  this.setState({ grunt: $('#grunt').prop('checked')});
+function handleRadioBtnChange(component) {
+  component.setState({ express: $('#express').prop('checked')});
+  component.setState({ hapi: $('#hapi').prop('checked')});
+  component.setState({ gulp: $('#gulp').prop('checked')});
+  component.setState({ grunt: $('#grunt').prop('checked')});
 
   if($('#express').prop('checked')) {
-    this.setState({ express: true });
-    this.setState({ hapi: false });
+    component.setState({ express: true });
+    component.setState({ hapi: false });
   }
   if($('#hapi').prop('checked')) {
-    this.setState({ hapi: true });
-    this.setState({ express: false });
+    component.setState({ hapi: true });
+    component.setState({ express: false });
   }
   if($('#gulp').prop('checked')) {
-    this.setState({ gulp: true });
-    this.setState({ grunt: false });
+    component.setState({ gulp: true });
+    component.setState({ grunt: false });
   }
   if($('#grunt').prop('checked')) {
-    this.setState({ grunt: true });
-    this.setState({ gulp: false });
+    component.setState({ grunt: true });
+    component.setState({ gulp: false });
   }
 }
 
