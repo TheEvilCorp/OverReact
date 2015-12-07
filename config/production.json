@@ -1,5 +1,0 @@
-{
-  "mongo": {
-    "MONGO_URI": "mongodb://eviltesting:codesmith@ds063919.mongolab.com:63919/heroku_6947c9dp"
-  }
-}
