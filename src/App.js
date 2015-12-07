@@ -22,7 +22,7 @@ var App = React.createClass({
     var that = this;
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8000/newtemplate',
+      url: '/newtemplate',
       success: function(data) {
         that.setState({id: data._id, hash: data.hash});
       }
