@@ -5,8 +5,8 @@ body div div{
 <%}%>
 #<%-component.name%> {
   position: <%if(component.name === 'App') {%>relative;<%} else {%>absolute;<%}%>
-  width: <%-component.width%>;
-  height: <%-component.height%>;
+  width: <%-component.width%>px;
+  height: <%-component.height%>px;
   <% if(component.name !== 'App') {%>top: <%-component.position.top%>;
   left: <%-component.position.left%>;
   <%}%>
