@@ -261,8 +261,11 @@ hr {
   margin-top: 20px;
   border-radius: 10px;
   text-align: justify;
-
-/*Footer Section*/}
+}
+.terminal-text {
+  font-family: courier;
+}
+/*Footer Section*/
 
 #footer-section {
   height: 60px;
@@ -278,7 +281,7 @@ hr {
   display: inline-block;
 }
 #footer-section div {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #footer-section li:first-child {
