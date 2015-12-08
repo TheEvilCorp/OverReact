@@ -16,7 +16,7 @@ var DownloadModal = React.createClass({
   render: function () {
     var innerGlyphicon = <Glyphicon glyph="copy" />;
     var command = 'overreact ' + this.props.hash;
-    var tooltip = <Tooltip id='copied'>Copied to clipboard!</Tooltip>;
+    var tooltip = <Tooltip id='copied' className='in' title='Copied to clipboard!'>Copied to clipboard!</Tooltip>;
 
     return (
       <Modal show={this.props.show} onHide={this.props.onHide} hash={this.props.hash}>
@@ -29,7 +29,7 @@ var DownloadModal = React.createClass({
           <p>2. Open your terminal, navigate to the correct folder, paste and run.</p>
           <OverlayTrigger trigger='click' placement='bottom' overlay={tooltip}>
             <ReactZeroClipboard text={command}>
-              <Input id='pasteable' type='text' readOnly='true' addonAfter={innerGlyphicon} value={command} />
+              <Input font='courier' id='pasteable' type='text' readOnly='true' addonAfter={innerGlyphicon} value={command} />
             </ReactZeroClipboard>
           </OverlayTrigger>
           <h4>Method 2</h4>
