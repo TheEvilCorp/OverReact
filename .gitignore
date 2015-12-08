@@ -3,6 +3,6 @@ bower_components
 build
 bundle.js
 dist
-npm_debug.log
+npm-debug.log
 config
 zips

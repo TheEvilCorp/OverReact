@@ -7,7 +7,7 @@ var ProjectName = React.createClass({
   },
   render: function () {
     return (
-        <Input onKeyDown={this.props.handler} type='text' label='Project Name' id='projectName' pattern="[a-zA-Z0-9_ ]+" required/>
+        <Input onChange={this.props.handler} type='text' label='Project Name' id='projectName' pattern="[a-zA-Z0-9_ ]+" required/>
     )
   }
 });

@@ -14,7 +14,6 @@ module.exports = function(state, callback) {
   };
 
   createDataObj(dataObj, '#overReact-container');
-  console.log(form)
 
   //post request to create React files and download the zip
   $.ajax({
@@ -22,7 +21,7 @@ module.exports = function(state, callback) {
     url: '/submit',
     contentType: 'application/json',
     data: JSON.stringify({
-      projectName: form.projectName || 'myReactProject',
+      projectName: form.projectName || 'myOverReactProject',
       main: dataObj,
       server: form.server,
       task: form.task,
@@ -30,7 +29,6 @@ module.exports = function(state, callback) {
     }),
     //this initiates download once the file is zipped
     success: function(uniqueID){
-      console.log(uniqueID, 'hello');
       callback(uniqueID);
     },
     error: function(err){
