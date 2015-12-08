@@ -1,6 +1,6 @@
 var alsoResizeChildren = require('./alsoResizeChildren');
 var generateNames = require('./generateNamesArr');
-var renameComponent = require('./renameComponent');
+var replaceNameWithInputField = require('./replaceNameWithInputField');
 
 //creates a new box div and appends it to the parent node (context). Sets the box to be resizable and draggable. Applies default CSS for dynamic resizing of boxes inside child boxes.
 module.exports = function (boxName, node, fromLoadButton) {
@@ -68,8 +68,7 @@ module.exports = function (boxName, node, fromLoadButton) {
       }
   }
   $('#' + boxName).find('span').on('dblclick', function(e) {
-    
     e.preventDefault();
-    renameComponent(boxName);
+    replaceNameWithInputField(boxName);
   });
 };
