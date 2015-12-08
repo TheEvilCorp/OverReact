@@ -66,6 +66,7 @@ module.exports = function(){
         if (!fromLoadButton) node.find('input').val('');
 
         //create a new box
+        mixpanel.track('Create Component');
         createBox(componentName, node, fromLoadButton);
 
         //create Delete Button

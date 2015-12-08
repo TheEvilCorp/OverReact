@@ -22,6 +22,9 @@ var App = React.createClass({
       modal: false
     }
   },
+  componentDidMount: function() {
+    mixpanel.track('Page Load');
+  },
   submit: function (hash) {
     this.setState({
       modal: true,
