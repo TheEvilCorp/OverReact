@@ -37,11 +37,10 @@ var Options = React.createClass({
   },
 
   post: function() {
-    postFunction(this.state);
+    postFunction(this.state, this.props.submit);
   },
 
   render: function () {
-    console.log(this.state)
     return (
       <div id='options-section'>
         <h3>Options</h3>
