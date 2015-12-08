@@ -22,4 +22,10 @@ module.exports = function(context, func) {
     $(e.target).find('input').val(output);
     func($(this));
   });
+
+  inputField.on('keypress', function(){
+    if(e.which == 27) {alert('escape button')}
+  });
+
+
 };

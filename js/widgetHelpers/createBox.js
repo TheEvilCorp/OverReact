@@ -68,6 +68,7 @@ module.exports = function (boxName, node, fromLoadButton) {
       }
   }
   $('#' + boxName).find('span').on('dblclick', function(e) {
+    
     e.preventDefault();
     renameComponent(boxName);
   });
