@@ -261,12 +261,17 @@ hr {
   margin-top: 20px;
   border-radius: 10px;
   text-align: justify;
-
-/*Footer Section*/}
+}
+.terminal-text {
+  font-family: courier;
+}
+/*Footer Section*/
 
 #footer-section {
   height: 60px;
-  text-align: none;
+  text-align: left      !important;
+  font-size: 1.1em;
+  color: white;
 }
 #footer-section ul,
 #footer-section li,
@@ -275,6 +280,19 @@ hr {
 #footer-section a {
   display: inline-block;
 }
-#footer-section ul {
-  text-align: left;
+#footer-section div {
+  margin-top: 10px;
+}
+
+#footer-section li:first-child {
+  margin-right: 30px;
+}
+
+#footer-section p {
+  margin-left: 270px;
+  margin-right: 380px;
+}
+
+#footer-section a:last-child {
+  text-align: right;
 }
