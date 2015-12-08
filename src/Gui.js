@@ -7,9 +7,6 @@ var Gui = React.createClass({
   componentDidMount: function() {
     widget();
   },
-  clearAll: function() {
-    $('.box').remove();
-  },
   render: function() {
     return (
       <div id='overReact-container'></div>

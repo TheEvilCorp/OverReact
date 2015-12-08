@@ -207,14 +207,19 @@ body{
   margin-left: 8px;
   font-weight: bold;
 }
-#options-section label {
+#options-section label, input {
   font-weight: normal;
+  margin: -3px 0;
 }
 
-#basic-options,
-#basic-options input {
+#projectName{
+  margin-top: 5px;
+}
+
+#basic-options, #basic-options input{
   margin-bottom: 0px;
 }
+
 
 .form-group {
   background-color: white;
@@ -263,7 +268,7 @@ hr {
   height: 60px;
   text-align: none;
 }
-#footer-section ul, 
+#footer-section ul,
 #footer-section li,
 #footer-section div,
 #footer-section p,
@@ -273,4 +278,3 @@ hr {
 #footer-section ul {
   text-align: left;
 }
-

@@ -6,7 +6,6 @@ var mkDir = function(req, res, next) {
   req.body.uniqueID = hat();
   req.body.folderName = `${req.body.projectName}:${req.body.uniqueID}`
   fs.stat(`./${req.body.folderName}`, function(err, stats) {
-    console.log('mkDir: creating folders');
     if(!stats) {
       fs.mkdirSync(`./${req.body.folderName}/`);
       if(req.body.server !== 'none' || req.body.task !== 'none'){
