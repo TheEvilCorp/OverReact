@@ -5,14 +5,12 @@ var Gui = require('./Gui');
 var Options = require('./Options');
 
 var Application = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
+
   render: function () {
     return (
       <div id='application-section'>
-          <Gui id={this.props.id} hash={this.props.hash}/>
-          <Options id={this.props.id} hash={this.props.hash}/>
+          <Gui />
+          <Options submit={this.props.submit}/>
       </div>
     )
   }

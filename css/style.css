@@ -128,11 +128,10 @@ body{
   border: 1px solid white;
 }
 
-
 /*Application Section*/
 #application-section {
   /*display: flex;*/
-  height: 650px;
+  height: 700px;
   padding-top: 25px;
 }
 
@@ -208,14 +207,19 @@ body{
   margin-left: 8px;
   font-weight: bold;
 }
-#options-section label {
+#options-section label, input {
   font-weight: normal;
+  margin: -3px 0;
 }
 
-#basic-options,
-#basic-options input {
+#projectName{
+  margin-top: 5px;
+}
+
+#basic-options, #basic-options input{
   margin-bottom: 0px;
 }
+
 
 .form-group {
   background-color: white;
@@ -241,13 +245,11 @@ hr {
   margin: 5px;
 }
 
-
-
 /*What Next Section*/
 #whatNext-section {
   padding: 35px;
   background-color: #BABABA;
-  height: 550px;
+  height: 600px;
   text-align: center;
 }
 #whatNext-section p {
@@ -259,9 +261,20 @@ hr {
   margin-top: 20px;
   border-radius: 10px;
   text-align: justify;
-}
 
-/*Footer Section*/
+/*Footer Section*/}
+
 #footer-section {
   height: 60px;
+  text-align: none;
+}
+#footer-section ul,
+#footer-section li,
+#footer-section div,
+#footer-section p,
+#footer-section a {
+  display: inline-block;
+}
+#footer-section ul {
+  text-align: left;
 }
