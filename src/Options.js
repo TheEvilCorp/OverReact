@@ -16,9 +16,9 @@ var Options = React.createClass({
       grunt:false
     };
   },
-  
+
   handleBasicBtnChange: function() {
-    
+
     if(!this.state.basic) {
       this.setState({ basic: true });
       this.setState({ express: false });
@@ -35,9 +35,9 @@ var Options = React.createClass({
     handleRadioButton(this)
     enableRadioBtns(this)
   },
-  
+
   post: function() {
-    postFunction();
+    postFunction(this.props.submit);
   },
 
   render: function () {
