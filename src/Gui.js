@@ -9,7 +9,7 @@ var Gui = React.createClass({
   },
   render: function() {
     return (
-      <div id='overReact-container'></div>
+      <div id='overReact-container'>App</div>
     )
   }
 });
