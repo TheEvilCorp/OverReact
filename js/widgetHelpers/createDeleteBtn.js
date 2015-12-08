@@ -13,6 +13,7 @@ var createDeleteBtn = function(parent){
 
 //delete button click handler to allow for deleted component name to be reused
 function deleteComponent(button){
+  mixpanel.track('Delete Component');
   button.parentNode.remove();
 }
 

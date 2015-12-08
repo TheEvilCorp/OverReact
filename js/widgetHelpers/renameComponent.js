@@ -2,6 +2,7 @@ var createInput = require('./createInput');
 
 //renames the component and removes input field
 function renameComponent(node) {
+  mixpanel.track('Rename Component');
   var oldNameNode = $(node).parent().find('span').first();
   var newName = $(node).find('input').val();
   oldNameNode.text(newName);
