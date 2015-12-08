@@ -27,12 +27,11 @@ module.exports = function(id, hash) {
       server: form.server,
       task: form.task,
       template: 'es6',
-      id: id,
-      hash: hash
     }),
     //this initiates download once the file is zipped
-    success: function(){
-      window.location.href = `/download/:${hash}`;
+    success: function(uniqueID){
+      console.log('in success: ', uniqueID);
+      window.location.href = `/download/:${uniqueID}`;
     },
     error: function(err){
       console.log('ERROR: ', err);

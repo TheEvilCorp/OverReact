@@ -11,23 +11,7 @@ var Navbar = require('react-bootstrap').Navbar;
 
 
 var App = React.createClass({
-  getInitialState: function() {
-    return {
-      id: null,
-      hash: null
-    }
-  },
-  componentDidMount: function() {
-    console.log('component mounted!');
-    var that = this;
-    $.ajax({
-      type: 'GET',
-      url: '/newtemplate',
-      success: function(data) {
-        that.setState({id: data._id, hash: data.hash});
-      }
-    });
-  },
+
   render: function () {
     return (
       <div>
@@ -38,7 +22,7 @@ var App = React.createClass({
           </Navbar>
 
           <Home />
-          <Application id={this.state.id} hash={this.state.hash}/>
+          <Application />
           <WhatNext />
           <Footer />
       </div>

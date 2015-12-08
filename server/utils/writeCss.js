@@ -3,7 +3,7 @@ var ejs = require('ejs');
 
 function writeCss(obj, file) {
   //create a write stream
-  var cssStream = fs.createWriteStream(`./${obj.projectName}/css/style.css`);
+  var cssStream = fs.createWriteStream(`./${obj.folderName}/css/style.css`);
   //execute this when all writes are down
   cssStream.on('finish', function() {
 

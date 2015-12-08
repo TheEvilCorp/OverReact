@@ -37,7 +37,7 @@ var Options = React.createClass({
   },
   
   post: function() {
-    postFunction(this.props.id, this.props.hash);
+    postFunction();
   },
 
   render: function () {
