@@ -14,9 +14,12 @@ var sessionController = require('./utils/sessionController');
 
 //configure express
 var app = express();
-// var server = http.createServer(app);
+
+//Gzip express equivalent
 app.use(compression());
+//Parse req and attach json to req.body
 app.use(bodyParser.json());
+//Requests default to this path
 app.use(express.static(path.join(__dirname, './../')));
 
 //have the index html send on root route
@@ -24,6 +27,7 @@ app.get('/', function(req,res) {
   res.sendFile('/index.html');
 });
 
+//for the save and load buttons which are deprecated at the moment
 app.get('/newtemplate', sessionController.createSession);
 
 //post route for when the user is done setting up their component layout, kicks off middleware chain to create directory, write files to created directory, then zip file.

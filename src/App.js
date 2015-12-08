@@ -17,17 +17,7 @@ var App = React.createClass({
       hash: null
     }
   },
-  componentDidMount: function() {
-    console.log('component mounted!');
-    var that = this;
-    $.ajax({
-      type: 'GET',
-      url: '/newtemplate',
-      success: function(data) {
-        that.setState({id: data._id, hash: data.hash});
-      }
-    });
-  },
+
   render: function () {
     return (
       <div>

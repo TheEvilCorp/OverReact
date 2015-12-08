@@ -208,14 +208,19 @@ body{
   margin-left: 8px;
   font-weight: bold;
 }
-#options-section label {
+#options-section label, input {
   font-weight: normal;
+  margin: -3px 0;
 }
 
-#basic-options,
-#basic-options input {
+#projectName{
+  margin-top: 5px;
+}
+
+#basic-options, #basic-options input{
   margin-bottom: 0px;
 }
+
 
 .form-group {
   background-color: white;

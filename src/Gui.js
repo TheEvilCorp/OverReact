@@ -14,7 +14,6 @@ var Gui = React.createClass({
   render: function () {
     return (
       <div>
-        Your session code is: {this.props.hash}
         <div id='overReact-container'></div>
       </div>
 

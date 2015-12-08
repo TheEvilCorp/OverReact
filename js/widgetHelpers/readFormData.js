@@ -1,35 +1,26 @@
   //Retrieves form data
-  function readFormData(){
+  function readFormData(state){
     var formData = {};
-  
-    //Retrieve projectName from user input 
-    formData.projectName = $('#projectName').val();
-    if(formData.projectName === "") formData.projectName = 'myReactProject';
-    
-    //Read checkboxes & radio button selections
-    var basic, express, gulp
-    basic = $('#basic').prop('checked');
-    if(!basic) {
-      express = $('#express').prop('checked');
-      gulp = $('#gulp').prop('checked');  
-    }
-    
-    if(basic) {
+
+    //Retrieve projectName from user input
+    formData.projectName = state.projectName;
+
+    //es6 vs es5 template
+    formData.es6 = state.es6 ? 'es6' : 'es5';
+
+    //Read checkboxes & radio button selection
+    if(state.basic) {
       formData.server = 'none';
       formData.task = 'none';
     } else {
-      if(express) formData.server = 'express';
-      else formData.server = 'hapi';
-      if(gulp) formData.task = 'gulp';
-      else formData.task = 'grunt';
+      formData.server = state.express ? 'express' : 'hapi';
+      formData.task = state.gulp ? 'gulp' : 'grunt';
     }
-    console.log(formData.projectName + ' ' + formData.server + ' ' + formData.task)  
-    
+    console.log(formData.projectName + ' ' + formData.server + ' ' + formData.task)
+
     return formData;
   }
 
 
 
   module.exports = readFormData;
-
-  
