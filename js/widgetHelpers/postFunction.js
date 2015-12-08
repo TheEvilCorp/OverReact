@@ -1,9 +1,9 @@
 var createDataObj = require('./createDataObj');
 var readFormData = require('./readFormData');
 
-module.exports = function(id, hash) {
+module.exports = function(state, callback) {
   //Retrieves data from form
-  var form = readFormData();
+  var form = readFormData(state)
   //interprets the DOM into an object
   var dataObj = {
     name: 'app',
@@ -22,16 +22,16 @@ module.exports = function(id, hash) {
     url: '/submit',
     contentType: 'application/json',
     data: JSON.stringify({
-      projectName: form.projectName,
+      projectName: form.projectName || 'myReactProject',
       main: dataObj,
       server: form.server,
       task: form.task,
-      template: 'es6',
+      template: form.es6,
     }),
     //this initiates download once the file is zipped
     success: function(uniqueID){
-      console.log('in success: ', uniqueID);
-      window.location.href = `/download/:${uniqueID}`;
+      console.log(uniqueID, 'hello');
+      callback(uniqueID);
     },
     error: function(err){
       console.log('ERROR: ', err);

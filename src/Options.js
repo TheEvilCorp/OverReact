@@ -1,43 +1,43 @@
 var React = require('react');
 var $ = require('jquery');
-var Input = require('react-bootstrap').Input
 var Button = require('react-bootstrap').Button
 var handleRadioButton = require('./../js/widgetHelpers/handleRadioBtnChange');
-var enableRadioBtns = require('./../js/widgetHelpers/enableRadioButtons');
 var postFunction = require('../js/widgetHelpers/postFunction');
+var ProjectName = require('./ProjectName');
+var ServerComponent = require('./ServerComponent');
+var TaskRunnerComponent = require('./TaskRunnerComponent');
+var BasicOptions = require('./BasicOptions');
 
 var Options = React.createClass({
   getInitialState: function() {
     return {
+      projectName: '',
       basic: false,
+      es6: false,
       express: true,
       hapi: false,
       gulp: true,
-      grunt:false
+      grunt:false,
     };
   },
-  
-  handleBasicBtnChange: function() {
-    
-    if(!this.state.basic) {
-      this.setState({ basic: true });
-      this.setState({ express: false });
-      this.setState({ hapi: false });
-      this.setState({ gulp: false });
-      this.setState({ grunt: false });
-    } else {
-      this.setState({ basic: false });
-      enableRadioBtns(this);
+  shouldComponentUpdate: function(nextProps, nextState) {
+    return this.state !== nextState ? true : false;
+  },
+  updateProjectName: function(e) {
+    if(e.keyCode === 13) {
+      this.setState({
+        projectName: e.target.value.replace(/\s/g, '_')
+      })
+      e.target.blur()
     }
   },
 
-  handleRadioBtnChange: function() {
-    handleRadioButton(this)
-    enableRadioBtns(this)
+  handleButtonChange: function(e) {
+    this.setState(handleRadioButton(e, this.state));
   },
-  
+
   post: function() {
-    postFunction();
+    postFunction(this.state, this.props.submit);
   },
 
   render: function () {
@@ -45,30 +45,13 @@ var Options = React.createClass({
       <div id='options-section'>
         <h3>Options</h3>
         <div className='form-group'>
-          <Input type='text' label='Project Name' id='projectName' onKeyPress={this.handleProjectName} required />
+          <ProjectName key='projectName' data={this.state.projectName} handler={this.updateProjectName}/>
           <hr></hr>
-          <p id='basic-options'>Basic Options</p>
-          <Input type="checkbox" label="React javascript files only" id='basic' onChange={this.handleBasicBtnChange} readOnly checked={this.state.basic} />
+          <BasicOptions key='basic' data ={this.state} handler={this.handleButtonChange}/>
           <hr></hr>
-          <div className='radio-sections'>
-            <p>Choose a server</p>
-            <label className="radio-inline" className='radio-btns'>
-              <Input name="servers" id="express" value="express" type="radio" onChange={this.handleRadioBtnChange} label='Express' checked={this.state.express} />
-            </label>
-            <label className="radio-inline" className='radio-btns'>
-              <Input name="servers" id="hapi" value="hapi" type="radio" onChange={this.handleRadioBtnChange} label='Hapi' checked={this.state.hapi} />
-            </label>
-          </div>
+          <ServerComponent key='server' data={this.state} handler={this.handleButtonChange}/>
           <hr></hr>
-          <div className='radio-sections'>
-            <p>Choose a task runner</p>
-            <label className="radio-inline" className='radio-btns'>
-              <Input name="taskRunners" id="gulp" value="gulp" type="radio" onChange={this.handleRadioBtnChange} label='Gulp' checked={this.state.gulp} />
-            </label>
-            <label className="radio-inline" className='radio-btns'>
-              <Input name="taskRunners" id="grunt" value="grunt" type="radio" onChange={this.handleRadioBtnChange} label='Grunt' checked={this.state.grunt} />
-            </label>
-          </div>
+          <TaskRunnerComponent key='task' data={this.state} handler={this.handleButtonChange}/>
           <hr></hr>
         </div>
         <Button id='submitButton' bsSize='large' onClick={this.post} >Download Files</Button>
@@ -78,8 +61,3 @@ var Options = React.createClass({
 });
 
 module.exports = Options;
-
-        // <div id='template-buttons'>
-          //   <Button id='saveButton'>Save Template</Button>
-          //   <Button id='loadButton'>Load Template</Button>
-          // </div>

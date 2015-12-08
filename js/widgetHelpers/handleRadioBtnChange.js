@@ -1,26 +1,43 @@
 
-function handleRadioBtnChange(component) {
-  component.setState({ express: $('#express').prop('checked')});
-  component.setState({ hapi: $('#hapi').prop('checked')});
-  component.setState({ gulp: $('#gulp').prop('checked')});
-  component.setState({ grunt: $('#grunt').prop('checked')});
-
-  if($('#express').prop('checked')) {
-    component.setState({ express: true });
-    component.setState({ hapi: false });
-  }
-  if($('#hapi').prop('checked')) {
-    component.setState({ hapi: true });
-    component.setState({ express: false });
-  }
-  if($('#gulp').prop('checked')) {
-    component.setState({ gulp: true });
-    component.setState({ grunt: false });
-  }
-  if($('#grunt').prop('checked')) {
-    component.setState({ grunt: true });
-    component.setState({ gulp: false });
-  }
+function handleRadioBtnChange(e, obj) {
+  var target = e.target.id;
+  var newState = obj;
+  switch (target) {
+    case 'es6':
+      newState.es6 = !newState.es6;
+      break;
+    case 'express':
+      newState.express = true;
+      newState.hapi = false;
+      newState.basic = false;
+      newState.gulp = !newState.gulp && !newState.grunt ? true : newState.gulp;
+      break;
+    case 'hapi':
+      newState.express = false;
+      newState.hapi = true;
+      newState.basic = false;
+      newState.gulp = !newState.gulp && !newState.grunt ? true : newState.gulp;
+      break;
+    case 'gulp':
+      newState.gulp = true;
+      newState.grunt = false;
+      newState.basic = false;
+      newState.express = !newState.express && !newState.hapi ? true : newState.express;
+      break;
+    case 'grunt':
+      newState.gulp = false;
+      newState.grunt = true;
+      newState.basic = false;
+      newState.express = !newState.express && !newState.hapi ? true : newState.express;
+      break;
+    default:
+      newState.basic = !newState.basic;
+        newState.express = newState.express ? false : newState.express;
+        newState.hapi = false;
+        newState.gulp = newState.gulp ? false: newState.gulp;
+        newState.grunt = false;
+      }
+  return newState;
 }
 
 module.exports = handleRadioBtnChange;

@@ -4,14 +4,10 @@ var widget = require('./../js/widget')
 
 
 var Gui = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
-  componentDidMount: function(){
+  componentDidMount: function() {
     widget();
   },
-
-  render: function () {
+  render: function() {
     return (
       <div id='overReact-container'></div>
     )

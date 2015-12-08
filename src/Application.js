@@ -10,7 +10,7 @@ var Application = React.createClass({
     return (
       <div id='application-section'>
           <Gui />
-          <Options />
+          <Options submit={this.props.submit}/>
       </div>
     )
   }
