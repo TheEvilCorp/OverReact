@@ -1,7 +1,7 @@
 var createDataObj = require('./createDataObj');
 var readFormData = require('./readFormData');
 
-module.exports = function(id, hash) {
+module.exports = function(id, hash, callback) {
   //Retrieves data from form
   var form = readFormData();
   //interprets the DOM into an object
@@ -32,7 +32,7 @@ module.exports = function(id, hash) {
     }),
     //this initiates download once the file is zipped
     success: function(){
-      window.location.href = `/download/:${hash}`;
+      callback();
     },
     error: function(err){
       console.log('ERROR: ', err);
