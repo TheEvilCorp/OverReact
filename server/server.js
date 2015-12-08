@@ -10,7 +10,7 @@ var zipFunction = require('./utils/zipFunction');
 var addStandardFiles = require('./utils/addStandardFiles');
 var capitalize = require('./utils/capitalize');
 var compression = require('compression');
-var sessionController = require('./utils/sessionController');
+// var sessionController = require('./utils/sessionController');
 
 //configure express
 var app = express();
@@ -24,11 +24,13 @@ app.get('/', function(req,res) {
   res.sendFile('/index.html');
 });
 
-app.get('/newtemplate', sessionController.createSession);
+// Not using this right now
+// app.get('/newtemplate', sessionController.createSession);
 
 //post route for when the user is done setting up their component layout, kicks off middleware chain to create directory, write files to created directory, then zip file.
-app.post('/submit', sessionController.saveTemplate, capitalize, mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
-  res.send('ok');
+app.post('/submit', capitalize, mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
+  console.log('in server: ', req.body.uniqueID)
+  res.send(req.body.uniqueID);
 });
 
 //on submit route response being sent successfully, the client will set location to /download to initiate the download of the zip

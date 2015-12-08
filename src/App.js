@@ -18,27 +18,15 @@ var postFunction = require('../js/widgetHelpers/postFunction');
 var App = React.createClass({
   getInitialState: function() {
     return {
-      id: null,
       hash: null,
       modal: false
     }
   },
-  componentDidMount: function() {
-    console.log('component mounted!');
-    var that = this;
-    $.ajax({
-      type: 'GET',
-      url: '/newtemplate',
-      success: function(data) {
-        that.setState({id: data._id, hash: data.hash});
-      }
+  submit: function (hash) {
+    this.setState({
+      modal: true,
+      hash: hash
     });
-  },
-  submit: function () {
-    this.setState({modal: true});
-  },
-  downloadZip: function(){
-    postFunction(this.state.id, this.state.hash);
   },
   hideModal: function() {
     this.setState({modal: false});
@@ -51,7 +39,6 @@ var App = React.createClass({
               <a href="#" id='nav-title'>OverReact</a>
             </Navbar.Brand>
           </Navbar>
-
           <Home />
           <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>
           <WhatNext />

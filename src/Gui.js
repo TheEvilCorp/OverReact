@@ -12,11 +12,7 @@ var Gui = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <div>Your session code is: {this.props.hash}<br /></div>
-        <button onClick={this.clearAll}>CLEAR ALL</button>
-        <div id='overReact-container'></div>
-      </div>
+      <div id='overReact-container'></div>
     )
   }
 });

@@ -128,7 +128,6 @@ body{
   border: 1px solid white;
 }
 
-
 /*Application Section*/
 #application-section {
   /*display: flex;*/
@@ -257,9 +256,21 @@ hr {
   margin-top: 20px;
   border-radius: 10px;
   text-align: justify;
-}
 
-/*Footer Section*/
+/*Footer Section*/}
+
 #footer-section {
   height: 60px;
+  text-align: none;
 }
+#footer-section ul, 
+#footer-section li,
+#footer-section div,
+#footer-section p,
+#footer-section a {
+  display: inline-block;
+}
+#footer-section ul {
+  text-align: left;
+}
+
