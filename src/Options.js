@@ -24,12 +24,9 @@ var Options = React.createClass({
     return this.state !== nextState ? true : false;
   },
   updateProjectName: function(e) {
-    if(e.keyCode === 13) {
-      this.setState({
-        projectName: e.target.value.replace(/\s/g, '_')
+    this.setState({
+        projectName: e.target.value.replace(/\s/g, '_').replace(/[^\w]+/g, '')
       })
-      e.target.blur()
-    }
   },
 
   handleButtonChange: function(e) {
