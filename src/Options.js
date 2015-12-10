@@ -39,7 +39,7 @@ var Options = React.createClass({
 
   render: function () {
     return (
-      <div id='options-section'>
+      <section id='options-section'>
         <h3>Options</h3>
         <div className='form-group'>
           <ProjectName key='projectName' data={this.state.projectName} handler={this.updateProjectName}/>
@@ -52,7 +52,7 @@ var Options = React.createClass({
           <hr></hr>
         </div>
         <Button id='submitButton' bsSize='large' onClick={this.post} >Download Files</Button>
-      </div>
+      </section>
     )
   }
 });
