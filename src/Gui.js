@@ -9,7 +9,10 @@ var Gui = React.createClass({
   },
   render: function() {
     return (
-      <div id='overReact-container'>App</div>
+      <section id='overReact-sectionNotContainer'>
+      <p id='Apptext'>App</p>
+      <div id='overReact-container'></div>
+      </section>
     )
   }
 });

@@ -32,7 +32,7 @@ app.get('/', function(req,res) {
 
 //post route for when the user is done setting up their component layout, kicks off middleware chain to create directory, write files to created directory, then zip file.
 app.post('/submit', capitalize, mkDir, addStandardFiles, fileController, zipFunction, function(req,res) {
-  res.send(req.body.uniqueID);
+  res.send(req.body.folderName);
 });
 
 //on submit route response being sent successfully, the client will set location to /download to initiate the download of the zip
