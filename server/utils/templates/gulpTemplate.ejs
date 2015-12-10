@@ -47,10 +47,10 @@ function buildScript(file, watch) {
 
 // run once
 gulp.task('scripts', function() {
-  return buildScript('app.js', false);
+  return buildScript('App.js', false);
 });
 
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['scripts'], function() {
-  return buildScript('app.js', true);
+  return buildScript('App.js', true);
 });

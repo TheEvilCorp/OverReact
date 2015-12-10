@@ -7,12 +7,12 @@ var Gui = React.createClass({
   componentDidMount: function() {
     widget();
   },
-  clearAll: function() {
-    $('.box').remove();
-  },
   render: function() {
     return (
+      <section id='overReact-sectionNotContainer'>
+      <p id='Apptext'>App</p>
       <div id='overReact-container'></div>
+      </section>
     )
   }
 });

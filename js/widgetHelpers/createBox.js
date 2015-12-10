@@ -49,7 +49,7 @@ module.exports = function (boxName, node, fromLoadButton) {
 
         var boxPos = {
           height: 75,
-          width: '40%',
+          width: 150,
           top: generateNames().lowestElem.position.top + 30
         };
 
