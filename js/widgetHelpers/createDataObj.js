@@ -7,8 +7,8 @@ var createDataObj = function (dataObj, elemID){
     childName = $(child).attr('id');
     childID = '#' + childName;
     position = $(child).position();
-    height = $(child).height();
-    width = $(child).width();
+    height = $(child).height() + '.'.split('.')[0];
+    width = $(child).width() + '.'.split('.')[0];
 
     newObj = {name: childName,
       children:[],

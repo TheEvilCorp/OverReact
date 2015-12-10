@@ -134,6 +134,20 @@ body{
   height: 700px;
   padding-top: 25px;
 }
+#overReact-sectionNotContainer{
+  position: relative;
+  top: 30px;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+#Apptext {
+  position: relative;
+  margin-left: 40px;
+  margin-bottom: 0;
+  color: #A3A3A3;
+}
 
 #overReact-container,
 #options-section {
@@ -142,14 +156,14 @@ body{
 }
 
 #overReact-container {
-  margin: 50px 35px 50px 35px;
+  margin: 0 35px 50px 35px;
   width: 850px;
   height: 550px;
   position: relative;
   border: 5px solid #61dafb;
   float: left;
   padding-left: 7px;
-  color: #A3A3A3;;
+  color: #A3A3A3;
 }
 
 #overReact-container form {
