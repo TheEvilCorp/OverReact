@@ -16,10 +16,10 @@ module.exports = function(context, func) {
   inputField.appendTo(('#' + context));
   inputField.on('submit', function(e){
     e.preventDefault();
-    console.log($(e.target).find('input').val());
     //convert input to Pascal case
     var output = toPascal($(e.target).find('input').val());
     $(e.target).find('input').val(output);
     func($(this));
   });
+
 };
