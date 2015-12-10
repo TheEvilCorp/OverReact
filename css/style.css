@@ -188,6 +188,9 @@ body{
   position: absolute;
   background-color: white;
 }
+.box span {
+  font-weight: bold;
+}
 
 
 #options-section {

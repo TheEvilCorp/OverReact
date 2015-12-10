@@ -5,7 +5,7 @@ var replaceNameWithInputField = require('./replaceNameWithInputField');
 //creates a new box div and appends it to the parent node (context). Sets the box to be resizable and draggable. Applies default CSS for dynamic resizing of boxes inside child boxes.
 module.exports = function (boxName, node, fromLoadButton) {
   var context = fromLoadButton ? $('#' + node.parent) : $('#overReact-container');
-
+  console.log('context: ', context.attr('id'))
   //create and append box
   $('<div class="box"><div>').attr('id', boxName)
     .append(`<span>${boxName}</span>`)
