@@ -58,6 +58,11 @@ module.exports = function(){
     //get the value of the input field & the name of the parent component
     var componentName = fromLoadButton ? node.name : node.find('input').val();
 
+    //backup validation of componentName
+    if((/[^\w]/g).test(componentName)) {
+      componentName = componentName.replace(/[^\w]/g, '');
+    }
+
     if(generateNames().names.indexOf(componentName) !== -1 || componentName === "App") {
       node.find('input').val('');
       alert('React does not allow duplicate component names');
