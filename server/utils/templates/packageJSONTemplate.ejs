@@ -4,14 +4,18 @@
   "description": "Your awesome project!",
   "main": "bundle.js",
   "scripts": {
-    "start-server": "node server/server.js",
-    "start": "npm run task & npm run start-server",
+    "start": "node server/server.js",
+    "start-dev": "npm run task & npm run start-server",
     "task": "<%-task%>"
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    <% if(server !== 'none'){ -%>"watchify": "^3.2.2"<% if(task === 'grunt') {%>,
+    "grunt-contrib-watch": "^0.6.1"<%}}%>
+  },
   "dependencies": {
-    <%#=====================static=====================%>
+<%#=====================static=====================-%>
     "path": "^0.12.7",
     "react": "^0.14",
     "react-dom": "^0.14.0",
@@ -19,20 +23,17 @@
     "babel-preset-react": "^6.0.15",<% if(es6 === 'es6') {%>
     "babel-preset-stage-0": "^6.3.13",<%}%>
     "babelify": "^7.2.0",
-    <%#=====================express vs hapi=====================%>
+<%#=====================express vs hapi=====================-%>
     <% if(server !== 'none') { if(server === 'express'){%>"express" : "^4.13.3",<%} else {%>"hapi": "^11.1.2",
-    "inert": "^3.2.0",
-    <%}}%>
-    <%#===================== gulp vs grunt =====================%>
+    "inert": "^3.2.0",<%}}%>
+<%#===================== gulp vs grunt =====================-%>
     <% if(task !== 'none'){ if(task === 'gulp') {%>"gulp": "^3.9.0",
     "gulp-notify": "^2.2.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.2",
     "browserify": "^10.2.4"
-    <%} else {%>"grunt": "^0.4.5",
+    <%} else {-%>
+"grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
-    "grunt-browserify": "^4.0.1",
-    "grunt-contrib-watch": "^0.6.1"
-    <%}}%>
-  }
+    "grunt-browserify": "^4.0.1"
+  <%}}%>}
 }
