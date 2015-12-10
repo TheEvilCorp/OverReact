@@ -7,8 +7,8 @@ class <%- component.name %> extends React.Component {
     return (
       <div id='<%-component.name%>'>
         <%- component.name %>
-        <% if (component.children) for (i = 0; i < component.children.length; i++) { %>
-          <<%- component.children[i].name %> /><% } %>
+    <% if (component.children) for (i = 0; i < component.children.length; i++) { -%>
+    <<%- component.children[i].name %> /><% } %>
       </div>
     )
   }
