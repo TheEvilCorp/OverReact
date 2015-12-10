@@ -4,8 +4,8 @@ var fs = require('fs');
 
 function zipFunction(req, res, next){
   console.log('zipFunction: Reticulating Splines...');
-  
-  exec(`mv ${req.body.folderName} ${req.body.projectName}; zip -r zips/${req.body.uniqueID}.zip ./${req.body.projectName}; rm -rf ${req.body.projectName}`, function(err, stdout, stderr) {
+
+  exec(`mv ${req.body.folderName} ${req.body.projectName}; zip -r zips/${req.body.folderName}.zip ./${req.body.projectName}; rm -rf ${req.body.projectName}`, function(err, stdout, stderr) {
     next();
   });
 }
