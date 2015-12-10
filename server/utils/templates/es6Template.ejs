@@ -1,6 +1,6 @@
 import React from 'react';
 <% if (component.parent) { %>import {render} from 'react-dom';<% } %><% if (component.children) for (var i = 0; i < component.children.length; i++) { %>
-import <%- component.children[i].name %> from'./<%- component.children[i].name %>';<% } %>
+import <%- component.children[i].name %> from './<%- component.children[i].name %>';<% } %>
 
 class <%- component.name %> extends React.Component {
   render() {
@@ -8,8 +8,9 @@ class <%- component.name %> extends React.Component {
       <div id='<%-component.name%>'>
         <%- component.name %>
     <% if (component.children) for (i = 0; i < component.children.length; i++) { -%>
-    <<%- component.children[i].name %> /><% } %>
-      </div>
+    <<%- component.children[i].name %> />
+    <% } %><% -%>
+  </div>
     )
   }
 }
