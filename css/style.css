@@ -189,7 +189,6 @@ body{
   padding-left: 5px;
   position: absolute;
   background-color: white;
-  overflow: hidden;
 }
 .box > span {
   font-weight: bold;
