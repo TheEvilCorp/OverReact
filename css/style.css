@@ -171,7 +171,9 @@ body{
 }
 
 .deleteBtn {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
   color: #a0a0a0;
   background-color: white;
   border: none;
@@ -190,6 +192,14 @@ body{
   min-width: 55px;
   min-height: 55px;
   overflow: hidden;
+}
+.box > span {
+  font-weight: bold;
+  color: #4daec8;
+}
+.parentName {
+  display: inline-block;
+  padding-left: 10px;
 }
 
 #options-section {

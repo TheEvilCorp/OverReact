@@ -43,5 +43,7 @@ module.exports = function(req, res, next){
 	writeCss(req.body, file);
 
 	//execute next after all promises finsish
-	Promise.all(promises).then(next());
+	Promise.all(promises).then(function(){
+		next();	
+	});
 }

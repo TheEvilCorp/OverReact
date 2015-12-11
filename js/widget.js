@@ -25,6 +25,8 @@ module.exports = function(){
       ui.draggable.appendTo(droppedInto);
       //re-set all divs resizable to also resize their children
       alsoResizeChildren($('#overReact-container'));
+       //change parent name of "nested in: "        
+      $(ui.draggable).children('p:first-of-type').text('nested in: App')
     }
   });
   //component name array to keep track of names and prevent duplication
