@@ -19,8 +19,9 @@ turquoise: #00B4CC
 bright turquoise: #00DFFC*/
 
 body{
-  width: 1280px;
+  min-width: 1280px;
   margin: 0 auto;
+  direction: ltr;
 }
 
 .container-fluid {
@@ -67,7 +68,7 @@ body{
 
 
 #home-section {
-  width: 1280px;
+  min-width: 1280px;
   margin-top: -55px;
   height: 650px;
   background-color: #E0E0E0;
@@ -93,7 +94,7 @@ body{
 }
 
 #instruction-section {
-  width: 1280px;
+  min-width: 1280px;
   margin: auto;
 }
 
@@ -157,7 +158,7 @@ body{
 
 #overReact-container {
   margin: 0 35px 50px 35px;
-  width: 850px;
+  min-width: 850px;
   height: 550px;
   position: relative;
   border: 5px solid #61dafb;
@@ -191,7 +192,7 @@ body{
 
 
 #options-section {
-  width: 300px;
+  min-width: 300px;
   height: 550px;
   margin: 50px 30px 50px 10px;
   background-color: #C4C4C4;
@@ -289,18 +290,37 @@ hr {
   font-size: 1.1em;
   color: white;
 }
-#footer-section ul,
+/*#footer-section ul,
 #footer-section li,
 #footer-section div,
 #footer-section p,
 #footer-section a {
   display: inline-block;
-}
+}*/
 #footer-section div {
   margin-top: 10px;
 }
 
-#footer-section li:first-child {
+#feedback {
+  margin-right: 20px;
+}
+
+.footerFlexContainer {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+}
+
+.footerFlexItem {
+  margin: 20px
+}
+
+/*#footer-section li:first-child {
   margin-right: 30px;
 }
 
@@ -311,4 +331,4 @@ hr {
 
 #footer-section a:last-child {
   text-align: right;
-}
+}*/
