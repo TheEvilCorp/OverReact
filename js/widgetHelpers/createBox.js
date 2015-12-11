@@ -5,10 +5,14 @@ var replaceNameWithInputField = require('./replaceNameWithInputField');
 //creates a new box div and appends it to the parent node (context). Sets the box to be resizable and draggable. Applies default CSS for dynamic resizing of boxes inside child boxes.
 module.exports = function (boxName, node, fromLoadButton) {
   var context = fromLoadButton ? $('#' + node.parent) : $('#overReact-container');
+  
+  //To append parent name to box
+  var contextName = context.attr('id')
+  if(contextName === 'overReact-container') contextName = 'App'
 
   //create and append box
   $('<div class="box"><div>').attr('id', boxName)
-    .append(`<span>${boxName}</span>`)
+    .append(`<span>${boxName}</span><p class='parentName'> nested in: ${contextName}</p>`)
     .appendTo(context)
     .draggable({
       containment: '#overReact-container'
@@ -28,12 +32,16 @@ module.exports = function (boxName, node, fromLoadButton) {
         //adjust the css on drop
         $(ui.draggable).css({
           top: ui.draggable.offset().top - droppedInto.offset().top,
-          left: ui.draggable.offset().left - droppedInto.offset().left,
+          left: ui.draggable.offset().left - droppedInto.offset().left
         });
         //append the div that is being dragged into the div that will be its parent
         ui.draggable.appendTo(droppedInto);
         //re-set all divs resizable to also resize their children
-        alsoResizeChildren($('#overReact-container'));
+        alsoResizeChildren($('#overReact-container')); 
+        //change parent name of "nested in: "      
+        var parentName = ('box parent: ', droppedInto.attr('id'));
+        if(parentName === 'overReact-container') parentName = 'App';        
+        $(ui.draggable).children('p:first-of-type').text('nested in: ' + parentName)
         return;
       }
     });
