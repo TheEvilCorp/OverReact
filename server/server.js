@@ -46,3 +46,5 @@ app.get('/download/*', function(req, res) {
 // app.post('/feedback', sendToSlack.sendFeedback);
 
 app.listen(process.env.PORT || 8000);
+
+module.exports = app;
