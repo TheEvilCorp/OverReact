@@ -54,7 +54,7 @@ function buildScript(file, watch) {
 
 // run once
 gulp.task('scripts', function() {
-  return buildScript('./../src/App.js', false);
+  return buildScript('./../src/test.jsx', false);
 });
 
 //bundle css
@@ -70,5 +70,5 @@ gulp.task('css', function() {
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['scripts','css'], function() {
   gulp.watch(['./css/*.css'],['css']);
-  return buildScript('./../src/App.js', true);
+  return buildScript('./../src/test.jsx', true);
 });

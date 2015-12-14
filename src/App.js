@@ -1,3 +1,4 @@
+require('babel-register');
 var React = require('react');
 var $ = require('jquery');
 var ReactDOM = require('react-dom');
@@ -11,9 +12,13 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var DownloadModal = require('./DownloadModal');
 var postFunction = require('../js/widgetHelpers/postFunction');
+var createHistory = require('history').createHistory;
+var useBasename = require('history').useBasename;
+var Route = require('react-router');
 
-//
-
+const history = useBasename(createHistory)({
+  basename: '/'
+});
 
 var App = React.createClass({
   getInitialState: function() {
@@ -52,6 +57,4 @@ var App = React.createClass({
   }
 });
 
-module.exports = App;
-
-ReactDOM.render(<App />, document.getElementById('main'));
+export default React.render(<Route path="/" component={App}></Route>, document.getElementById('main'))

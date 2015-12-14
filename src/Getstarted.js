@@ -1,5 +1,4 @@
 var React = require('react');
-var $ = require('jquery');
 
 
 var Getstarted = React.createClass({
@@ -10,12 +9,10 @@ var Getstarted = React.createClass({
     return (
       <div>
         Getstarted
-        
+
       </div>
     )
   }
 });
 
 module.exports = Getstarted;
-
-

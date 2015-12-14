@@ -1,3 +1,4 @@
+require('babel-register');
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
@@ -6,13 +7,18 @@ var fs = Promise.promisifyAll(require('fs'));
 var exec = require('child_process').exec;
 var fileController = require('./utils/fileController');
 var mkDir = require('./utils/mkDir');
+var ejs = require('ejs');
 var zipFunction = require('./utils/zipFunction');
 var addStandardFiles = require('./utils/addStandardFiles');
 var capitalize = require('./utils/capitalize');
 var compression = require('compression');
+var React = require('react');
+var ReactDOMServer = require('react-dom/server');
+var RouterContext = require('react-router').RouterContext;
+var Match = require('react-router').match;
+var Routes = require('./../src/Routes');
 // var sendToSlack = require('./utils/sendToSlack.js');
 // var sessionController = require('./utils/sessionController');
-
 //configure express
 var app = express();
 
@@ -21,13 +27,31 @@ app.use(compression());
 //Parse req and attach json to req.body
 app.use(bodyParser.json());
 //Requests default to this path
-app.use(express.static(path.join(__dirname, './../')));
+// app.use(express.static(path.join(__dirname, './../')));
+app.set('views', __dirname + './../');
+app.set('view engine', 'ejs');
 
 //have the index html send on root route
 app.get('/', function(req,res) {
-  res.sendFile('/index.html');
+  match({Routes, location: req.url}, function(error, redirectLocation, renderProps ){
+   if (error) {
+     res.status(500).send(error.message)
+   } else if (redirectLocation) {
+     res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+   } else if (renderProps) {
+     res.status(200).render('index', {html: ReactDOMServer.renderToString(React.createElement(RouterContext, renderProps))})
+   } else {
+     res.status(404).send('Not found')
+   }
+ })
 });
 
+
+// app.get('/serverSideRender', function(req, res) {
+//   var appHtml = ReactDOM.renderToString(OverReact);
+//   var html = injectIntoHtml({main: appHtml});
+//   res.render(html);
+// })
 // Not using this right now
 // app.get('/newtemplate', sessionController.createSession);
 

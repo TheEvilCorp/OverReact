@@ -1,5 +1,4 @@
 var React = require('react');
-var $ = require('jquery');
 
 var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;

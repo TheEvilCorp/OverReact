@@ -1,5 +1,5 @@
 var React = require('react');
-var $ = require('jquery');
+// var $ = require('jquery');
 var Modal = require('react-bootstrap').Modal;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
