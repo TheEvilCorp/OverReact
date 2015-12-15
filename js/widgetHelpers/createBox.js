@@ -15,15 +15,19 @@ module.exports = function (boxName, node, fromLoadButton) {
     .append(`<span>${boxName}</span><p class='parentName'> nested in: ${contextName}</p>`)
     .appendTo(context)
     .draggable({
-      containment: '#overReact-container'
+      containment: '#overReact-container',
+      cursor: "move",
+      start: function(e, ui){
+        $(this).children('p:first-of-type').css('color', '#A3A3A3');
+      }
     })
     .resizable({
       containment: 'parent',
     })
     .droppable({
-      // greedy: true,
+      //greedy: true,
       accept: '.box',
-      hoverClass: 'ui-state-hover',
+      hoverClass: 'ui-state-hover drop-background-on',
       tolerance: 'fit',
       drop: function( e, ui ) {
         var droppedInto = $(this);

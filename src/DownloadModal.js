@@ -26,6 +26,7 @@ var DownloadModal = React.createClass({
         <Modal.Body>
           <h4>Method 1: The Cool Way</h4>
           <ol>
+            <p><i>Note: Method #1 currently works for Macs only. Windows users, see Method #2</i></p>
             <li>Install our npm package <a target="_blank" href='https://www.npmjs.com/package/over-react'>here</a> or just type in 'sudo npm install over-react -g' in your terminal.</li>
             <li>Once the package is installed, click the clipboard icon to copy the following commands to your clipboard</li>
             <li>Open your terminal, navigate to the folder you would like to install the project into, paste from your clipboard, and press enter</li>

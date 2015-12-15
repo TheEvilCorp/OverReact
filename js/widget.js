@@ -9,9 +9,9 @@ var generateNames = require('./widgetHelpers/generateNamesArr');
 module.exports = function(){
   //make overReact-container droppable
   $('#overReact-container').droppable({
-    // greedy: true,
+    //greedy: true,
     accept: '.box',
-    hoverClass: 'ui-state-hover',
+    hoverClass: 'ui-state-hover drop-background-on',
     activeClass: 'active',
     drop: function( e, ui ) {
       //escape out if dropping into same div
@@ -40,8 +40,8 @@ module.exports = function(){
   //   postFunction(id, hash);
   // });
 
-  //create input field on the main overReact-container
-  createInput('overReact-container', createComponent);
+  //create input field on the main gui header
+  createInput('gui-header', createComponent);
 
   //add save and load stuffs
   $('#saveButton').on('click',function(e){
@@ -67,7 +67,8 @@ module.exports = function(){
 
     if(generateNames().names.indexOf(componentName) !== -1 || componentName === "App") {
       node.find('input').val('');
-      alert('React does not allow duplicate component names');
+      $('#dup-warning').css('display', 'inline-block');
+      //alert('React does not allow duplicate component names');
     } else {
         //clear out the input field
         if (!fromLoadButton) node.find('input').val('');
