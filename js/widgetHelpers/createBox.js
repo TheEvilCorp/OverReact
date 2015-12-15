@@ -15,15 +15,19 @@ module.exports = function (boxName, node, fromLoadButton) {
     .append(`<div id="names"><span>${boxName}</span><p class='parentName'> nested in: ${contextName}</p></div>`)
     .appendTo(context)
     .draggable({
-      containment: '#overReact-container'
+      containment: '#overReact-container',
+      cursor: "move",
+      start: function(e, ui){
+        $(this).find('p:first-of-type').css('color', '#A3A3A3');
+      }
     })
     .resizable({
       containment: 'parent',
     })
     .droppable({
-      // greedy: true,
+      //greedy: true,
       accept: '.box',
-      hoverClass: 'ui-state-hover',
+      hoverClass: 'ui-state-hover drop-background-on',
       tolerance: 'fit',
       drop: function( e, ui ) {
         var droppedInto = $(this);
@@ -39,10 +43,9 @@ module.exports = function (boxName, node, fromLoadButton) {
         //re-set all divs resizable to also resize their children
         alsoResizeChildren($('#overReact-container'));
         //change parent name of "nested in: "
-        var parentName = ('box parent: ', droppedInto.attr('id'));
+        var parentName = droppedInto.attr('id');
         if(parentName === 'overReact-container') parentName = 'App';
-        console.log($(ui.draggable).find('p:first-of-type'));
-        $(ui.draggable).children('p:first-of-type').text('nested in: ' + parentName)
+        $(ui.draggable).children('div').children('p').text('nested in: ' + parentName)
         return;
       }
     });

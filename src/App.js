@@ -22,6 +22,14 @@ var App = React.createClass({
     }
   },
   componentDidMount: function() {
+    var userId = localStorage.getItem('userId');
+    if (!userId){
+      userId = 'anonymous' + Math.round(Math.random() * 1000000000)
+      userId = userId.toString()
+      localStorage.setItem('userId', userId)
+    }
+    mixpanel.identify(userId);
+    mixpanel.people.set_once('$first_name', userId);
     mixpanel.track('Page Load');
   },
   submit: function (hash) {
@@ -43,13 +51,11 @@ var App = React.createClass({
     });
   },
   render: function () {
+    var navStyle = {textAlign: 'center'};
+
     return (
       <div>
-          <Navbar fixedTop={true} id='nav-section'>
-            <Navbar.Brand className='text-center'>
-              <a href="#" id='nav-title'>OverReact</a>
-            </Navbar.Brand>
-          </Navbar>
+          <Navbar style={navStyle} fixedTop={true} id='nav-section'><span id='nav-title'>OverReact<sup>Beta Version</sup></span></Navbar>
           <Home />
           <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>
           <WhatNext />
