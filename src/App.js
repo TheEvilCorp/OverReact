@@ -11,15 +11,14 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var DownloadModal = require('./DownloadModal');
 var postFunction = require('../js/widgetHelpers/postFunction');
-
-//
-
+var FormModal = require('./FormModal');
 
 var App = React.createClass({
   getInitialState: function() {
     return {
       hash: null,
-      modal: false
+      downloadModal: false,
+      formModal: false
     }
   },
   componentDidMount: function() {
@@ -27,12 +26,21 @@ var App = React.createClass({
   },
   submit: function (hash) {
     this.setState({
-      modal: true,
+      downloadModal: true,
       hash: hash
     });
   },
+  feedback(e) {
+    e.preventDefault();
+    this.setState({
+      formModal: true,
+    })
+  },
   hideModal: function() {
-    this.setState({modal: false});
+    this.setState({
+      downloadModal: false,
+      formModal: false
+    });
   },
   render: function () {
     return (
@@ -45,8 +53,9 @@ var App = React.createClass({
           <Home />
           <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>
           <WhatNext />
-          <Footer />
-          <DownloadModal show={this.state.modal} onHide={this.hideModal} hash={this.state.hash}/>
+          <Footer formModal={this.feedback}/>
+          <DownloadModal show={this.state.downloadModal} onHide={this.hideModal} hash={this.state.hash}/>
+          <FormModal show={this.state.formModal} onHide={this.hideModal}/>
       </div>
     )
   }
