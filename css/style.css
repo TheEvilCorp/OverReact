@@ -33,6 +33,18 @@ body{
   background-color: #61dafb;
 }
 
+.homeFlexContainer {
+  padding-top: 115px;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+}
+
 #home-section h1,
 #home-section p,
 #whatNext-section {
@@ -48,19 +60,20 @@ body{
 }*/
 
 
+
 /*Navbar Section*/
 
 
 #nav-section {
   height: 60px;
+  min-width: 1280px;
 }
 #nav-title {
   color: white;
   font-size: 3em;
   font-weight: bolder;
-  float: left;
+  /*float: left;*/
   text-align: center;
-  width: 100%;
 }
 
 /*Home Section*/
@@ -72,6 +85,21 @@ body{
   margin-top: -55px;
   height: 650px;
   background-color: #E0E0E0;
+  text-align: center;
+/*
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+*/
+
 }
 
 #home-section > h1 {
@@ -91,11 +119,23 @@ body{
   padding: 10px 20px;
   border-radius: 50px;
   margin: 30px;
+  margin-top:10px;
 }
 
 #instruction-section {
   min-width: 1280px;
-  margin: auto;
+  /*margin: auto;*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+  margin-top: -40px;
 }
 
 #instruction-section h3 {
@@ -106,13 +146,14 @@ body{
   height: 330px;
   display: inline-block;
   vertical-align: middle;
-  margin: 0 75px 0 35px;
+  margin: 35px;
   background-color: white;
 }
 
-.instructions:last-child {
+/*.instructions:last-child {
   margin-right: 0px;
-}
+}*/
+
 .instructions img {
   width: 300px;
   margin: 10px;
@@ -133,7 +174,18 @@ body{
 #application-section {
   /*display: flex;*/
   height: 700px;
-  padding-top: 25px;
+  /*padding-top: 25px;*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+
 }
 #overReact-sectionNotContainer{
   position: relative;
@@ -274,10 +326,22 @@ hr {
 
 /*What Next Section*/
 #whatNext-section {
-  padding: 35px;
+  padding-top: 35px;
+  padding-bottom: 35px;
   background-color: #BABABA;
   height: 600px;
   text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 #whatNext-section p {
   font-size: 1.5em;
@@ -320,14 +384,22 @@ hr {
   display: inline-flex;
   -webkit-justify-content: space-between;
   -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   flex-direction: row;
+  background-color: #61dafb;
 }
 
 .footerFlexItem {
   margin: 20px
+}
+
+#brought {
+  align-self: center;
+  margin-left: -17.5px;
 }
 
 /*#footer-section li:first-child {
