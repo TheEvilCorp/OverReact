@@ -189,13 +189,22 @@ body{
   padding-left: 5px;
   position: absolute;
   background-color: white;
+  min-width: 100px;
+  min-height: 40px;
 }
-.box > span {
+#names > span {
   font-weight: bold;
   color: #4daec8;
+  overflow: hidden;
 }
+#names {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .parentName {
-  display: inline-block;
+  display: inline;
   padding-left: 10px;
 }
 
