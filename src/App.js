@@ -47,7 +47,7 @@ var App = React.createClass({
       <div>
           <Navbar fixedTop={true} id='nav-section'>
             <Navbar.Brand className='text-center'>
-              <a href="#" id='nav-title'>OverReact</a>
+              <a href="#" id='nav-title'><p>OverReact<sup> Beta Version</sup></p></a>
             </Navbar.Brand>
           </Navbar>
           <Home />
