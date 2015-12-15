@@ -346,3 +346,16 @@ hr {
 #footer-section a:last-child {
   text-align: right;
 }
+
+.dropdown {
+  margin-left: 8px;
+  border: none;
+  display: inline-block;
+}
+
+#pasteable {
+  margin: 10px 0;
+  background-color: #3a8296;
+  border: 1px solid black;
+  color: white;
+}

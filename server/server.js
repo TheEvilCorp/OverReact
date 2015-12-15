@@ -10,7 +10,7 @@ var zipFunction = require('./utils/zipFunction');
 var addStandardFiles = require('./utils/addStandardFiles');
 var capitalize = require('./utils/capitalize');
 var compression = require('compression');
-// var sendToSlack = require('./utils/sendToSlack.js');
+var sendToSlack = require('./utils/sendToSlack');
 // var sessionController = require('./utils/sessionController');
 
 //configure express
@@ -43,7 +43,9 @@ app.get('/download/*', function(req, res) {
   // exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
 });
 
-// app.post('/feedback', sendToSlack.sendFeedback);
+app.post('/feedback', function(req,res){
+  sendToSlack(req, res)
+});
 
 app.listen(process.env.PORT || 8000);
 
