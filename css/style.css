@@ -302,8 +302,16 @@ hr {
   height: 600px;
   text-align: center;
 }
-#whatNext-section p {
+#whatNext-section p{
   font-size: 1.5em;
+}
+.windows-directions {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+  line-height: 1em;
+}
+pre span {
+
 }
 .well {
   width: 600px;
