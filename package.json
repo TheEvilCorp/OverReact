@@ -53,6 +53,7 @@
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.0",
     "react-zeroclipboard": "^3.0.0",
+    "request": "^2.67.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.1",

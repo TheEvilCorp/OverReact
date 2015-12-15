@@ -5,6 +5,8 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var postFunction = require('../js/widgetHelpers/postFunction');
 var Button = require('react-bootstrap').Button;
+var ButtonInput = require('react-bootstrap').ButtonInput;
+
 var ReactZeroClipboard = require('react-zeroclipboard');
 var Tooltip = require('react-bootstrap').Tooltip;
 var OverlayTrigger = require('react-bootstrap').OverlayTrigger;
@@ -15,7 +17,7 @@ var DownloadModal = React.createClass({
     window.location.href = `/download/:${this.props.hash}`;
   },
   render: function () {
-    var innerGlyphicon = <Glyphicon glyph="copy" />;
+    var innerGlyphicon = <Glyphicon id="glyph" glyph="copy" />;
     var command = 'overreact ' + this.props.hash;
     var tooltip = <Tooltip id='copied' className='in' title='Copied to clipboard!'>Copied to clipboard!</Tooltip>;
     return (
@@ -31,8 +33,8 @@ var DownloadModal = React.createClass({
             <li>Open your terminal, navigate to the folder you would like to install the project into, paste from your clipboard, and press enter</li>
             <OverlayTrigger trigger='click' placement='right' overlay={tooltip}>
               <span>
-              <ReactZeroClipboard text={command}>
-                <Input font='courier' id='pasteable' type='text' readOnly='true' addonAfter={innerGlyphicon} value={command} />
+              <ReactZeroClipboard text={command} >
+                <Button addonAfter={innerGlyphicon} bscfont='courier' id='pasteable'>{command}</Button>
               </ReactZeroClipboard>
               </span>
             </OverlayTrigger>
