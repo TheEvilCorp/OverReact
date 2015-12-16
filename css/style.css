@@ -1,10 +1,12 @@
 
 /*React Blue: #61dafb;*/
+html {font-size: 65%}
 
 body{
   min-width: 1280px;
   margin: 0 auto;
   direction: ltr;
+  font-size: 1em;
 }
 
 .container-fluid {
@@ -70,7 +72,7 @@ body{
 #home-section {
   min-width: 1280px;
   margin-top: -55px;
-  height: 650px;
+  height: 85%;
   background-color: #E0E0E0;
   text-align: center;
 /*
@@ -89,14 +91,20 @@ body{
 
 }
 
-#home-section > h1 {
-  font-size: 2em;
+.homeFlexItem {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+#home-section h1 {
+  font-size: 6vh;
+  flex-grow: 2;
   margin-top: 70px;
   padding-top: 80px;
 }
 
-#home-section > p {
-  font-size: 1.5em;
+#home-section p {
+  font-size: 2vh;
 }
 
 
