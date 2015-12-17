@@ -1,10 +1,14 @@
 var request = require('supertest');
 var chai = require('chai')
 var expect = require ('chai').expect;
-var app = require('./../server/server');
 var httpMocks = require('node-mocks-http');
+var fs = require('fs');
+var path = require('path');
+var exec = require('child_process').exec;
+var app = require('./../server/server');
 var capitalize = require('./../server/utils/capitalize')
 var mkDir = require('./../server/utils/mkDir')
+
 
 describe('Back-End Tests', function() {
   describe('Creating routes', function() {
@@ -43,54 +47,58 @@ describe('Back-End Tests', function() {
       method: 'GET',
       url: '/submit',
       body: {
-        main: dataObj
+        projectName: 'MOCHA_TEST_PROJECT',
+        main: dataObj,
+        server: 'hapi',
+        task: 'grunt',
+        template: 'es5'
       }
     });
     var response = httpMocks.createResponse();
+    var next = function(){
+      console.log('next executed');
+    }
+
+    // after(function(){
+    //   var directory = path.join(__dirname, './../')
+    //   console.log('file path: ', `${directory}${request.body.folderName}`) 
+    //   fs.stat(`${directory}${request.body.folderName}`, function(err, stats) {
+        
+    //     console.log('AFTER: ', stats);
+    //     console.log('dirname: ', __dirname);
+    //     console.log('error: ', err);
+    //   });
+    // });
 
     it('Unit test for capitalize middleware function', function(done) {
-
-      var next = function(){
-        console.log('next executed');
-      }
       capitalize(request, response, next);
-      
-      expect(request.body.main.name).to.eq('App')
-      expect(request.body.main.children[0].name).to.eq('CompA')
+      expect(request.body.main.name).to.eq('App');
+      expect(request.body.main.children[0].name).to.eq('CompA');
       done();
     });
     it('Unit test for mkDir middleware function', function(done) {
+      mkDir(request, response, next);
+      var directory = path.join(__dirname, './../')
+      var madeFolder
+      fs.stat(`${directory}${request.body.folderName}`, function(err, stats) {
+        console.log('AFTER: ', stats);
+        console.log('error: ', err);
 
-
+        if(err) madeFolder = false;
+        else madeFolder = true;
+        console.log('madefolder in fs stat: ', madefolder)
+      });
+      expect(request.body.uniqueID).to.match(/\w{32}$/);
+      expect(request.body.folderName).to.match(/MOCHA_TEST_PROJECT-\w{32}$/);
+      console.log('madefolder before test', madeFolder)
+      expect(madeFolder).to.eq(true);
+      done();
     });
+
   });
-
-
-
-    // it('Testing capitalize.js middleware', function(done) {
-    //   var req = {};
-    //   req.body = {};
-    //   req.body.main = {
-    //     name: 'testA',
-    //     children:[{name: 'testB', children: []}, {name: 'testD'}]
-    //   }
-    //   var res = {};
-    //   var next = function(){
-    //     console.log('next executed')
-    //   }
-    //   capitalize(req, res, next)
-
-    //   console.log('REQ.BODY.MAIN: ', req.body.main);
-    //   expect(req.body.main).to.eq({name: 'TestA', children: [ { name: 'TestB', children: [] }, { name: 'TestD', children:[] } ] })
-
-    //   // return expect(capitalize(req, res, next)).to.eq
-
-    //   // request(app)
-    //   //   .get('/messages')
-    //   //   .end(function(err, res) {
-    //   //     expect(JSON.parse(res.text)).to.be.a('array');
-    //   //     done();
-    //   //   });
-    // });
-    //});
 });
+
+
+
+
+
