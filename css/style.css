@@ -248,7 +248,7 @@ body{
   background-image: none;
 }
 .drop-background-on {
-  background-color: #e5e5e5   !important;
+  background-color: rgba(229, 229, 229, 0.4)   !important;
 }
 
 .deleteBtn {
@@ -269,8 +269,11 @@ body{
   color: #A3A3A3;
   padding-left: 5px;
   position: absolute;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  min-width: 100px;
+  min-height: 40px;
   cursor: move;
+  z-index:500;
 }
 .box > span {
   font-weight: bold;

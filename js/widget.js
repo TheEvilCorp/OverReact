@@ -18,10 +18,11 @@ module.exports = function(){
   // });
   //make overReact-container droppable
   $('#overReact-container').droppable({
-    //greedy: true,
-    accept: '.box',
-    hoverClass: 'ui-state-hover drop-background-on',
-    activeClass: 'active',
+    greedy: true,
+    //accept: '.box',
+    //hoverClass: 'ui-state-hover drop-background-on',
+    //activeClass: 'active',
+    //activeClass: "ui-state-default",
     drop: function( e, ui ) {
       //escape out if dropping into same div
       if($(this).attr('id') === ui.draggable.parent()[0].id) return;
