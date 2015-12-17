@@ -1,12 +1,10 @@
 
 /*React Blue: #61dafb;*/
-html {font-size: 65%}
 
 body{
   min-width: 1280px;
   margin: 0 auto;
   direction: ltr;
-  font-size: 1em;
 }
 
 .container-fluid {
@@ -67,12 +65,10 @@ body{
 
 /*Home Section*/
 
-
-
 #home-section {
   min-width: 1280px;
   margin-top: -55px;
-  height: 85%;
+  height: 780px;
   background-color: #E0E0E0;
   text-align: center;
 /*
@@ -88,33 +84,22 @@ body{
   justify-content: center;
   width: 100%;
 */
-
 }
 
-.homeFlexItem {
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-
-#home-section h1 {
-  font-size: 6vh;
-  flex-grow: 2;
+.homeFlexContainer > h1 {
   margin-top: 70px;
-  padding-top: 80px;
 }
 
-#home-section p {
-  font-size: 2vh;
+.homeFlexContainer > p{
+  font-size: 1.5em;
 }
-
-
 #getStarted-btn {
   background-color: #FC913A;
   border-color: #FC913A;
   padding: 10px 20px;
   border-radius: 50px;
-  margin: 30px;
-  margin-top:10px;
+  margin: 20px 0px 40px 0px;
+
 }
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
@@ -171,7 +156,7 @@ body{
 /*Application Section*/
 #application-section {
   /*display: flex;*/
-  height: 700px;
+  height: 750px;
   /*padding-top: 25px;*/
   display: -webkit-flex;
   display: flex;
@@ -183,6 +168,7 @@ body{
   justify-content: center;
   width: 100%;
   flex-direction: row;
+/*  padding-top: 25px;*/
 }
 #overReact-sectionNotContainer{
   position: relative;
@@ -198,7 +184,6 @@ body{
   width: 850px;
   height: 50px;
   margin-left: 35px;
-  margin-top: 20px;
 }
 #gui-header h3 {
   display: inline-block;
@@ -227,7 +212,7 @@ body{
 }
 
 #overReact-container {
-  margin: 0 35px 50px 35px;
+  margin: -3px 35px 50px 35px;
   min-width: 850px;
   height: 550px;
   position: relative;
@@ -275,22 +260,28 @@ body{
   cursor: move;
   z-index:500;
 }
-.box > span {
+#names > span {
   font-weight: bold;
   color: #4daec8;
+  overflow: hidden;
   cursor: auto;
 }
+#names {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .parentName {
-  display: inline-block;
+  display: inline;
   padding-left: 10px;
   color: red;
 }
 
-
 #options-section {
   min-width: 300px;
-  height: 550px;
-  margin: 50px 30px 50px 10px;
+  height: 600px;
+  margin: 57px 30px 50px 10px;
   background-color: #C4C4C4;
   border: 5px solid #C4C4C4;
   border-radius: 5px;
@@ -310,7 +301,6 @@ body{
   color: white;
 }
 #submitButton {
-  margin-top: 4px;
   margin-left: 65px;
   background-color: #FC913A;
   color: white;
@@ -328,20 +318,20 @@ body{
   margin-top: 5px;
 }
 
-#basic-options, #basic-options input{
+/*#basic-options, #basic-options input{
   margin-bottom: 0px;
-}
-
+}*/
 
 .form-group {
   background-color: white;
   padding: 8px 8px 0px 8px;
   border-radius: 5px;
 }
-
+/*
 hr {
   margin-bottom: 8px;
-}
+}*/
+
 .btn-group {
   border: 1px solid red;
   display: block;
@@ -376,8 +366,16 @@ hr {
   justify-content: center;
   width: 100%;
 }
-#whatNext-section p {
+#whatNext-section p{
   font-size: 1.5em;
+}
+.windows-directions {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+  line-height: 1em;
+}
+pre span {
+
 }
 .well {
   width: 600px;
@@ -438,12 +436,10 @@ hr {
 /*#footer-section li:first-child {
   margin-right: 30px;
 }
-
 #footer-section p {
   margin-left: 290px;
   margin-right: 360px;
 }
-
 #footer-section a:last-child {
   text-align: right;
 }*/
