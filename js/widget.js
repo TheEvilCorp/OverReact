@@ -4,9 +4,18 @@ var postFunction = require('./widgetHelpers/postFunction');
 var createDeleteBtn = require('./widgetHelpers/createDeleteBtn');
 var alsoResizeChildren = require('./widgetHelpers/alsoResizeChildren');
 var generateNames = require('./widgetHelpers/generateNamesArr');
+// var html2canvas = require('html2canvas');
 
 // $(function() {
 module.exports = function(){
+
+  // html2canvas($(this), {
+  //   onrendered: function(canvas) {
+  //     console.log('html2canvas rendered');
+  //     // var dataURL = canvas.toDataURL("image/png");
+  //     // console.log(dataURL);
+  //   }
+  // });
   //make overReact-container droppable
   $('#overReact-container').droppable({
     greedy: true,
