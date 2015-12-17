@@ -12,13 +12,15 @@ var Input = require('react-bootstrap').Input;
 var DownloadModal = require('./DownloadModal');
 var postFunction = require('../js/widgetHelpers/postFunction');
 var FormModal = require('./FormModal');
+// var html2canvas = require('../html2canvas-0.4.1/build/html2canvas.js');
 
 var App = React.createClass({
   getInitialState: function() {
     return {
       hash: null,
       downloadModal: false,
-      formModal: false
+      formModal: false,
+      screenshot: null
     }
   },
   componentDidMount: function() {
@@ -38,11 +40,20 @@ var App = React.createClass({
       hash: hash
     });
   },
-  feedback(e) {
+  feedback: function(e) {
     e.preventDefault();
-    this.setState({
-      formModal: true,
-    })
+    var that = this;
+    console.log('clicked feedback');
+    html2canvas(document.body, {
+      onrendered: function(canvas) {
+        var dataURL = canvas.toDataURL("image/png");
+        console.log(dataURL);
+        that.setState({
+          screenshot: dataURL.replace(/^data:image\/(png|jpg);base64,/, ""),
+          formModal: true
+        });
+      }
+    });
   },
   hideModal: function() {
     this.setState({
@@ -61,7 +72,7 @@ var App = React.createClass({
           <WhatNext />
           <Footer formModal={this.feedback}/>
           <DownloadModal show={this.state.downloadModal} onHide={this.hideModal} hash={this.state.hash}/>
-          <FormModal show={this.state.formModal} onHide={this.hideModal}/>
+          <FormModal show={this.state.formModal} onHide={this.hideModal} screenshot={this.state.screenshot}/>
       </div>
     )
   }
