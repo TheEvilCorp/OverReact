@@ -4,10 +4,11 @@ var expect = require ('chai').expect;
 var app = require('./../server/server');
 var httpMocks = require('node-mocks-http');
 var capitalize = require('./../server/utils/capitalize')
+var mkDir = require('./../server/utils/mkDir')
 
 describe('Back-End Tests', function() {
   describe('Creating routes', function() {
-  
+
     it('GET request to / return status code of 200 & Content-Type of html', function(done) {
       request(app)
         .get('/')
@@ -26,24 +27,31 @@ describe('Back-End Tests', function() {
           
         // });
     });
-
-    it('Unit Test for capitalize middleware function', function(done) {
-      var dataObj = {
-        name: 'app',
-        children: [
-          {name: 'compA', children:[{name: 'child', children: []}]},
-          {name: 'compB', children: []},
-          {name: 'compC', children: []}
-        ]
+  });
+  
+  describe('Testing middleware for /submit route', function() {  
+    //Request and Response data objects
+    var dataObj = {
+      name: 'app',
+      children: [
+        {name: 'compA', children:[{name: 'child', children: []}]},
+        {name: 'compB', children: []},
+        {name: 'compC', children: []}
+      ]
+    }
+    var request  = httpMocks.createRequest({
+      method: 'GET',
+      url: '/submit',
+      body: {
+        main: dataObj
       }
-      var request  = httpMocks.createRequest({
-        method: 'GET',
-        url: '/submit',
-        body: {main: dataObj}
-      });
-      var response = httpMocks.createResponse();
+    });
+    var response = httpMocks.createResponse();
+
+    it('Unit test for capitalize middleware function', function(done) {
+
       var next = function(){
-         console.log('next executed');
+        console.log('next executed');
       }
       capitalize(request, response, next);
       
@@ -51,16 +59,13 @@ describe('Back-End Tests', function() {
       expect(request.body.main.children[0].name).to.eq('CompA')
       done();
     });
+    it('Unit test for mkDir middleware function', function(done) {
 
 
-    it('GET request to / return Content-Type to equal text/html', function() {
-      request(app)
-        .get('/')
-        .end(function(err, res){
-          expect('Content-Type', 'text/html', done);
-          // expect('Content-Type').to.eql('application/json')
-        });
     });
+  });
+
+
 
     // it('Testing capitalize.js middleware', function(done) {
     //   var req = {};
@@ -87,5 +92,5 @@ describe('Back-End Tests', function() {
     //   //     done();
     //   //   });
     // });
-    });
+    //});
 });
