@@ -13,6 +13,7 @@ var Input = require('react-bootstrap').Input;
 var DownloadModal = require('./DownloadModal');
 var postFunction = require('../js/widgetHelpers/postFunction');
 var FormModal = require('./FormModal');
+// var html2canvas = require('../html2canvas-0.4.1/build/html2canvas.js');
 
 export default class App extends React.Component{
   state = {
@@ -60,7 +61,7 @@ export default class App extends React.Component{
           <WhatNext />
           <Footer formModal={this.feedback}/>
           <DownloadModal show={this.state.downloadModal} onHide={this.hideModal} hash={this.state.hash}/>
-          <FormModal show={this.state.formModal} onHide={this.hideModal}/>
+          <FormModal show={this.state.formModal} onHide={this.hideModal} screenshot={this.state.screenshot}/>
       </div>
     )
   }

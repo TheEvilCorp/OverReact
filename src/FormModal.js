@@ -10,6 +10,7 @@ var DropdownButton = require('react-bootstrap').DropdownButton;
 var MenuItem = require('react-bootstrap').MenuItem;
 var OverlayTrigger = require('react-bootstrap').OverlayTrigger;
 
+
 var FormModal = React.createClass({
   getInitialState() {
     return {
@@ -17,7 +18,7 @@ var FormModal = React.createClass({
       email: null,
       category: 'Reason for contacting',
       feedback: null,
-      submitted: false
+      submitted: false,
     }
   },
   dropdownSelection(e, eKey) {
@@ -37,6 +38,7 @@ var FormModal = React.createClass({
         url: '/feedback',
         contentType: 'application/json',
         data: JSON.stringify({
+          screenshot: this.props.screenshot,
           payload: {
             username: 'Feedback-Bot',
             icon_emoji: ':dog:',

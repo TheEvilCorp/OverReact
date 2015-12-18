@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 //Gzip express equivalent
 app.use(compression());
 //Parse req and attach json to req.body
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 //Requests default to this path
 app.use(express.static(path.join(__dirname, './../')));
 

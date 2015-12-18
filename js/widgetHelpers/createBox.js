@@ -20,15 +20,25 @@ module.exports = function (boxName, node, fromLoadButton) {
       start: function(e, ui){
         $(this).zIndex(99)
         $(this).find('p:first-of-type').css('color', '#A3A3A3');
+        // $(this).css('z-index', 1000);
+        // console.log('Zindex start: ', $(this).css('z-index'))
       }
+      // stop: function(e,ui){
+      //   $(this).css('z-index', 500)
+      //   console.log('Zindex stop: ', $(this).css('z-index'))
+      // }
     })
     .resizable({
       containment: 'parent',
     })
     .droppable({
       greedy: true,
-      accept: '.box',
-      hoverClass: 'ui-state-hover drop-background-on',
+      //accept: '*',
+      //hoverClass: 'ui-state-hover drop-background-on',
+      //activeClass: 'ui-state-hover drop-background-on',
+      over: function( event, ui ) {
+        console.log('onHover');
+      },
       tolerance: 'fit',
       drop: function( e, ui ) {
         var droppedInto = $(this);
@@ -44,6 +54,11 @@ module.exports = function (boxName, node, fromLoadButton) {
         });
         //change parent name of "nested in: "
         var parentName = droppedInto.attr('id');
+
+        //when we set greedy to false & tried to grab "real parent", the parent name still bubbled out to the grandparent/ great grandparent
+        // console.log('REAL PARENT: ', $(ui.draggable).parent('div').attr('id'));
+        // var parentName = $(ui.draggable).parent('div').attr('id')
+
         if(parentName === 'overReact-container') parentName = 'App';
         $(ui.draggable).children('div').children('p').text('nested in: ' + parentName)
         //append the div that is being dragged into the div that will be its parent
