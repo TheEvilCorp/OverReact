@@ -1,31 +1,48 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
-var Promise = require('bluebird');
+import 'babel-register';
+import express from 'express';
+import path from 'path';
+import bodyParser from 'body-parser';
+import compression from 'compression';
+import Promise from 'bluebird';
 var fs = Promise.promisifyAll(require('fs'));
-var exec = require('child_process').exec;
-var fileController = require('./utils/fileController');
-var mkDir = require('./utils/mkDir');
-var zipFunction = require('./utils/zipFunction');
-var addStandardFiles = require('./utils/addStandardFiles');
-var capitalize = require('./utils/capitalize');
-var compression = require('compression');
-// var sendToSlack = require('./utils/sendToSlack.js');
-// var sessionController = require('./utils/sessionController');
-
+import { exec } from 'child_process';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { match, RoutingContext } from 'react-router';
+import fileController from './../server/utils/fileController';
+import mkDir from './../server/utils/mkDir';
+import zipFunction from './../server/utils/zipFunction';
+import addStandardFiles from './../server/utils/addStandardFiles';
+import capitalize from './../server/utils/capitalize';
+import sendToSlack from './../server/utils/sendToSlack';
+import routes from './../src/routes';
 //configure express
-var app = express();
+const app = express();
 
+//set ejs view for SSR
+app.set('view engine', 'ejs');
 //Gzip express equivalent
 app.use(compression());
 //Parse req and attach json to req.body
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 //Requests default to this path
 app.use(express.static(path.join(__dirname, './../')));
 
 //have the index html send on root route
 app.get('/', function(req,res) {
-  res.sendFile('/index.html');
+  match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
+      // console.log(renderProps);
+      if (error) {
+        res.sendStatus(500);
+      } else if (redirectLocation) {
+          res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+        } else if (renderProps) {
+          var content = renderToString(<RoutingContext {...renderProps} />);
+          res.render('ssrIndex', {content: content});
+          } else {
+              res.status(404).send('Not found')
+            }
+      });
 });
 
 // Not using this right now
@@ -43,6 +60,10 @@ app.get('/download/*', function(req, res) {
   // exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
 });
 
-// app.post('/feedback', sendToSlack.sendFeedback);
+app.post('/feedback', function(req,res){
+  sendToSlack(req, res)
+});
 
-app.listen(process.env.PORT || 8000);
+app.listen(8000, function(){
+  console.log('listening on port 8000')
+});

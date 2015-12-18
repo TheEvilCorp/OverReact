@@ -1,6 +1,4 @@
 var React = require('react');
-var $ = require('jquery');
-
 var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
@@ -30,7 +28,6 @@ var Instructions = React.createClass({
         <div className='instructions'>
           <div>
             <img src="/images/instruction3.png" alt="242x200"/>
-            <hr></hr>
             <h3 id="selectOptions">Select Options</h3>
             <p>Click "Download" to get the starter files</p>
           </div>
