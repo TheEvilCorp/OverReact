@@ -1,5 +1,6 @@
+const isBrowser = typeof window !== undefined;
 var React = require('react');
-var $ = require('jquery');
+var $ = isBrowser ? require('jquery') : undefined;
 var ReactDOM = require('react-dom');
 var Home = require('./Home');
 var Application = require('./Application');
@@ -13,15 +14,13 @@ var DownloadModal = require('./DownloadModal');
 var postFunction = require('../js/widgetHelpers/postFunction');
 var FormModal = require('./FormModal');
 
-var App = React.createClass({
-  getInitialState: function() {
-    return {
+export default class App extends React.Component{
+  state = {
       hash: null,
       downloadModal: false,
       formModal: false
-    }
-  },
-  componentDidMount: function() {
+  }
+  componentDidMount = () => {
     var userId = localStorage.getItem('userId');
     if (!userId){
       userId = 'anonymous' + Math.round(Math.random() * 1000000000)
@@ -31,26 +30,26 @@ var App = React.createClass({
     mixpanel.identify(userId);
     mixpanel.people.set_once('$first_name', userId);
     mixpanel.track('Page Load');
-  },
-  submit: function (hash) {
+  }
+  submit = (hash) => {
     this.setState({
       downloadModal: true,
       hash: hash
     });
-  },
-  feedback(e) {
+  }
+  feedback = (e) => {
     e.preventDefault();
     this.setState({
       formModal: true,
     })
-  },
-  hideModal: function() {
+  }
+  hideModal = () => {
     this.setState({
       downloadModal: false,
       formModal: false
     });
-  },
-  render: function () {
+  }
+  render = () => {
     var navStyle = {textAlign: 'center'};
 
     return (
@@ -65,8 +64,4 @@ var App = React.createClass({
       </div>
     )
   }
-});
-
-module.exports = App;
-
-ReactDOM.render(<App />, document.getElementById('main'));
+}

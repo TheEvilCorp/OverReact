@@ -1,5 +1,6 @@
+const isBrowser = typeof window !== undefined;
 var React = require('react');
-var $ = require('jquery');
+var $ = isBrowser ? require('jquery') : undefined;
 var Modal = require('react-bootstrap').Modal;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;

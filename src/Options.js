@@ -1,5 +1,4 @@
 var React = require('react');
-var $ = require('jquery');
 var Button = require('react-bootstrap').Button
 var handleRadioButton = require('./../js/widgetHelpers/handleRadioBtnChange');
 var postFunction = require('../js/widgetHelpers/postFunction');

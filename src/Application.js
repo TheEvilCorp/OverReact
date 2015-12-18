@@ -1,6 +1,4 @@
 var React = require('react');
-var $ = require('jquery');
-
 var Gui = require('./Gui');
 var Options = require('./Options');
 

@@ -1,14 +1,14 @@
+const isBrowser = typeof window !== undefined;
 var React = require('react');
-var $ = require('jquery');
+var $ = isBrowser ? require('jquery') : undefined;
 var Instructions = require('./Instructions');
 var Jumbotron = require('react-bootstrap').Jumbotron;
 var Button = require('react-bootstrap').Button;
 
-var $root = $('html, body');
 var Home = React.createClass({
   setFocus: function(e) {
     e.preventDefault();
-    $root.animate({
+    $('html, body').animate({
         scrollTop: $('#application-section').offset().top,
     }, 500);
   },

@@ -1,7 +1,5 @@
 var React = require('react');
-var $ = require('jquery');
 var Well = require('react-bootstrap').Well;
-//
 
 var WhatNext = React.createClass({
   getInitialState: function() {

@@ -1,6 +1,4 @@
 var React = require('react');
-var $ = require('jquery');
-
 
 var Footer = React.createClass({
   render: function () {
