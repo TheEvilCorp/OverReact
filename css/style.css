@@ -217,7 +217,7 @@ body{
   height: 550px;
   position: relative;
   border: 5px solid #61dafb;
-  border-top-width: 0px;
+  border-top-width: 1px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   float: left;
