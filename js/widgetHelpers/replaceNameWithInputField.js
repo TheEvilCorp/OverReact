@@ -17,7 +17,7 @@ function renameComponent(node) {
 
 //creates an input for the box being renamed and sets focus to that input
 function replaceNameWithInputField(node){
-    createInput(node, renameComponent);
+  createInput(node, renameComponent);
   $('#' + node).find('form').css({
     top: 0,
     left: 0,

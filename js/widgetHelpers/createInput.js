@@ -17,6 +17,7 @@ module.exports = function(context, func) {
   inputField.on('submit', function(e){
     e.preventDefault();
     //convert input to Pascal case
+    $('#dup-warning').css('display', 'none')
     var output = toPascal($(e.target).find('input').val());
     $(e.target).find('input').val(output);
     func($(this));

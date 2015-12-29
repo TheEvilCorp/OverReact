@@ -32,9 +32,9 @@ function handleRadioBtnChange(e, obj) {
       break;
     default:
       newState.basic = !newState.basic;
-        newState.express = newState.express ? false : newState.express;
+        newState.express = newState.basic ? false : true;
         newState.hapi = false;
-        newState.gulp = newState.gulp ? false: newState.gulp;
+        newState.gulp = newState.basic ? false : true;
         newState.grunt = false;
       }
   return newState;

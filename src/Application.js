@@ -8,9 +8,9 @@ var Application = React.createClass({
 
   render: function () {
     return (
-      <div id='application-section'>
-          <Gui />
-          <Options submit={this.props.submit}/>
+      <div className='appContainer' id='application-section'>
+          <Gui className='appChild'/>
+          <Options className='appChild' submit={this.props.submit}/>
       </div>
     )
   }
