@@ -1,15 +1,14 @@
-var React = require('react');
-var Input = require('react-bootstrap').Input
+import React, {Component} from 'react';
+import {Input} from 'react-bootstrap';
 
-var ProjectName = React.createClass({
-  shouldComponentUpdate: function(nextProps, nextState) {
+export default class ProjectName extends Component {
+  shouldComponentUpdate = (nextProps, nextState) => {
     return this.props !== nextProps ? true : false;
-  },
-  render: function () {
+  }
+
+  render() {
     return (
-        <Input onChange={this.props.handler} type='text' label='Project Name' id='projectName' pattern="[a-zA-Z0-9_ ]+" required/>
+      <Input onChange={this.props.handler} type='text' label='Project Name' id='projectName' pattern="[a-zA-Z0-9_ ]+" required/>
     )
   }
-});
-
-module.exports = ProjectName;
+};

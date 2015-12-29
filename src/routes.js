@@ -5,4 +5,4 @@ import {Router, Route} from 'react-router';
 import history from 'history';
 import App from './App';
 
-module.exports = <Route path="/" component={App}/>;
+export default <Route path="/" component={App}/>;

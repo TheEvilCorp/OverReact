@@ -1,12 +1,12 @@
-var React = require('react');
-var Input = require('react-bootstrap').Input
+import React, {Component} from 'react';
+import {Input} from 'react-bootstrap';
 
+export default class ServerComponent extends Component {
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return this.props !== nextProps;
+  }
 
-var ServerComponent = React.createClass({
-  shouldComponentUpdate: function(nextProps, nextState) {
-    return this.props !== nextProps ? true : false;
-  },
-  render: function () {
+  render = () => {
     return (
       <div className='radio-sections'>
         <p>Choose a server</p>
@@ -19,6 +19,4 @@ var ServerComponent = React.createClass({
       </div>
     )
   }
-});
-
-module.exports = ServerComponent;
+};

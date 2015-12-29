@@ -25,7 +25,8 @@ function buildScript(file, watch, destName) {
     entries : ['./src/' + file],
     debug : true,
     transform : babelify.configure({
-                presets: ["react", "es2015", "stage-0"]
+                presets: ["react", "stage-0"],
+                plugins: ["transform-decorators-legacy"]
                 })
   };
 
@@ -63,21 +64,22 @@ return gulp.src('./server/server.js')
     console.log(err);
   })
   .pipe(babel())
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest('build'));
 });
 //convert client to es5
 gulp.task('client', function() {
-return buildScript('client.js' , false, 'client.js');
+return buildScript('Client.js' , false, 'Client.js');
 });
 //bundle css
 gulp.task('css', function() {
-  return gulp.src('./css/style.css')
+  return gulp.src('./css/*.css')
     .on('error', function(err) {
       console.log(err);
     })
     .pipe(minifyCss())
     .pipe(gulp.dest('build'));
 });
+
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['scripts', 'server', 'client'], function() {
   gulp.watch(['./server/server.js'],['server']);

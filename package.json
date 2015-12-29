@@ -4,12 +4,14 @@
   "description": "Wireframing React projects with the functionality to boilerplate. This is the production project for Codesmith Cohort 3 members - Susan, Rico, and Brian",
   "main": "outputTest.js",
   "scripts": {
-    "start-server": "node build/server.js",
+    "start-server": "nodemon build/server.js",
     "start": "node build/server.js",
-    "start-dev": "gulp & npm run start-server",
+    "sudo-start-server": "sudo nodemon build/server.js",
+    "start-sudo": "gulp server; gulp & npm run sudo-start-server",  
+    "start-dev": "gulp server; gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
-    "postinstall": "gulp scripts css",
+    "postinstall": "gulp server scripts css",
     "test": "mocha ./test"
   },
   "engines": {
@@ -54,25 +56,28 @@
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",
     "gulp-concat": "^2.6.0",
-    "gulp-minify": "0.0.5",
     "gulp-minify-css": "^1.2.2",
     "gulp-notify": "^2.2.0",
     "gulp-uglify": "^1.5.1",
     "hat": "0.0.3",
+    "history": "^1.13.1",
     "jquery": "^2.1.4",
     "path": "^0.12.7",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.0",
+    "react-router": "^1.0.2",
     "react-zeroclipboard": "^3.0.0",
     "request": "^2.67.0",
     "supertest": "^1.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.6.1",
     "zeroclipboard": "^2.2.0"
   },
   "devDependencies": {
-    "node-mocks-http": "^1.5.1"
+    "babel-plugin-transform-decorators-legacy": "^1.3.3",
+    "node-mocks-http": "^1.5.1",
+    "nodemon": "^1.8.1",
+    "watchify": "^3.6.1"
   }
 }

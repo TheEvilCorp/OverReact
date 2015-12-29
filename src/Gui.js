@@ -1,24 +1,21 @@
 const isBrowser = typeof window !== undefined;
-var React = require('react');
+import React, {Component} from 'react';
+import widget from './../js/widget';
 var $ = isBrowser ? require('jquery') : undefined;
-var widget = require('./../js/widget')
 
-
-var Gui = React.createClass({
-  componentDidMount: function() {
+export default class Gui extends Component {
+  componentDidMount = () => {
     widget();
-  },
-  render: function() {
+  }
+  render() {
     return (
       <section id='overReact-sectionNotContainer'>
-      <div id='gui-header'>
-        <h3 id='Apptext'>App</h3>
-        <p id='dup-warning'>React does not allow duplicate component names</p>
-      </div>
-      <div id='overReact-container'></div>
+        <div id='gui-header'>
+          <h3 id='Apptext'>App</h3>
+          <p id='dup-warning'>React does not allow duplicate component names</p>
+        </div>
+        <div id='overReact-container'></div>
       </section>
     )
   }
-});
-
-module.exports = Gui;
+};

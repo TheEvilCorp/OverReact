@@ -1,11 +1,8 @@
-var React = require('react');
-var Well = require('react-bootstrap').Well;
+import React, {Component} from 'react';
+import {Well} from 'react-bootstrap';
 
-var WhatNext = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
-  render: function () {
+export default class WhatNext extends Component {
+  render() {
     return (
       <div id='whatNext-section'>
         <h2>What Next?</h2>
@@ -24,6 +21,4 @@ var WhatNext = React.createClass({
       </div>
     )
   }
-});
-
-module.exports = WhatNext;
+};

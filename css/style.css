@@ -7,7 +7,7 @@ body{
   direction: ltr;
 }
 
-.container-fluid {
+/*.container-fluid {
   padding: 0px;
 }
 
@@ -46,7 +46,7 @@ body{
 
 /*Navbar Section*/
 
-
+/*
 #nav-section {
   height: 60px;
   min-width: 1280px;
@@ -55,7 +55,7 @@ body{
   color: white;
   font-size: 3em;
   font-weight: bolder;
-  /*float: left;*/
+  float: left;
   text-align: center;
 }
 #nav-section sup {
@@ -64,10 +64,11 @@ body{
 }
 
 /*Home Section*/
-
+/*
 #home-section {
   min-width: 1280px;
   margin-top: -55px;
+  margin-left: 30px;
   height: 780px;
   background-color: #E0E0E0;
   text-align: center;
@@ -83,7 +84,7 @@ body{
   align-items: center;
   justify-content: center;
   width: 100%;
-*/
+
 }
 
 .homeFlexContainer > h1 {
@@ -106,7 +107,7 @@ body{
 }
 #instruction-section {
   min-width: 1280px;
-  /*margin: auto;*/
+  /*margin: auto;
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: center;
@@ -135,7 +136,7 @@ body{
 
 /*.instructions:last-child {
   margin-right: 0px;
-}*/
+}
 
 .instructions img {
   width: 300px;
@@ -151,7 +152,7 @@ body{
 .instructions hr {
   width: 150px;
   border: 1px solid white;
-}
+}*/
 
 /*Application Section*/
 #application-section {
@@ -258,8 +259,8 @@ body{
   min-width: 100px;
   min-height: 40px;
   cursor: move;
-  z-index:500;
 }
+
 #names > span {
   font-weight: bold;
   color: #4daec8;
@@ -374,9 +375,7 @@ hr {
   font-size: 0.7em;
   line-height: 1em;
 }
-pre span {
 
-}
 .well {
   width: 600px;
   margin: auto;

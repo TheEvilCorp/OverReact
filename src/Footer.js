@@ -1,11 +1,10 @@
-var React = require('react');
+import React, {Component} from 'react';
 
-var Footer = React.createClass({
-  render: function () {
-    var styleObj = {
+export default class Footer extends Component {
+  render() {
+    let styleObj = {
       textAlign: 'center',
     };
-
     return (
       <div style={styleObj} id='footer-section'>
         <div className='footerFlexContainer'>
@@ -19,6 +18,4 @@ var Footer = React.createClass({
       </div>
     )
   }
-});
-
-module.exports = Footer;
+};
