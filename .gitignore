@@ -6,3 +6,4 @@ dist
 npm-debug.log
 config
 zips
+.DS_Store
