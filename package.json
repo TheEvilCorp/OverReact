@@ -9,6 +9,7 @@
     "start-dev": "export NODE_ENV=development; gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
+    "prestart": "gulp scripts css",
     "postinstall": "gulp scripts css",
     "test": "mocha ./test"
   },
