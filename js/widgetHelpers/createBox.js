@@ -1,3 +1,4 @@
+
 var alsoResizeChildren = require('./alsoResizeChildren');
 var generateNames = require('./generateNamesArr');
 var replaceNameWithInputField = require('./replaceNameWithInputField');
@@ -18,7 +19,6 @@ module.exports = function (boxName, node, fromLoadButton) {
       containment: '#overReact-container',
       cursor: "move",
       start: function(e, ui){
-        $(this).zIndex(99)
         $(this).find('p:first-of-type').css('color', '#A3A3A3');
         // $(this).css('z-index', 1000);
         // console.log('Zindex start: ', $(this).css('z-index'))
@@ -42,9 +42,6 @@ module.exports = function (boxName, node, fromLoadButton) {
       tolerance: 'fit',
       drop: function( e, ui ) {
         var droppedInto = $(this);
-        e.preventDefault();
-        e.stopPropagation();
-        console.log(e);
         //if dropping into same div, return out
         if(droppedInto.attr('id') === ui.draggable.parent()[0].id) return;
         //adjust the css on drop
@@ -52,6 +49,10 @@ module.exports = function (boxName, node, fromLoadButton) {
           top: ui.draggable.offset().top - droppedInto.offset().top,
           left: ui.draggable.offset().left - droppedInto.offset().left
         });
+        //append the div that is being dragged into the div that will be its parent
+        ui.draggable.appendTo(droppedInto);
+        //re-set all divs resizable to also resize their children
+        alsoResizeChildren($('#overReact-container'));
         //change parent name of "nested in: "
         var parentName = droppedInto.attr('id');
 
@@ -61,10 +62,6 @@ module.exports = function (boxName, node, fromLoadButton) {
 
         if(parentName === 'overReact-container') parentName = 'App';
         $(ui.draggable).children('div').children('p').text('nested in: ' + parentName)
-        //append the div that is being dragged into the div that will be its parent
-        ui.draggable.appendTo(droppedInto);
-        //re-set all divs resizable to also resize their children
-        alsoResizeChildren($('#overReact-container'));
         return;
       }
     });
