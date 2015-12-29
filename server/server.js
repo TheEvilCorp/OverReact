@@ -15,7 +15,7 @@ import zipFunction from './../server/utils/zipFunction';
 import addStandardFiles from './../server/utils/addStandardFiles';
 import capitalize from './../server/utils/capitalize';
 import sendToSlack from './../server/utils/sendToSlack';
-import routes from './../src/routes';
+import routes from './../src/Routes';
 //configure express
 const app = express();
 

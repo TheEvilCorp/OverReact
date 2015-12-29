@@ -1,8 +1,9 @@
 node_modules
 bower_components
 build
-bundle.js
 dist
 npm-debug.log
 config
 zips
+.DS_Store
+screenshots

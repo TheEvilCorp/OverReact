@@ -1,32 +1,18 @@
-var createBox = require('./widgetHelpers/createBox');
-var createInput = require('./widgetHelpers/createInput');
-var postFunction = require('./widgetHelpers/postFunction');
-var createDeleteBtn = require('./widgetHelpers/createDeleteBtn');
-var alsoResizeChildren = require('./widgetHelpers/alsoResizeChildren');
-var generateNames = require('./widgetHelpers/generateNamesArr');
-// var html2canvas = require('html2canvas');
+import CreateBox from './widgetHelpers/CreateBox';
+import CreateInput from './widgetHelpers/CreateInput';
+import CreateDeleteBtn from './widgetHelpers/CreateDeleteBtn';
+import AlsoResizeChildren from './widgetHelpers/AlsoResizeChildren';
+import GenerateNames from './widgetHelpers/GenerateNamesArr';
 
-// $(function() {
-module.exports = function(){
+export default function() {
 
-  // html2canvas($(this), {
-  //   onrendered: function(canvas) {
-  //     console.log('html2canvas rendered');
-  //     // var dataURL = canvas.toDataURL("image/png");
-  //     // console.log(dataURL);
-  //   }
-  // });
   //make overReact-container droppable
   $('#overReact-container').droppable({
     greedy: true,
-    //accept: '.box',
-    //hoverClass: 'ui-state-hover drop-background-on',
-    //activeClass: 'active',
-    //activeClass: "ui-state-default",
-    drop: function( e, ui ) {
+    drop( e, ui ) {
       //escape out if dropping into same div
-      if($(this).attr('id') === ui.draggable.parent()[0].id) return;
-      var droppedInto = $(this);
+      const droppedInto = $(this);
+      if(droppedInto.attr('id') === ui.draggable.parent()[0].id) return;
       $(ui.draggable).css({
         top: ui.draggable.offset().top - droppedInto.offset().top,
         left: ui.draggable.offset().left - droppedInto.offset().left,
@@ -34,48 +20,40 @@ module.exports = function(){
       //append the div that is being dragged into the div that will be its parent
       ui.draggable.appendTo(droppedInto);
       //re-set all divs resizable to also resize their children
-      alsoResizeChildren($('#overReact-container'));
+      AlsoResizeChildren($('#overReact-container'));
        //change parent name of "nested in: "
       $(ui.draggable).children('div').children('p').text('nested in: App')
     }
   });
   //component name array to keep track of names and prevent duplication
-  var savedTemplate = [];
-
-  //Create submit button and place click handler on the submit button.
-  //Click handler will send post to create files.
-  // var submitBtn = $('<div></div>').attr('id', 'submitButton').text('Create Files');
-  // submitBtn.appendTo('.options-section');
-  // $('#submitButton').on('click', function() {
-  //   postFunction(id, hash);
-  // });
+  // var savedTemplate = [];
 
   //create input field on the main gui header
-  createInput('gui-header', createComponent);
+  CreateInput('gui-header', createComponent);
 
   //add save and load stuffs
-  $('#saveButton').on('click',function(e){
-    savedTemplate = generateNames();
-  });
-
-  $('#loadButton').on('click',function(e){
-    $('.box').remove();
-    savedTemplate.objects.forEach(function(item){
-      createComponent(item, true);
-    });
-  });
+  // $('#saveButton').on('click',function(e){
+  //   savedTemplate = GenerateNames();
+  // });
+  //
+  // $('#loadButton').on('click',function(e){
+  //   $('.box').remove();
+  //   savedTemplate.objects.forEach(function(item){
+  //     createComponent(item, true);
+  //   });
+  // });
 
   //node parameter is the form dom element
   function createComponent(node, fromLoadButton) {
     //get the value of the input field & the name of the parent component
-    var componentName = fromLoadButton ? node.name : node.find('input').val();
+    let componentName = fromLoadButton ? node.name : node.find('input').val();
 
     //backup validation of componentName
     if((/[^\w]/g).test(componentName)) {
       componentName = componentName.replace(/[^\w]/g, '');
     }
 
-    if(generateNames().names.indexOf(componentName) !== -1 || componentName === "App") {
+    if(GenerateNames().names.indexOf(componentName) !== -1 || componentName === "App") {
       node.find('input').val('');
       $('#dup-warning').css('display', 'inline-block');
       //alert('React does not allow duplicate component names');
@@ -85,10 +63,10 @@ module.exports = function(){
 
         //create a new box
         mixpanel.track('Create Component');
-        createBox(componentName, node, fromLoadButton);
+        CreateBox(componentName, node, fromLoadButton);
 
         //create Delete Button
-        createDeleteBtn(componentName);
+        CreateDeleteBtn(componentName);
       }
   }
-};//closes module.exports function
+};

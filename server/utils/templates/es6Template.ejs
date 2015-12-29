@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-<% if (component.parent) { %>import {render} from 'react-dom';<% } %><% if (component.children) for (var i = 0; i < component.children.length; i++) { %>
+<% if (component.parent) { %>import {Render} from 'react-dom';<% } %><% if (component.children) for (var i = 0; i < component.children.length; i++) { %>
 import <%- component.children[i].name %> from './<%- component.children[i].name %>';<% } %>
 
 export default class <%- component.name %> extends Component {
@@ -15,4 +15,4 @@ export default class <%- component.name %> extends Component {
   }
 }
 
-<% if (component.parent) { %>render(<<%- component.name %> />, document.getElementById('main-container'));<% } %>
+<% if (component.parent) { %>Render(<<%- component.name %> />, document.getElementById('main-container'));<% } %>

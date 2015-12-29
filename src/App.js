@@ -12,7 +12,7 @@ import {Input} from 'react-bootstrap';
 import DownloadModal from './DownloadModal';
 import postFunction from '../js/widgetHelpers/postFunction';
 import FormModal from './FormModal';
-import styles from './styles';
+import Styles from './Styles';
 var $ = isBrowser ? require('jquery') : undefined;
 
 export default class App extends Component {
@@ -43,9 +43,18 @@ export default class App extends Component {
 
   feedback = (e) => {
     e.preventDefault();
-    this.setState({
-      formModal: true,
-    })
+    var that = this;
+    console.log('clicked feedback');
+    html2canvas(document.body, {
+      onrendered: function(canvas) {
+        var dataURL = canvas.toDataURL("image/png");
+        console.log(dataURL);
+        that.setState({
+          screenshot: dataURL.replace(/^data:image\/(png|jpg);base64,/, ""),
+          formModal: true
+        });
+      }
+    });
   }
 
   hideModal = () => {
@@ -58,11 +67,11 @@ export default class App extends Component {
   render = () => {
     return (
       <div>
-        <nav style={styles.navbar} fixedTop={true} id='nav-section'>
+        <div style={Styles.navbar} fixedTop={true} id='nav-section'>
           OverReact
-          <sup style={styles.sup}>Beta Version</sup>
-        </nav>
-        <Home css={styles.Home}/>
+          <sup style={Styles.sup}>Beta Version</sup>
+        </div>
+        <Home />
         <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>
         <WhatNext />
         <Footer formModal={this.feedback}/>

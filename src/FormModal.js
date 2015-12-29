@@ -66,50 +66,41 @@ export default class FormModal extends Component {
     })
   }
 
-  feedbackForm() {
-    return (
-      <div>
-        <Modal.Header closeButton>
-          <Modal.Title>Issues, Suggestions, or Feedback! Oh My!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form onSubmit={this.feedbackSubmission}>
-            <Input required type="text" label="Name" id='formNameField'/>
-            <hr/>
-            <Input required type="email" label="Email" id="formEmailField"/>
-            <hr/>
-            <DropdownButton onSelect={this.dropdownSelection} title={this.state.category} id='categoriesDropDown'>
-              <MenuItem eventKey="1">Issues / Bugs</MenuItem>
-              <MenuItem eventKey="2">Suggestions</MenuItem>
-              <MenuItem eventKey="3">General Feedback / Questions</MenuItem>
-            </DropdownButton>
-            <Input type="textarea" label="Text Area" placeholder="Enter your feedback here..." />
-            <ButtonInput type="submit" value="Submit Button" />
-          </form>
-        </Modal.Body>
-      </div>
-    )
-  }
-
-  thankYouMsg() {
-    return (
-      <div>
-        <Modal.Header closeButton>
-          <Modal.Title>Thanks for your submission!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>We appreciate the feedback and will do our best to address your issues/suggestions as soon as possible.</p>
-          <br/>
-          <p>Thanks for using OverReact!</p>
-        </Modal.Body>
-      </div>
-    )
-  }
-
   render = () => {
     return (
       <Modal show={this.props.show} onHide={this.hidden}>
-        {!this.state.submitted ? this.feedbackForm : this.thankYouMsg}
+        {!this.state.submitted ?
+          (<div>
+            <Modal.Header closeButton>
+              <Modal.Title>Issues, Suggestions, or Feedback! Oh My!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <form onSubmit={this.feedbackSubmission}>
+                <Input required type="text" label="Name" id='formNameField'/>
+                <hr/>
+                <Input required type="email" label="Email" id="formEmailField"/>
+                <hr/>
+                <DropdownButton onSelect={this.dropdownSelection} title={this.state.category} id='categoriesDropDown'>
+                  <MenuItem eventKey="1">Issues / Bugs</MenuItem>
+                  <MenuItem eventKey="2">Suggestions</MenuItem>
+                  <MenuItem eventKey="3">General Feedback / Questions</MenuItem>
+                </DropdownButton>
+                <Input type="textarea" label="Text Area" placeholder="Enter your feedback here..." />
+                <ButtonInput type="submit" value="Submit Button" />
+              </form>
+            </Modal.Body>
+          </div>)
+          :
+        (<div>
+          <Modal.Header closeButton>
+            <Modal.Title>Thanks for your submission!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>We appreciate the feedback and will do our best to address your issues/suggestions as soon as possible.</p>
+            <br/>
+            <p>Thanks for using OverReact!</p>
+          </Modal.Body>
+        </div>)}
       </Modal>
     )
   }

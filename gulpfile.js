@@ -26,14 +26,13 @@ function buildScript(file, watch, destName) {
     debug : true,
     transform : babelify.configure({
                 presets: ["react", "stage-0"],
-                plugins: ["transform-decorators-legacy"]
                 })
   };
 
   //watchify if watch set to true. otherwise browserify once
   var bundler = watch ? watchify(browserify(props)) : browserify(props);
 
-  function rebundle(){
+  function rebundle() {
     var stream = bundler.bundle();
     return stream
       .on('error', handleErrors)
@@ -55,7 +54,7 @@ function buildScript(file, watch, destName) {
 
 // run once
 gulp.task('scripts', function() {
-  return buildScript('routes.js', false, 'bundle.js');
+  return buildScript('Routes.js', false, 'bundle.js');
 });
 //convert server to es5
 gulp.task('server', function() {
@@ -81,7 +80,9 @@ gulp.task('css', function() {
 });
 
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['scripts', 'server', 'client'], function() {
+gulp.task('default', ['scripts', 'server', 'client', 'css'], function() {
   gulp.watch(['./server/server.js'],['server']);
-  return buildScript('routes.js', true, 'bundle.js');
+  gulp.watch(['./css/*.css'],['css']);
+  gulp.watch(['./src/*.js'], ['client']);
+  return buildScript('Routes.js', true, 'bundle.js');
 });

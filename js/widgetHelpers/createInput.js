@@ -1,11 +1,11 @@
-//function called to create an input field in new boxes
-var toPascal = require('./toPascal');
+import ToPascal from './ToPascal';
 
-module.exports = function(context, func) {
-  var errorMessage = 'Please only use alphanumeric characters, underscores, or spaces';
+//function called to create the input component name field and add event handlers
+export default function(context, func) {
+  const errorMessage = 'Please only use alphanumeric characters, underscores, or spaces';
 
   //pattern property makes sure they can only use alphanumeric characters, underscores, or spaces
-  var inputField = $(`<form><input
+  const inputField = $(`<form><input
     required
     pattern="[a-zA-Z0-9_ ]+"
     placeholder="Component Name..."
@@ -16,9 +16,10 @@ module.exports = function(context, func) {
   inputField.appendTo(('#' + context));
   inputField.on('submit', function(e){
     e.preventDefault();
+    console.log('submit')
     //convert input to Pascal case
     $('#dup-warning').css('display', 'none')
-    var output = toPascal($(e.target).find('input').val());
+    const output = ToPascal($(e.target).find('input').val());
     $(e.target).find('input').val(output);
     func($(this));
   });

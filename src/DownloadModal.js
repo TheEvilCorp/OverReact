@@ -11,7 +11,7 @@ import {OverlayTrigger} from 'react-bootstrap';
 var $ = isBrowser ? require('jquery') : undefined;
 
 export default class DownloadModal extends Component {
-  downloadZip() {
+  downloadZip = () => {
     mixpanel.track('Download Using Download Button');
     window.location.href = `/download/:${this.props.hash}`;
   }
