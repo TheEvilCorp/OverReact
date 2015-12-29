@@ -1,8 +1,8 @@
 // interprets the DOM to create an object for the post function.
-module.exports = function () {
-  var output = [];
+export default function () {
+  const output = [];
 
-  $('#overReact-container').find('div.box').each(function(e) {
+  $('#overReact-container').find('div.box').each( function(e) {
     output.push({
       name: $(this).attr('id'),
       parent: $(this).parent().attr('id'),
@@ -18,7 +18,7 @@ module.exports = function () {
   });
 
   return {
-    names: output.map(function(e) { return e.name }),
+    names: output.map( ({name}) => name ),
     objects: output,
     lowestElem: output.sort(function(a,b){
       return a.distToBottom - b.distToBottom;

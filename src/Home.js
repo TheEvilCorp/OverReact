@@ -1,31 +1,27 @@
-var React = require('react');
-var $ = require('jquery');
-var Instructions = require('./Instructions');
-var Jumbotron = require('react-bootstrap').Jumbotron;
-var Button = require('react-bootstrap').Button;
+const isBrowser = typeof window !== undefined;
+import React, {Component} from 'react';
+import Instructions from './Instructions';
+import styles from './styles';
+var $ = isBrowser ? require('jquery') : undefined;
 
-var $root = $('html, body');
-var Home = React.createClass({
-  setFocus: function(e) {
+export default class Home extends Component {
+  setFocus = (e) => {
     e.preventDefault();
-    $root.animate({
+    $('html, body').animate({
         scrollTop: $('#application-section').offset().top,
     }, 500);
-  },
+  }
 
-  render: function () {
+  render() {
     return (
-        <div id='home-section'>
-          <div className='homeFlexContainer'>
-          <h1 className='homeFlexItem'>The React File Generator</h1>
-          <p className='homeFlexItem'>Wireframe React components and download starter files with one click</p>
-          <Button className='homeFlexItem' onClick={this.setFocus} bsStyle="primary" bsSize="large" id='getStarted-btn'>Get Started</Button>
-          </div>
-          <Instructions />
+      <div style={styles.Home.homeSection} >
+        <div style={styles.Home.flexContainer} >
+        <h1 style={styles.Home.homeHeader} >The React File Generator</h1>
+        <p style={styles.Home.homeParagraph} >Wireframe React components and download starter files with one click</p>
+        <button onClick={this.setFocus} style={styles.Home.getStarted}>Get Started</button>
         </div>
-
+        <Instructions css={styles.Home.Instructions} />
+      </div>
     )
   }
-});
-
-module.exports = Home;
+};

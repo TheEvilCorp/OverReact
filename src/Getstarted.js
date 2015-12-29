@@ -1,18 +1,11 @@
-var React = require('react');
+import React, {Component} from 'react';
 
-
-var Getstarted = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
-  render: function () {
+export default class Getstarted extends Component {
+  render() {
     return (
       <div>
         Getstarted
-
       </div>
     )
   }
-});
-
-module.exports = Getstarted;
+};

@@ -1,11 +1,12 @@
-var React = require('react');
-var Input = require('react-bootstrap').Input
+import React, {Component} from 'react';
+import {Input} from 'react-bootstrap';
 
-var BasicOptions = React.createClass({
-  shouldComponentUpdate: function(nextProps, nextState) {
-    return this.props !== nextProps ? true : false;
-  },
-  render: function () {
+export default class BasicOptions extends Component {
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return this.props !== nextProps;
+  }
+
+  render() {
     return (
       <div>
         <p id='basic-options'>Basic Options</p>
@@ -14,6 +15,4 @@ var BasicOptions = React.createClass({
       </div>
     )
   }
-});
-
-module.exports = BasicOptions;
+}

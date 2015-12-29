@@ -1,5 +1,4 @@
 var request = require('request');
-var App = require('./../server');
 var hat = require('hat');
 var fs = require('fs');
 
@@ -19,6 +18,7 @@ var slack = 'https://hooks.slack.com/services/T08CTTFJ4/B0G6BPNJX/ARIe924P1CivpU
 //   }
 
 module.exports = function(req, res) {
+  console.log(req.body.screenshot);
   var imageName = hat();
   fs.writeFileSync(`./screenshots/${imageName}.png`, new Buffer(req.body.screenshot, 'base64'));
   req.body.payload.attachments[0].image_url = `http://www.overreact.io/screenshots/${imageName}.png`;
