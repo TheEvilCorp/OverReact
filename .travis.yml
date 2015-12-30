@@ -1,7 +1,6 @@
 language: node_js
 node_js:
-- '0.11'
-- '0.10'
+- '4.2.1'
 deploy:
   provider: elasticbeanstalk
   access_key_id: AKIAJS2Y7L7EBBK4ZSPQ
