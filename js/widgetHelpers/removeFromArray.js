@@ -1,12 +1,12 @@
-module.exports = function (componentName, array) {
+export default function(componentName, array) {
   //remove top component from array
-  var index = array.map(function(e) { return e.name; }).indexOf(componentName);
-  array.splice(index,1);
+  let index = array.map( elem => elem.name).indexOf(componentName);
+  array.splice(index, 1);
   //remove children components from array
   $('#' + componentName).find('div.box')
-  .each(function(e){
-    var componentId = $(this).attr('id');
-    index = array.map(function(e) { return e.name; }).indexOf(componentId);
+  .each(elem => {
+    const componentId = $(this).attr('id');
+    index = array.map( elem => elem.name).indexOf(componentId);
     array.splice(index,1);
   });
 };

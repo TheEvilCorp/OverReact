@@ -1,7 +1,7 @@
-
-function handleRadioBtnChange(e, obj) {
-  var target = e.target.id;
-  var newState = obj;
+//control state for options selection
+export default function handleRadioBtnChange(e, obj) {
+  const target = e.target.id;
+  const newState = obj;
   switch (target) {
     case 'es6':
       newState.es6 = !newState.es6;
@@ -38,6 +38,4 @@ function handleRadioBtnChange(e, obj) {
         newState.grunt = false;
       }
   return newState;
-}
-
-module.exports = handleRadioBtnChange;
+};

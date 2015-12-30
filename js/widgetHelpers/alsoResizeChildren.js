@@ -1,11 +1,12 @@
-module.exports = function(node) {
-  node.find('div.box').each(function() {
-    var children = [];
-    $(this).find('div.box').each(function() {
-      children.push(`#${$(this).attr('id')}`);
+export default function(node) {
+  node.find('div.box').each( function() {
+    let children = [];
+    const $self = $(this);
+    $self.find('div.box').each(function() {
+      children.push(`#${$self.attr('id')}`);
     });
     children = children.join(',');
-    $(this).resizable({
+    $self.resizable({
       alsoResize: children
     });
   });

@@ -1,19 +1,9 @@
-
 /*React Blue: #61dafb;*/
 
 body{
   min-width: 1280px;
   margin: 0 auto;
   direction: ltr;
-}
-
-.container-fluid {
-  padding: 0px;
-}
-
-#nav-section,
-#footer-section {
-  background-color: #61dafb;
 }
 
 .homeFlexContainer {
@@ -35,29 +25,19 @@ body{
   color: #4F4F4F;
 }
 
-/*#home-section,
-#application-section,
-#whatNext-section,
-#footer-section {
-  width: 100%;
-}*/
-
-
-
 /*Navbar Section*/
-
 
 #nav-section {
   height: 60px;
+  width: 100%;
   min-width: 1280px;
-}
-#nav-title {
   color: white;
   font-size: 3em;
   font-weight: bolder;
-  /*float: left;*/
   text-align: center;
+  z-index: 999;
 }
+
 #nav-section sup {
   font-size: 30%;
   top: -1.9em;
@@ -67,23 +47,10 @@ body{
 
 #home-section {
   min-width: 1280px;
-  margin-top: -55px;
+  margin-top: -65px;
   height: 780px;
   background-color: #E0E0E0;
   text-align: center;
-/*
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-*/
 }
 
 .homeFlexContainer > h1 {
@@ -93,17 +60,19 @@ body{
 .homeFlexContainer > p{
   font-size: 1.5em;
 }
+
 #getStarted-btn {
   background-color: #FC913A;
   border-color: #FC913A;
   padding: 10px 20px;
   border-radius: 50px;
   margin: 20px 0px 40px 0px;
-
 }
+
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
 }
+
 #instruction-section {
   min-width: 1280px;
   /*margin: auto;*/
@@ -123,6 +92,7 @@ body{
 #instruction-section h3 {
   text-align: center;
 }
+
 .instructions{
   width: 330px;
   height: 330px;
@@ -133,21 +103,20 @@ body{
   background-color: white;
 }
 
-/*.instructions:last-child {
-  margin-right: 0px;
-}*/
-
 .instructions img {
   width: 300px;
   margin: 10px;
 }
+
 #selectOptions {
   margin-top: 20px;
 }
+
 .instructions p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
 .instructions hr {
   width: 150px;
   border: 1px solid white;
@@ -155,9 +124,7 @@ body{
 
 /*Application Section*/
 #application-section {
-  /*display: flex;*/
   height: 750px;
-  /*padding-top: 25px;*/
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: center;
@@ -168,8 +135,8 @@ body{
   justify-content: center;
   width: 100%;
   flex-direction: row;
-/*  padding-top: 25px;*/
 }
+
 #overReact-sectionNotContainer{
   position: relative;
   top: 30px;
@@ -177,6 +144,7 @@ body{
   padding: 0;
   margin: 0;
 }
+
 #gui-header {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -185,17 +153,20 @@ body{
   height: 50px;
   margin-left: 35px;
 }
+
 #gui-header h3 {
   display: inline-block;
   color: white;
   margin-top: 10px;
 }
+
 #dup-warning {
   display: none;
   margin-left: 100px;
   color: red;
   font-weight: bold;
 }
+
 #gui-header form{
   display: inline-block;
   float: right;
@@ -286,13 +257,6 @@ body{
   border: 5px solid #C4C4C4;
   border-radius: 5px;
   float: right;
-  /*width: 300px;
-  height: 500px;
-  margin-left: 50px;
-  margin-top: 80px;
-  background-color: #D3D3D3;
-  border: 5px solid #D3D3D3;
-}*/
 }
 
 #options-section h3 {
@@ -318,31 +282,26 @@ body{
   margin-top: 5px;
 }
 
-/*#basic-options, #basic-options input{
-  margin-bottom: 0px;
-}*/
-
 .form-group {
   background-color: white;
   padding: 8px 8px 0px 8px;
   border-radius: 5px;
 }
-/*
-hr {
-  margin-bottom: 8px;
-}*/
 
 .btn-group {
   border: 1px solid red;
   display: block;
 }
+
 .radio-btns {
   margin-left: 8px;
 }
+
 #template-buttons {
   text-align: center;
   padding: 10px 0px 20px 0px;
 }
+
 #template-buttons button {
   margin: 5px;
 }
@@ -374,9 +333,7 @@ hr {
   font-size: 0.7em;
   line-height: 1em;
 }
-pre span {
 
-}
 .well {
   width: 600px;
   margin: auto;
@@ -394,16 +351,6 @@ pre span {
   text-align: left      !important;
   font-size: 1.1em;
   color: white;
-}
-/*#footer-section ul,
-#footer-section li,
-#footer-section div,
-#footer-section p,
-#footer-section a {
-  display: inline-block;
-}*/
-#footer-section div {
-  margin-top: 10px;
 }
 
 #feedback {
@@ -431,18 +378,6 @@ pre span {
 #brought {
   align-self: center;
   margin-left: -17.5px;
-}
-
-/*#footer-section li:first-child {
-  margin-right: 30px;
-}
-#footer-section p {
-  margin-left: 290px;
-  margin-right: 360px;
-}
-#footer-section a:last-child {
-  text-align: right;
-}*/
 }
 
 .dropdown {

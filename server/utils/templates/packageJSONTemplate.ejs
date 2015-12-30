@@ -20,7 +20,8 @@
     "react": "^0.14",
     "react-dom": "^0.14.0",
     "babel-preset-es2015": "^6.0.15",
-    "babel-preset-react": "^6.0.15",
+    "babel-preset-react": "^6.0.15",<% if(es6 === 'es6') {%>
+    "babel-preset-stage-0": "^6.3.13",<%}%>
     "babelify": "^7.2.0",
 <%#=====================express vs hapi=====================-%>
     <% if(server !== 'none') { if(server === 'express'){%>"express" : "^4.13.3",<%} else {%>"hapi": "^11.1.2",

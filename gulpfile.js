@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var buffer = require('vinyl-buffer');
 var minifyCss = require('gulp-minify-css');
+var babel = require('gulp-babel');
 
 function handleErrors() {
   var args = Array.prototype.slice.call(arguments);
@@ -19,24 +20,23 @@ function handleErrors() {
   this.emit('end'); //keeps gulp from hanging on this task
 }
 
-function buildScript(file, watch) {
+function buildScript(file, watch, destName) {
   var props = {
-    entries : ['./js/' + file],
+    entries : ['./src/' + file],
     debug : true,
     transform : babelify.configure({
-                presets: ["react", "es2015"]
+                presets: ["react", "stage-0"],
                 })
   };
 
   //watchify if watch set to true. otherwise browserify once
-  var bundler =
-    watch ? watchify(browserify(props)) : browserify(props);
+  var bundler = watch ? watchify(browserify(props)) : browserify(props);
 
-  function rebundle(){
+  function rebundle() {
     var stream = bundler.bundle();
     return stream
       .on('error', handleErrors)
-      .pipe(source('bundle.js'))
+      .pipe(source(destName))
       .pipe(buffer())
       .pipe(uglify())
       .pipe(gulp.dest('./build/'));
@@ -54,21 +54,35 @@ function buildScript(file, watch) {
 
 // run once
 gulp.task('scripts', function() {
-  return buildScript('./../src/App.js', false);
+  return buildScript('Routes.js', false, 'bundle.js');
 });
-
+//convert server to es5
+gulp.task('server', function() {
+return gulp.src('./server/server.js')
+  .on('error', function(err) {
+    console.log(err);
+  })
+  .pipe(babel())
+  .pipe(gulp.dest('build'));
+});
+//convert client to es5
+gulp.task('client', function() {
+return buildScript('Client.js' , false, 'Client.js');
+});
 //bundle css
 gulp.task('css', function() {
-  return gulp.src('./css/style.css')
+  return gulp.src('./css/*.css')
     .on('error', function(err) {
       console.log(err);
     })
     .pipe(minifyCss())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('build'));
 });
 
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['scripts','css'], function() {
+gulp.task('default', ['scripts', 'server', 'client', 'css'], function() {
+  gulp.watch(['./server/server.js'],['server']);
   gulp.watch(['./css/*.css'],['css']);
-  return buildScript('./../src/App.js', true);
+  gulp.watch(['./src/*.js'], ['client']);
+  return buildScript('Routes.js', true, 'bundle.js');
 });

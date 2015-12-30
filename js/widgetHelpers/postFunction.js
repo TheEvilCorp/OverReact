@@ -1,19 +1,21 @@
-var createDataObj = require('./createDataObj');
-var readFormData = require('./readFormData');
+import CreateDataObj from './CreateDataObj';
+import ReadFormData from './ReadFormData';
 
-module.exports = function(state, callback) {
+export default function(state, callback) {
+  console.log(CreateDataObj, 'postfunc')
+  const $overReactContainer = $('#overReact-container');
   //Retrieves data from form
-  var form = readFormData(state)
+  const form = ReadFormData(state)
   //interprets the DOM into an object
-  var dataObj = {
+  const dataObj = {
     name: 'app',
-    children:[],
-    position: $('#overReact-container').position(),
-    height: $('#overReact-container').height(),
-    width: $('#overReact-container').width()
+    children: [],
+    position: $overReactContainer.position(),
+    height: $overReactContainer.height(),
+    width: $overReactContainer.width()
   };
 
-  createDataObj(dataObj, '#overReact-container');
+  CreateDataObj(dataObj, '#overReact-container');
 
   //post request to create React files and download the zip
   $.ajax({
@@ -28,10 +30,10 @@ module.exports = function(state, callback) {
       template: form.es6,
     }),
     //this initiates download once the file is zipped
-    success: function(uniqueID){
+    success(uniqueID) {
       callback(uniqueID);
     },
-    error: function(err){
+    error(err) {
       console.log('ERROR: ', err);
     }
   });

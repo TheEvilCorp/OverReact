@@ -1,3 +1,4 @@
+require('babel-register');
 var request = require('supertest');
 var chai = require('chai')
 var expect = require ('chai').expect;
@@ -5,7 +6,6 @@ var httpMocks = require('node-mocks-http');
 var fs = require('fs');
 var path = require('path');
 var exec = require('child_process').exec;
-
 var app = require('./../server/server');
 var capitalize = require('./../server/utils/capitalize');
 var mkDir = require('./../server/utils/mkDir');
@@ -25,14 +25,14 @@ describe('Back-End Tests', function() {
     });
 
   });
-  
-  describe('Testing middleware for /submit route', function() {  
+
+  describe('Testing middleware for /submit route', function() {
     //Request and response data objects
     var directory = path.join(__dirname, './../')
     var grandchildObj = {name: 'grandchild', children: [], position: {top: 53, left: 0}, height: 100, width: 100 }
-    var childObj = {name: 'child', children: [grandchildObj], position: {top: 53, left: 0}, height: 100, width: 100 } 
+    var childObj = {name: 'child', children: [grandchildObj], position: {top: 53, left: 0}, height: 100, width: 100 }
     var dataObj = {
-      name: 'app',  
+      name: 'app',
       children: [
         {name: 'compA', children: [childObj], position: {top: 53, left: 0}, height: 100, width: 100},
         {name: 'compB', children: [], position: {top: 53, left: 0}, height: 100, width: 100},
@@ -60,9 +60,9 @@ describe('Back-End Tests', function() {
 
     // after(function(){
     //   var directory = path.join(__dirname, './../')
-    //   console.log('file path: ', `${directory}${request.body.folderName}`) 
+    //   console.log('file path: ', `${directory}${request.body.folderName}`)
     //   fs.stat(`${directory}${request.body.folderName}`, function(err, stats) {
-        
+
     //     console.log('AFTER: ', stats);
     //     console.log('dirname: ', __dirname);
     //     console.log('error: ', err);
@@ -78,7 +78,7 @@ describe('Back-End Tests', function() {
 
     it('Unit test for mkDir middleware function', function(done) {
       mkDir(req, res, function(){
-        
+
         fs.stat(`${directory}${req.body.folderName}`, function(err, stats) {
           expect(!!stats).to.eq(true);
         });
@@ -93,28 +93,28 @@ describe('Back-End Tests', function() {
           done();
         });
         expect(req.body.uniqueID).to.match(/\w{32}$/);
-        expect(req.body.folderName).to.match(/MOCHA_TEST_PROJECT-\w{32}$/);    
+        expect(req.body.folderName).to.match(/MOCHA_TEST_PROJECT-\w{32}$/);
       });
     });
-    
+
     it('Unit test for addStandardFiles middleware function', function(done){
       addStandardFiles(req, res, function(){
         fs.stat(`${directory}${req.body.folderName}/index.html`, function(err, stats){
           expect(!!stats).to.eq(true);
-        }); 
+        });
         fs.stat(`${directory}${req.body.folderName}/package.json`, function(err, stats){
           expect(!!stats).to.eq(true);
-        }); 
+        });
         fs.stat(`${directory}${req.body.folderName}/gruntfile.js`, function(err, stats){
           expect(!!stats).to.eq(true);
-        }); 
+        });
         fs.stat(`${directory}${req.body.folderName}/server/server.js`, function(err, stats){
           expect(!!stats).to.eq(true);
-        }); 
+        });
         fs.stat(`${directory}${req.body.folderName}/css/style.css`, function(err, stats){
           expect(!!stats).to.eq(true);
           done();
-        }); 
+        });
       });
     });
 
@@ -131,11 +131,11 @@ describe('Back-End Tests', function() {
         });
         fs.stat(`${directory}${req.body.folderName}/src/Child.js`, function(err, stats){
           expect(!!stats).to.eq(true);
-        });  
+        });
         fs.stat(`${directory}${req.body.folderName}/src/Grandchild.js`, function(err, stats){
           expect(!!stats).to.eq(true);
           done();
-        });  
+        });
       });
     });
 
@@ -161,13 +161,5 @@ describe('Back-End Tests', function() {
           done();
         });
     });
-
-
-
   });
 });
-
-
-
-
-
