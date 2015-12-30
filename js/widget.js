@@ -1,41 +1,72 @@
-var createBox = require('./widgetHelpers/createBox');
-var createInput = require('./widgetHelpers/createInput');
-var postFunction = require('./widgetHelpers/postFunction');
-var createDeleteBtn = require('./widgetHelpers/createDeleteBtn');
+import CreateBox from './widgetHelpers/CreateBox';
+import CreateInput from './widgetHelpers/CreateInput';
+import CreateDeleteBtn from './widgetHelpers/CreateDeleteBtn';
+import AlsoResizeChildren from './widgetHelpers/AlsoResizeChildren';
+import GenerateNames from './widgetHelpers/GenerateNamesArr';
 
-$(function() {
+export default function() {
+
+  //make overReact-container droppable
+  $('#overReact-container').droppable({
+    greedy: true,
+    drop( e, ui ) {
+      //escape out if dropping into same div
+      const droppedInto = $(this);
+      if(droppedInto.attr('id') === ui.draggable.parent()[0].id) return;
+      $(ui.draggable).css({
+        top: ui.draggable.offset().top - droppedInto.offset().top,
+        left: ui.draggable.offset().left - droppedInto.offset().left,
+      });
+      //append the div that is being dragged into the div that will be its parent
+      ui.draggable.appendTo(droppedInto);
+      //re-set all divs resizable to also resize their children
+      AlsoResizeChildren($('#overReact-container'));
+       //change parent name of "nested in: "
+      $(ui.draggable).children('div').children('p').text('nested in: App')
+    }
+  });
   //component name array to keep track of names and prevent duplication
-  var allNames = [];
+  // var savedTemplate = [];
 
-  //place click handler on the submit button. Click handler will send post to create files.
-  $('#submitButton').on('click', postFunction);
+  //create input field on the main gui header
+  CreateInput('gui-header', createComponent);
 
-  //create input field on the main container
-  createInput('container', createComponent);
+  //add save and load stuffs
+  // $('#saveButton').on('click',function(e){
+  //   savedTemplate = GenerateNames();
+  // });
+  //
+  // $('#loadButton').on('click',function(e){
+  //   $('.box').remove();
+  //   savedTemplate.objects.forEach(function(item){
+  //     createComponent(item, true);
+  //   });
+  // });
 
   //node parameter is the form dom element
-  function createComponent(node){
+  function createComponent(node, fromLoadButton) {
     //get the value of the input field & the name of the parent component
-    var componentName = node.find('input').val().toLowerCase();
-    var parentName = node.parent().attr('id');
+    let componentName = fromLoadButton ? node.name : node.find('input').val();
 
-    if(allNames.indexOf(componentName) !== -1) {
-      alert('duplicate name');
-    } else {
-      //push the component name to an array in order to keep track of names & prevent dupes
-      allNames.push(componentName);
-
-      //clear out the input field
-      node.find('input').val('');
-
-      //create a new box
-      createBox(componentName, parentName);
-
-      //create input field
-      createInput(componentName, createComponent);
-
-      //create Delete Button
-      createDeleteBtn(componentName, allNames);
+    //backup validation of componentName
+    if((/[^\w]/g).test(componentName)) {
+      componentName = componentName.replace(/[^\w]/g, '');
     }
+
+    if(GenerateNames().names.indexOf(componentName) !== -1 || componentName === "App") {
+      node.find('input').val('');
+      $('#dup-warning').css('display', 'inline-block');
+      //alert('React does not allow duplicate component names');
+    } else {
+        //clear out the input field
+        if (!fromLoadButton) node.find('input').val('');
+
+        //create a new box
+        mixpanel.track('Create Component');
+        CreateBox(componentName, node, fromLoadButton);
+
+        //create Delete Button
+        CreateDeleteBtn(componentName);
+      }
   }
-});//closes anon function
+};

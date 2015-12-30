@@ -1,3 +1,8 @@
 node_modules
 bower_components
-npm_debug*
+build
+dist
+npm-debug.log
+config
+zips
+.DS_Store

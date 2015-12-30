@@ -1,31 +1,394 @@
-form {
-  float: right;
+/*React Blue: #61dafb;*/
+
+body{
+  min-width: 1280px;
+  margin: 0 auto;
+  direction: ltr;
 }
 
-#container {
-	width: 600px;
-	height: 600px;
-	border: 1px solid blue;
-	position: relative;
+.homeFlexContainer {
+  padding-top: 115px;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
 }
+
+#home-section h1,
+#home-section p,
+#whatNext-section {
+  text-align: center;
+  color: #4F4F4F;
+}
+
+/*Navbar Section*/
+
+#nav-section {
+  height: 60px;
+  width: 100%;
+  min-width: 1280px;
+  color: white;
+  font-size: 3em;
+  font-weight: bolder;
+  text-align: center;
+  z-index: 999;
+}
+
+#nav-section sup {
+  font-size: 30%;
+  top: -1.9em;
+}
+
+/*Home Section*/
+
+#home-section {
+  min-width: 1280px;
+  margin-top: -65px;
+  height: 780px;
+  background-color: #E0E0E0;
+  text-align: center;
+}
+
+.homeFlexContainer > h1 {
+  margin-top: 70px;
+}
+
+.homeFlexContainer > p{
+  font-size: 1.5em;
+}
+
+#getStarted-btn {
+  background-color: #FC913A;
+  border-color: #FC913A;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin: 20px 0px 40px 0px;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+#instruction-section {
+  min-width: 1280px;
+  /*margin: auto;*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+  margin-top: -40px;
+}
+
+#instruction-section h3 {
+  text-align: center;
+}
+
+.instructions{
+  width: 330px;
+  height: 330px;
+  display: inline-block;
+  border-radius: 20px;
+  vertical-align: middle;
+  margin: 35px;
+  background-color: white;
+}
+
+.instructions img {
+  width: 300px;
+  margin: 10px;
+}
+
+#selectOptions {
+  margin-top: 20px;
+}
+
+.instructions p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.instructions hr {
+  width: 150px;
+  border: 1px solid white;
+}
+
+/*Application Section*/
+#application-section {
+  height: 750px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+}
+
+#overReact-sectionNotContainer{
+  position: relative;
+  top: 30px;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+#gui-header {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #61dafb;
+  width: 850px;
+  height: 50px;
+  margin-left: 35px;
+}
+
+#gui-header h3 {
+  display: inline-block;
+  color: white;
+  margin-top: 10px;
+}
+
+#dup-warning {
+  display: none;
+  margin-left: 100px;
+  color: red;
+  font-weight: bold;
+}
+
+#gui-header form{
+  display: inline-block;
+  float: right;
+  width: 300px;
+  margin-top: 11px;
+  margin-right: 11px;
+}
+
+#Apptext {
+  position: relative;
+  margin-left: 40px;
+  margin-bottom: 0;
+  color: #A3A3A3;
+}
+
+#overReact-container {
+  margin: -3px 35px 50px 35px;
+  min-width: 850px;
+  height: 550px;
+  position: relative;
+  border: 5px solid #61dafb;
+  border-top-width: 1px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  float: left;
+  padding-left: 7px;
+  color: #A3A3A3;
+}
+
+#overReact-container form {
+  float: right;
+}
+.ui-state-hover {
+  background-color: transparent;
+  background-image: none;
+}
+.drop-background-on {
+  background-color: rgba(229, 229, 229, 0.4)   !important;
+}
+
 .deleteBtn {
-	float: right;
-	color: #a0a0a0;
-	background-color: white;
-	border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #a0a0a0;
+  background-color: white;
+  border: none;
 }
 .deleteBtn:hover {
-	color: red;
+  color: red;
 }
 
 .box {
-	display: inline-block;
-	border: 1px solid red;
-	position: relative;
-
+  display: inline-block;
+  border: 2px solid #A3A3A3;
+  color: #A3A3A3;
+  padding-left: 5px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.6);
+  min-width: 100px;
+  min-height: 40px;
+  cursor: move;
+  z-index:500;
+}
+#names > span {
+  font-weight: bold;
+  color: #4daec8;
+  overflow: hidden;
+  cursor: auto;
+}
+#names {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+.parentName {
+  display: inline;
+  padding-left: 10px;
+  color: red;
+}
+
+#options-section {
+  min-width: 300px;
+  height: 600px;
+  margin: 57px 30px 50px 10px;
+  background-color: #C4C4C4;
+  border: 5px solid #C4C4C4;
+  border-radius: 5px;
+  float: right;
+}
+
+#options-section h3 {
+  display: inline-block;
+  margin: 10px 10px 12px 10px;
+  color: white;
+}
 #submitButton {
-	background-color: red;
-	width: 300px;
+  margin-left: 65px;
+  background-color: #FC913A;
+  color: white;
+}
+#options-section p {
+  margin-left: 8px;
+  font-weight: bold;
+}
+#options-section label, input {
+  font-weight: normal;
+  margin: -3px 0;
+}
+
+#projectName{
+  margin-top: 5px;
+}
+
+.form-group {
+  background-color: white;
+  padding: 8px 8px 0px 8px;
+  border-radius: 5px;
+}
+
+.btn-group {
+  border: 1px solid red;
+  display: block;
+}
+
+.radio-btns {
+  margin-left: 8px;
+}
+
+#template-buttons {
+  text-align: center;
+  padding: 10px 0px 20px 0px;
+}
+
+#template-buttons button {
+  margin: 5px;
+}
+
+/*What Next Section*/
+#whatNext-section {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  background-color: #BABABA;
+  height: 600px;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#whatNext-section p{
+  font-size: 1.5em;
+}
+.windows-directions {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+  line-height: 1em;
+}
+
+.well {
+  width: 600px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  text-align: justify;
+}
+.terminal-text {
+  font-family: courier;
+}
+/*Footer Section*/
+
+#footer-section {
+  height: 60px;
+  text-align: left      !important;
+  font-size: 1.1em;
+  color: white;
+}
+
+#feedback {
+  margin-right: 20px;
+}
+
+.footerFlexContainer {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+  background-color: #61dafb;
+}
+
+.footerFlexItem {
+  margin: 20px
+}
+
+#brought {
+  align-self: center;
+  margin-left: -17.5px;
+}
+
+.dropdown {
+  margin-left: 8px;
+  border: none;
+  display: inline-block;
+}
+
+#pasteable {
+  margin: 10px 0;
+  background-color: #3a8296;
+  border: 1px solid black;
+  color: white;
 }
