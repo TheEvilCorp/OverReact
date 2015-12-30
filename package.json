@@ -1,5 +1,5 @@
 {
-  "name": "OverReact",
+  "name": "overreact",
   "version": "1.0.0",
   "private": true,
   "description": "Wireframing React projects with the functionality to boilerplate. This is the production project for Codesmith Cohort 3 members - Susan, Rico, and Brian",
@@ -76,5 +76,11 @@
     "mocha": "^2.3.4",
     "node-mocks-http": "^1.5.1",
     "watchify": "^3.6.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "overreact"
+  ]
 }
