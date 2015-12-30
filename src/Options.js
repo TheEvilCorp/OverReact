@@ -1,43 +1,42 @@
-var React = require('react');
-var $ = require('jquery');
-var Button = require('react-bootstrap').Button
-var handleRadioButton = require('./../js/widgetHelpers/handleRadioBtnChange');
-var postFunction = require('../js/widgetHelpers/postFunction');
-var ProjectName = require('./ProjectName');
-var ServerComponent = require('./ServerComponent');
-var TaskRunnerComponent = require('./TaskRunnerComponent');
-var BasicOptions = require('./BasicOptions');
+import React, {Component} from 'react';
+import {Button} from 'react-bootstrap';
+import HandleRadioButton from './../js/widgetHelpers/HandleRadioBtnChange';
+import PostFunction from '../js/widgetHelpers/PostFunction';
+import ProjectName from './ProjectName';
+import ServerComponent from './ServerComponent';
+import TaskRunnerComponent from './TaskRunnerComponent';
+import BasicOptions from './BasicOptions';
 
-var Options = React.createClass({
-  getInitialState: function() {
-    return {
-      projectName: '',
-      basic: false,
-      es6: false,
-      express: true,
-      hapi: false,
-      gulp: true,
-      grunt:false,
-    };
-  },
-  shouldComponentUpdate: function(nextProps, nextState) {
-    return this.state !== nextState ? true : false;
-  },
-  updateProjectName: function(e) {
+export default class Options extends Component {
+  state = {
+    projectName: '',
+    basic: false,
+    es6: false,
+    express: true,
+    hapi: false,
+    gulp: true,
+    grunt:false
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return this.state !== nextState;
+  }
+
+  updateProjectName = (e) => {
     this.setState({
         projectName: e.target.value.replace(/\s/g, '_').replace(/[^\w]+/g, '')
       })
-  },
+  }
 
-  handleButtonChange: function(e) {
-    this.setState(handleRadioButton(e, this.state));
-  },
+  handleButtonChange = (e) => {
+    this.setState(HandleRadioButton(e, this.state));
+  }
 
-  post: function() {
-    postFunction(this.state, this.props.submit);
-  },
+  post = () => {
+    PostFunction(this.state, this.props.submit);
+  }
 
-  render: function () {
+  render () {
     return (
       <section id='options-section'>
         <h3>Options</h3>
@@ -55,6 +54,4 @@ var Options = React.createClass({
       </section>
     )
   }
-});
-
-module.exports = Options;
+}

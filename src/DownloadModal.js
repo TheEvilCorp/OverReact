@@ -1,25 +1,25 @@
-var React = require('react');
-var $ = require('jquery');
-var Modal = require('react-bootstrap').Modal;
-var Glyphicon = require('react-bootstrap').Glyphicon;
-var Input = require('react-bootstrap').Input;
-var postFunction = require('../js/widgetHelpers/postFunction');
-var Button = require('react-bootstrap').Button;
-var ButtonInput = require('react-bootstrap').ButtonInput;
+const isBrowser = typeof window !== undefined;
+import React, {Component} from 'react';
+import {Modal} from 'react-bootstrap';
+import {Glyphicon} from 'react-bootstrap';
+import {Input} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
+import {ButtonInput} from 'react-bootstrap';
+import ReactZeroClipboard from 'react-zeroclipboard';
+import {Tooltip} from 'react-bootstrap';
+import {OverlayTrigger} from 'react-bootstrap';
+var $ = isBrowser ? require('jquery') : undefined;
 
-var ReactZeroClipboard = require('react-zeroclipboard');
-var Tooltip = require('react-bootstrap').Tooltip;
-var OverlayTrigger = require('react-bootstrap').OverlayTrigger;
-
-var DownloadModal = React.createClass({
-  downloadZip: function() {
+export default class DownloadModal extends Component {
+  downloadZip = () => {
     mixpanel.track('Download Using Download Button');
     window.location.href = `/download/:${this.props.hash}`;
-  },
-  render: function () {
-    var innerGlyphicon = <Glyphicon id="glyph" glyph="copy" />;
-    var command = 'overreact ' + this.props.hash;
-    var tooltip = <Tooltip id='copied' className='in' title='Copied to clipboard!'>Copied to clipboard!</Tooltip>;
+  }
+
+  render() {
+    let innerGlyphicon = <Glyphicon id="glyph" glyph="copy" />;
+    let command = 'overreact ' + this.props.hash;
+    let tooltip = <Tooltip id='copied' className='in' title='Copied to clipboard!'>Copied to clipboard!</Tooltip>;
     return (
       <Modal show={this.props.show} onHide={this.props.onHide} hash={this.props.hash}>
         <Modal.Header closeButton>
@@ -52,6 +52,4 @@ var DownloadModal = React.createClass({
       </Modal>
     )
   }
-});
-
-module.exports = DownloadModal;
+};

@@ -4,16 +4,25 @@
   "description": "Wireframing React projects with the functionality to boilerplate. This is the production project for Codesmith Cohort 3 members - Susan, Rico, and Brian",
   "main": "outputTest.js",
   "scripts": {
-    "start-server": "node server/server.js",
-    "start": "node server/server.js",
-    "start-dev": "export NODE_ENV=development; gulp & npm run start-server",
+    "start-server": "nodemon build/server.js",
+    "start": "node build/server.js",
+    "sudo-start-server": "sudo nodemon build/server.js",
+    "start-sudo": "gulp server; gulp & npm run sudo-start-server",
+    "start-dev": "gulp server; gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
-    "postinstall": "gulp scripts css",
+    "postinstall": "gulp server scripts css",
     "test": "mocha ./test"
   },
   "engines": {
     "node": "4.2.1"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015",
+      "stage-0"
+    ]
   },
   "repository": {
     "type": "git",
@@ -35,6 +44,8 @@
     "assert": "^1.3.0",
     "babel-preset-es2015": "^6.0.15",
     "babel-preset-react": "^6.0.15",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-register": "^6.3.13",
     "babelify": "^7.2.0",
     "bluebird": "^3.0.5",
     "body-parser": "^1.14.1",
@@ -44,26 +55,33 @@
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
     "gulp-concat": "^2.6.0",
-    "gulp-minify": "0.0.5",
     "gulp-minify-css": "^1.2.2",
     "gulp-notify": "^2.2.0",
     "gulp-uglify": "^1.5.1",
     "hat": "0.0.3",
+    "history": "^1.13.1",
     "jquery": "^2.1.4",
+    "jsdom": "^7.2.0",
+    "node-jsx": "^0.13.3",
     "path": "^0.12.7",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.0",
+    "react-router": "^1.0.2",
     "react-zeroclipboard": "^3.0.0",
     "request": "^2.67.0",
     "supertest": "^1.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.6.1",
     "zeroclipboard": "^2.2.0"
   },
   "devDependencies": {
-    "node-mocks-http": "^1.5.1"
+    "babel-plugin-transform-decorators-legacy": "^1.3.3",
+    "mocha": "^2.3.4",
+    "node-mocks-http": "^1.5.1",
+    "nodemon": "^1.8.1",
+    "watchify": "^3.6.1"
   }
 }

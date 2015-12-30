@@ -1,19 +1,18 @@
-var React = require('react');
-var $ = require('jquery');
+import React, {Component} from 'react';
+import Gui from './Gui';
+import Options from './Options';
 
-var Gui = require('./Gui');
-var Options = require('./Options');
+export default class Application extends Component {
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return this.props !== nextProps;
+  }
 
-var Application = React.createClass({
-
-  render: function () {
+  render() {
     return (
       <div className='appContainer' id='application-section'>
-          <Gui className='appChild'/>
-          <Options className='appChild' submit={this.props.submit}/>
+        <Gui className='appChild'/>
+        <Options className='appChild' submit={this.props.submit}/>
       </div>
     )
   }
-});
-
-module.exports = Application;
+};
