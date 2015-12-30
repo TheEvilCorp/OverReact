@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: AKIAJS2Y7L7EBBK4ZSPQ
+  secret_access_key:
+    secure: Eu/qFVCVceQv7qptmIu414UClS/yxjehjkd5C07ekmCVkDM2Ba6XkEwfsS7fge+ARkGWhIZttvm/aWPWLd2HIMzU4rg0/xqszX3YcChGqzJHzYSHznNWCy75Cc8QnuAYiFDnS3emdce+57ykFfQSIjfPhUmpSq7bcjxH/y0BDOKKmn9nWfnleIvV1gxE/kkKHQ9rLaN0V+mDbi/alPNvcmdEzgBaNrerapokzzRFkdkF4QBNb/RKq4dY7v7OG26DYx69XM7JUBDk9NoVpFvOXNYdSDsDQ88TOB+WhfG/jXM7ggxqT2w76jmEFGU4ypUoHAHn6PWps1sHKKV7cMfyokEqszNztZdqTL1qKeL5nJQRPmuDwQOAbcM8FuRfwdPQ0YVJoeD3EYmGak2J90aI+vYLMKfT6mszSyis0WKSsXFjU8h957X0pRcdjvI68YPnbMOjP5dhxt1x9OA3I1EO9vRi/NS/KCIOVofN3FUDtJQUSe0+BcxeDDNLEn2yZa51DhLqBU+OutCGg/mYr3/pST1Y1SGIpp72mSVyR7Wn9neBRt2CGlY7d92omw7cV7aZvckfMBBt6BpZ8ra7HNP944ApPE7z61b1bWRrvIBgEyWldghsyWQXrpfxdHb/Wg2hUgk5/YfGI2TErugfpiMh3gF95OHwSuY9F+nGffh+xjs=
+  region: us-west-2
+  app: OverReact
+  env: OverReact-dev
