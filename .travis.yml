@@ -10,3 +10,6 @@ deploy:
   region: us-west-2
   app: OverReact
   env: OverReact-dev
+  on:
+    repo: TheEvilCorp/OverReact
+    branch: version1
