@@ -80,7 +80,6 @@
   "devDependencies": {
     "mocha": "^2.3.4",
     "node-mocks-http": "^1.5.1",
-    "nodemon": "^1.8.1",
     "watchify": "^3.6.1"
   }
 }
