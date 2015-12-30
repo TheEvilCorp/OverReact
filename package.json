@@ -2,7 +2,7 @@
   "name": "OverReact",
   "version": "1.0.0",
   "description": "Wireframing React projects with the functionality to boilerplate. This is the production project for Codesmith Cohort 3 members - Susan, Rico, and Brian",
-  "main": "outputTest.js",
+  "main": "server/server.js",
   "scripts": {
     "start-server": "nodemon build/server.js",
     "start": "node build/server.js",
@@ -78,7 +78,6 @@
     "zeroclipboard": "^2.2.0"
   },
   "devDependencies": {
-    "babel-plugin-transform-decorators-legacy": "^1.3.3",
     "mocha": "^2.3.4",
     "node-mocks-http": "^1.5.1",
     "nodemon": "^1.8.1",

@@ -13,7 +13,7 @@ var mkDir = function(req, res, next) {
           fs.mkdirSync(`./${req.body.folderName}/server`);
         }
         fs.mkdirSync(`./${req.body.folderName}/css`);
-        fs.mkdirSync(`./${req.body.folderName}/src`);
+        fs.mkdirSync(`./${req.body.folderName}/components`);
       }
     }
     next();

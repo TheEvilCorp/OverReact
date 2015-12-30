@@ -47,12 +47,6 @@ app.get('/', function(req,res) {
       });
 });
 
-
-// app.get('/serverSideRender', function(req, res) {
-//   var appHtml = ReactDOM.renderToString(OverReact);
-//   var html = injectIntoHtml({main: appHtml});
-//   res.render(html);
-// })
 // Not using this right now
 // app.get('/newtemplate', sessionController.createSession);
 
@@ -64,8 +58,6 @@ app.post('/submit', capitalize, mkDir, addStandardFiles, fileController, zipFunc
 //on submit route response being sent successfully, the client will set location to /download to initiate the download of the zip
 app.get('/download/*', function(req, res) {
   res.download(__dirname + `/../zips/${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
-  // console.log(req.url);
-  // exec(`rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}; rm -rf ${req.url.slice(req.url.indexOf(':') + 1)}.zip`);
 });
 
 app.post('/feedback', function(req,res){

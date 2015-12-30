@@ -4,12 +4,6 @@ build
 dist
 npm-debug.log
 config
-zips
 .DS_Store
 ZZZ-sessionController.js
 ZZZ-sessionModel.js
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml

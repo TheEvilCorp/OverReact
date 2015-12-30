@@ -3,7 +3,7 @@ var ejs = require('ejs');
 
 function createFiles(obj, dataObj, file, template) {
   //writes a file to the directory created in mkDir, using the React template ejs.
-  var path = dataObj.server === 'none' && dataObj.task === 'none' ? `${obj.name}.js` : `src/${obj.name}.js`
+  var path = dataObj.server === 'none' && dataObj.task === 'none' ? `${obj.name}.js` : `components/${obj.name}.js`
   fs.writeFileSync(`./${dataObj.folderName}/${path}`, file);
   //escape out of the recursive call
   if(!obj.children) return;
