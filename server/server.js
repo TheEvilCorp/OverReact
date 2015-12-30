@@ -12,6 +12,8 @@ var capitalize = require('./utils/capitalize');
 var compression = require('compression');
 var sendToSlack = require('./utils/sendToSlack');
 // var sessionController = require('./utils/sessionController');
+var addNodeModules = require('./utils/addNodeModules');
+
 
 //configure express
 var app = express();
