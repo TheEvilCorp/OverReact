@@ -44,6 +44,6 @@ module.exports = function(req, res, next){
 
 	//execute next after all promises finsish
 	Promise.all(promises).then(function(){
-		next();	
+		next();
 	});
 }

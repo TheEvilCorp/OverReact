@@ -26,8 +26,8 @@ app.use(compression());
 //Parse req and attach json to req.body
 app.use(bodyParser.json({limit: '50mb'}));
 //Requests default to this path
-// app.use(express.static(path.join(__dirname, './../')));
-app.set('views', __dirname + './../');
+app.use(express.static(path.join(__dirname, './../')));
+app.set('views', __dirname + '/../views');
 app.set('view engine', 'ejs');
 
 //have the index html send on root route
@@ -75,3 +75,5 @@ app.post('/feedback', function(req,res){
 app.listen(8000, function(){
   console.log('listening on port 8000')
 });
+
+module.exports = app;
