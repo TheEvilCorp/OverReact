@@ -11,7 +11,7 @@
     "start-dev": "gulp server; gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
-    "postinstall": "gulp server scripts css",
+    "prestart": "gulp server client scripts css",
     "test": "mocha ./test"
   },
   "engines": {

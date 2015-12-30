@@ -4,6 +4,7 @@ build
 dist
 npm-debug.log
 config
+.gitignore
 .DS_Store
 ZZZ-sessionController.js
 ZZZ-sessionModel.js
