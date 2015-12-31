@@ -15,7 +15,8 @@ export default class Options extends Component {
     express: true,
     hapi: false,
     gulp: true,
-    grunt:false
+    grunt:false,
+    webpack: false
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
