@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
-import HandleRadioButton from './../js/widgetHelpers/HandleRadioBtnChange';
-import PostFunction from '../js/widgetHelpers/PostFunction';
+import HandleRadioButton from './../js/widgetHelpers/handleRadioBtnChange';
+import PostFunction from '../js/widgetHelpers/postFunction';
 import ProjectName from './ProjectName';
 import ServerComponent from './ServerComponent';
 import TaskRunnerComponent from './TaskRunnerComponent';

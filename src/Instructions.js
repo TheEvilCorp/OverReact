@@ -1,5 +1,5 @@
 import React, {Component} from'react';
-import styles from './styles';
+import styles from './Styles';
 
 export default class Instructions extends Component {
   render() {
