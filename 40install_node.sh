@@ -19,7 +19,7 @@ echo $OUT
 
 
 #UNCOMMENT to update npm, otherwise will be updated on instance init or rebuild
-#rm -f /opt/elasticbeanstalk/node-install/npm_updated
+rm -f /opt/elasticbeanstalk/node-install/npm_updated
 
 #download & make install desired nginx version
 echo "checking nginx..."

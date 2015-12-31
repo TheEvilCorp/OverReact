@@ -1,6 +1,6 @@
-import AlsoResizeChildren from './AlsoResizeChildren';
-import GenerateNames from './GenerateNamesArr';
-import ReplaceNameWithInputField from './ReplaceNameWithInputField';
+import AlsoResizeChildren from './alsoResizeChildren';
+import GenerateNames from './generateNamesArr';
+import ReplaceNameWithInputField from './replaceNameWithInputField';
 
 //creates a new box div and appends it to the parent node (context). Sets the box to be resizable and draggable. Applies default CSS for dynamic resizing of boxes inside child boxes.
 export default function (boxName, node, fromLoadButton) {

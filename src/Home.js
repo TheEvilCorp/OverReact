@@ -1,7 +1,7 @@
 const isBrowser = typeof window !== undefined;
 import React, {Component} from 'react';
 import Instructions from './Instructions';
-import styles from './styles';
+import styles from './Styles';
 var $ = isBrowser ? require('jquery') : undefined;
 
 export default class Home extends Component {
