@@ -16,7 +16,7 @@
     "test": "mocha ./test"
   },
   "engines": {
-    "node": "4.2.1"
+    "node": "4.2.3"
   },
   "babel": {
     "presets": [
