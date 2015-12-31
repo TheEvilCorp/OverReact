@@ -4,7 +4,6 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import Promise from 'bluebird';
-var fs = Promise.promisifyAll(require('fs'));
 import { exec } from 'child_process';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -16,6 +15,8 @@ import addStandardFiles from './../server/utils/addStandardFiles';
 import capitalize from './../server/utils/capitalize';
 import sendToSlack from './../server/utils/sendToSlack';
 import routes from './../src/Routes';
+var fs = Promise.promisifyAll(require('fs'));
+
 //configure express
 const app = express();
 

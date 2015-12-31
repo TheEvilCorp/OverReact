@@ -25,11 +25,23 @@ module.exports = function(req, res, next){
 
 	//create task runner file
 	if(req.body.task !== 'none') {
-		file = ejs.render(fs.readFileSync(__dirname + `/templates/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}Template.ejs`, 'utf-8'), {
-		error: '<%= error.message %>',
-		es6: req.body.template
-		});
-		promises.push(fs.writeFileAsync(`./${req.body.folderName}/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}file.js`, file));
+		if(req.body.task !== 'webpack') {
+			file = ejs.render(fs.readFileSync(__dirname + `/templates/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}Template.ejs`, 'utf-8'), {
+			error: '<%= error.message %>',
+			es6: req.body.template
+			});
+			promises.push(fs.writeFileAsync(`./${req.body.folderName}/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}file.js`, file));
+		} else {
+      file = ejs.render(fs.readFileSync(__dirname + '/templates/babelrcTemplate.ejs', 'utf-8'));
+      promises.push(fs.writeFileAsync(`./${req.body.folderName}/.babelrc`, file));
+      file = ejs.render(fs.readFileSync(__dirname + '/templates/eslintrcTemplate.ejs', 'utf-8'));
+      promises.push(fs.writeFileAsync(`./${req.body.folderName}/.eslintrc`, file));
+      file = ejs.render(fs.readFileSync(__dirname + '/templates/webpackConfigTemplate.ejs', 'utf-8'));
+      promises.push(fs.writeFileAsync(`./${req.body.folderName}/webpack.config.js`, file));
+      file = ejs.render(fs.readFileSync(__dirname + '/templates/webpackDevConfigTemplate.ejs', 'utf-8'));
+      promises.push(fs.writeFileAsync(`./${req.body.folderName}/webpack.dev.config.js`, file));
+    }
+
 	}
 
 	//create server file
@@ -37,6 +49,10 @@ module.exports = function(req, res, next){
 		file = ejs.render(fs.readFileSync(__dirname +  `/templates/${req.body.server === 'hapi' ? 'hapi' : 'express'}ServerTemplate.ejs`, 'utf-8'));
 		promises.push(fs.writeFileAsync(`./${req.body.folderName}/server/server.js`, file));
 	}
+  if(req.body.task === 'webpack') {
+    file = ejs.render(fs.readFileSync(__dirname + '/templates/webpackServerTemplate.ejs', 'utf-8'))
+    promises.push(fs.writeFileAsync(`./${req.body.folderName}/server/dev-server.js`, file));
+  }
 
 	//create css
 	file = ejs.render(fs.readFileSync(__dirname + '/templates/styleTemplate.ejs', 'utf-8'), {component: req.body.main});

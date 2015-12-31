@@ -10,23 +10,32 @@ export default function handleRadioBtnChange(e, obj) {
       newState.express = true;
       newState.hapi = false;
       newState.basic = false;
-      newState.gulp = !newState.gulp && !newState.grunt ? true : newState.gulp;
+      newState.gulp = !newState.gulp && !newState.grunt && !newState.webpack ?  true : newState.gulp;
       break;
     case 'hapi':
       newState.express = false;
       newState.hapi = true;
       newState.basic = false;
-      newState.gulp = !newState.gulp && !newState.grunt ? true : newState.gulp;
+      newState.gulp = !newState.gulp && !newState.grunt && !newState.webpack ? true : newState.gulp;
       break;
     case 'gulp':
       newState.gulp = true;
       newState.grunt = false;
+      newState.webpack = false;
       newState.basic = false;
       newState.express = !newState.express && !newState.hapi ? true : newState.express;
       break;
     case 'grunt':
       newState.gulp = false;
       newState.grunt = true;
+      newState.webpack = false;
+      newState.basic = false;
+      newState.express = !newState.express && !newState.hapi ? true : newState.express;
+      break;
+    case 'webpack':
+      newState.gulp = false;
+      newState.grunt = false;
+      newState.webpack = true;
       newState.basic = false;
       newState.express = !newState.express && !newState.hapi ? true : newState.express;
       break;
@@ -36,6 +45,7 @@ export default function handleRadioBtnChange(e, obj) {
         newState.hapi = false;
         newState.gulp = newState.basic ? false : true;
         newState.grunt = false;
+        newState.webpack = false;
       }
   return newState;
 };

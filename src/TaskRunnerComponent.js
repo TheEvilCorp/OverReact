@@ -17,6 +17,9 @@ export default class ServerComponent extends Component {
         <label className="radio-inline" className='radio-btns'>
           <Input name="taskRunners" id="grunt" value="grunt" type="radio" onChange={this.props.handler} label='Grunt' checked={this.props.data.grunt} />
         </label>
+        <label className="radio-inline" className='radio-btns'>
+          <Input name="taskRunners" id="webpack" value="webpack" type="radio" onChange={this.props.handler} label='Webpack' checked={this.props.data.webpack} />
+        </label>
       </div>
     )
   }
