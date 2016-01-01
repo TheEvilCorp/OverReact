@@ -1,14 +1,11 @@
 const isBrowser = typeof window !== undefined;
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Home from './Home';
 import Application from './Application';
 import WhatNext from './Whatnext';
 import Footer from './Footer';
-import {Navbar} from 'react-bootstrap';
-import {Modal} from 'react-bootstrap';
-import {Glyphicon} from 'react-bootstrap';
-import {Input} from 'react-bootstrap';
+import { Navbar, Modal, Glyphicon, Input } from 'react-bootstrap';
 import DownloadModal from './DownloadModal';
 import FormModal from './FormModal';
 import Styles from './Styles';

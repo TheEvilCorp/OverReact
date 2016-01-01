@@ -1,13 +1,7 @@
 const isBrowser = typeof window !== undefined;
 import React, {Component} from 'react';
-import {Modal} from 'react-bootstrap';
-import {Glyphicon} from 'react-bootstrap';
-import {Input} from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
-import {ButtonInput} from 'react-bootstrap';
+import { Modal, Glyphicon, Input, Button, ButtonInput, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import ReactZeroClipboard from 'react-zeroclipboard';
-import {Tooltip} from 'react-bootstrap';
-import {OverlayTrigger} from 'react-bootstrap';
 var $ = isBrowser ? require('jquery') : undefined;
 
 export default class DownloadModal extends Component {

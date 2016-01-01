@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Button} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import HandleRadioButton from './../js/widgetHelpers/handleRadioBtnChange';
 import PostFunction from '../js/widgetHelpers/postFunction';
 import ProjectName from './ProjectName';

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Gui from './Gui';
 import Options from './Options';
 

@@ -64,8 +64,8 @@ app.post('/feedback', function(req,res){
   sendToSlack(req, res)
 });
 
-app.listen(process.env.PORT || 8081, function(){
-  console.log(`listening on port ${process.env.PORT || 8081}`)
+app.listen(process.env.PORT || 8000, function(){
+  console.log(`listening on port ${process.env.PORT || 8000}`)
 });
 
 module.exports = app;
