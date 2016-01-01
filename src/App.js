@@ -19,7 +19,8 @@ export default class App extends Component {
   state = {
     hash: null,
     downloadModal: false,
-    formModal: false
+    formModal: false,
+    projectName: null
   }
 
   componentDidMount = () => {
@@ -34,10 +35,11 @@ export default class App extends Component {
     mixpanel.track('Page Load');
   }
 
-  submit = (hash) => {
+  submit = (hash,projectName) => {
     this.setState({
       downloadModal: true,
-      hash: hash
+      hash: hash,
+      projectName: projectName
     });
   }
 
@@ -75,7 +77,7 @@ export default class App extends Component {
         <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>
         <WhatNext />
         <Footer formModal={this.feedback}/>
-        <DownloadModal show={this.state.downloadModal} onHide={this.hideModal} hash={this.state.hash}/>
+        <DownloadModal show={this.state.downloadModal} onHide={this.hideModal} hash={this.state.hash} projectName={this.state.projectName}/>
         <FormModal show={this.state.formModal} onHide={this.hideModal} screenshot={this.state.screenshot}/>
       </div>
     )

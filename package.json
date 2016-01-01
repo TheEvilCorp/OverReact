@@ -12,7 +12,6 @@
     "gulp": "gulp",
     "web": "npm start",
     "prestart": "gulp server scripts css",
-    "postinstall": "gulp server scripts css",
     "test": "mocha ./test"
   },
   "engines": {

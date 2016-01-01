@@ -50,7 +50,7 @@ export default class Options extends Component {
           <TaskRunnerComponent key='task' data={this.state} handler={this.handleButtonChange}/>
           <hr></hr>
         </div>
-        <Button id='submitButton' bsSize='large' onClick={this.post} >Download Files</Button>
+        <Button id='submitButton' bsSize='large' onClick={this.post} >Generate Files</Button>
       </section>
     )
   }
