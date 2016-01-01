@@ -10,7 +10,7 @@ import {Modal} from 'react-bootstrap';
 import {Glyphicon} from 'react-bootstrap';
 import {Input} from 'react-bootstrap';
 import DownloadModal from './DownloadModal';
-import postFunction from '../js/widgetHelpers/PostFunction';
+import postFunction from '../js/widgetHelpers/postFunction';
 import FormModal from './FormModal';
 import Styles from './Styles';
 var $ = isBrowser ? require('jquery') : undefined;
