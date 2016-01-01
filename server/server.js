@@ -65,7 +65,7 @@ app.post('/feedback', function(req,res){
 });
 
 app.listen(process.env.PORT || 8081, function(){
-  console.log('listening on port 8000')
+  console.log(`listening on port ${process.env.PORT || 8081}`)
 });
 
 module.exports = app;
