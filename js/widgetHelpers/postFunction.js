@@ -31,7 +31,8 @@ export default function(state, callback) {
     }),
     //this initiates download once the file is zipped
     success(uniqueID) {
-      callback(uniqueID);
+      var name = form.projectName || 'myOverReactProject';
+      callback(uniqueID,name);
     },
     error(err) {
       console.log('ERROR: ', err);

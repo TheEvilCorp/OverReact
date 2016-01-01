@@ -11,11 +11,11 @@
     "start-dev": "gulp server; gulp & npm run start-server",
     "gulp": "gulp",
     "web": "npm start",
-    "postinstall": "gulp server scripts css",
+    "prestart": "gulp server scripts css",
     "test": "mocha ./test"
   },
   "engines": {
-    "node": "4.2.1"
+    "node": "4.2.3"
   },
   "babel": {
     "presets": [
