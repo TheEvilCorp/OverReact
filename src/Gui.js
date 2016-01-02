@@ -11,7 +11,7 @@ export default class Gui extends Component {
     return (
       <section id='overReact-sectionNotContainer'>
         <div id='gui-header'>
-          <h3 id='Apptext'>App</h3>
+          <h3 id='Apptext'>App</h3> 
           <p id='dup-warning'>React does not allow duplicate component names</p>
         </div>
         <div id='overReact-container'></div>

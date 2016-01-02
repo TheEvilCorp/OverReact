@@ -75,7 +75,6 @@ body{
 
 #instruction-section {
   min-width: 1280px;
-  /*margin: auto;*/
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: center;
@@ -86,14 +85,14 @@ body{
   justify-content: center;
   width: 100%;
   flex-direction: row;
-  margin-top: -40px;
+  margin-top: 10px;
 }
 
-#instruction-section h3 {
+/*#instruction-section h3 {
   text-align: center;
-}
+}*/
 
-.instructions{
+/*.instructions{
   width: 330px;
   height: 330px;
   display: inline-block;
@@ -106,7 +105,7 @@ body{
 .instructions img {
   width: 300px;
   margin: 10px;
-}
+}*/
 
 #selectOptions {
   margin-top: 20px;
@@ -183,7 +182,7 @@ body{
 }
 
 #overReact-container {
-  margin: -3px 35px 50px 35px;
+  margin: -4px 35px 50px 35px;
   min-width: 850px;
   height: 550px;
   position: relative;
