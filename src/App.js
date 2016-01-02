@@ -1,16 +1,12 @@
 const isBrowser = typeof window !== undefined;
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Home from './Home';
 import Application from './Application';
 import WhatNext from './Whatnext';
 import Footer from './Footer';
-import {Navbar} from 'react-bootstrap';
-import {Modal} from 'react-bootstrap';
-import {Glyphicon} from 'react-bootstrap';
-import {Input} from 'react-bootstrap';
+import { Navbar, Modal, Glyphicon, Input } from 'react-bootstrap';
 import DownloadModal from './DownloadModal';
-import postFunction from '../js/widgetHelpers/postFunction';
 import FormModal from './FormModal';
 import Styles from './Styles';
 var $ = isBrowser ? require('jquery') : undefined;
@@ -19,7 +15,8 @@ export default class App extends Component {
   state = {
     hash: null,
     downloadModal: false,
-    formModal: false
+    formModal: false,
+    projectName: null
   }
 
   componentDidMount = () => {
@@ -34,10 +31,11 @@ export default class App extends Component {
     mixpanel.track('Page Load');
   }
 
-  submit = (hash) => {
+  submit = (hash,projectName) => {
     this.setState({
       downloadModal: true,
-      hash: hash
+      hash: hash,
+      projectName: projectName
     });
   }
 
@@ -75,7 +73,7 @@ export default class App extends Component {
         <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>
         <WhatNext />
         <Footer formModal={this.feedback}/>
-        <DownloadModal show={this.state.downloadModal} onHide={this.hideModal} hash={this.state.hash}/>
+        <DownloadModal show={this.state.downloadModal} onHide={this.hideModal} hash={this.state.hash} projectName={this.state.projectName}/>
         <FormModal show={this.state.formModal} onHide={this.hideModal} screenshot={this.state.screenshot}/>
       </div>
     )

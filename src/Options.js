@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {Button} from 'react-bootstrap';
-import HandleRadioButton from './../js/widgetHelpers/HandleRadioBtnChange';
-import PostFunction from '../js/widgetHelpers/PostFunction';
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
+import HandleRadioButton from './../js/widgetHelpers/handleRadioBtnChange';
+import PostFunction from '../js/widgetHelpers/postFunction';
 import ProjectName from './ProjectName';
 import ServerComponent from './ServerComponent';
 import TaskRunnerComponent from './TaskRunnerComponent';
@@ -51,7 +51,7 @@ export default class Options extends Component {
           <TaskRunnerComponent key='task' data={this.state} handler={this.handleButtonChange}/>
           <hr></hr>
         </div>
-        <Button id='submitButton' bsSize='large' onClick={this.post} >Download Files</Button>
+        <Button id='submitButton' bsSize='large' onClick={this.post} >Generate Files</Button>
       </section>
     )
   }

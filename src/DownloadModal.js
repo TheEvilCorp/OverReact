@@ -1,13 +1,7 @@
 const isBrowser = typeof window !== undefined;
 import React, {Component} from 'react';
-import {Modal} from 'react-bootstrap';
-import {Glyphicon} from 'react-bootstrap';
-import {Input} from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
-import {ButtonInput} from 'react-bootstrap';
+import { Modal, Glyphicon, Input, Button, ButtonInput, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import ReactZeroClipboard from 'react-zeroclipboard';
-import {Tooltip} from 'react-bootstrap';
-import {OverlayTrigger} from 'react-bootstrap';
 var $ = isBrowser ? require('jquery') : undefined;
 
 export default class DownloadModal extends Component {
@@ -19,35 +13,39 @@ export default class DownloadModal extends Component {
   render() {
     let innerGlyphicon = <Glyphicon id="glyph" glyph="copy" />;
     let command = 'overreact ' + this.props.hash;
+    let macCommand = `curl -O https://overreact.io/zips/${this.props.hash}.zip &&
+    unzip -qq -d ./${this.props.projectName} ${this.props.hash}.zip &&
+    mv ./${this.props.projectName}/*/* ${this.props.projectName} &&
+    rm -rf ./${this.props.projectName}/${this.props.hash} &&
+    rm -rf ${this.props.hash}.zip`;
+    console.log(`hash: ${this.props.hash} projectName: ${this.props.projectName}`);
+    console.log(macCommand);
     let tooltip = <Tooltip id='copied' className='in' title='Copied to clipboard!'>Copied to clipboard!</Tooltip>;
     return (
       <Modal show={this.props.show} onHide={this.props.onHide} hash={this.props.hash}>
         <Modal.Header closeButton>
           <Modal.Title>Your Files Are Ready For Download!</Modal.Title>
+          <p>For NPM package and Mac users, click to copy command, then paste into terminal</p>
         </Modal.Header>
         <Modal.Body>
-          <h4>Method 1: The Cool Way</h4>
-          <ol>
-            <p><i>Note: Method #1 currently works for Macs only. Windows users, see Method #2</i></p>
-            <li>Install our npm package <a target="_blank" href='https://www.npmjs.com/package/over-react'>here</a> or just type in 'sudo npm install over-react -g' in your terminal.</li>
-            <li>Once the package is installed, click the clipboard icon to copy the following commands to your clipboard</li>
-            <li>Open your terminal, navigate to the folder you would like to install the project into, paste from your clipboard, and press enter</li>
+          <h4>NPM Package Users</h4>
             <OverlayTrigger trigger='click' placement='right' overlay={tooltip}>
               <span>
-              <ReactZeroClipboard text={command} >
-                <Button addonAfter={innerGlyphicon} bscfont='courier' id='pasteable'>{command}</Button>
+              <ReactZeroClipboard text={command} id='copyOverlay'>
+                <Button addonAfter={innerGlyphicon} bscfont='courier' id='pasteable'><span id='commandText'>{command}</span></Button>
               </ReactZeroClipboard>
               </span>
             </OverlayTrigger>
-            <li>If you chose to include server and task runner files, type npm install and npm start in the terminal to load everything up.<br />
-            The default URL for your server is http://localhost:3000</li>
-          </ol>
-        <h4>Method 2: The Other Way</h4>
-          <ol>
-            <li>Click the download button below to receive your files as a zip download</li>
-            <li>See step 4 above</li>
-            <Button style={{textAlign: 'center', marginLeft: '200px'}} onClick={this.downloadZip}>Download</Button>
-          </ol>
+          <h4>Mac Users</h4>
+            <OverlayTrigger trigger='click' placement='right' overlay={tooltip}>
+              <span>
+              <ReactZeroClipboard text={macCommand} id='copyOverlay'>
+                <Button addonAfter={innerGlyphicon} bscfont='courier' id='pasteable'><span id='commandText'>{macCommand}</span></Button>
+              </ReactZeroClipboard>
+              </span>
+            </OverlayTrigger>
+        <h4>Windows Users</h4>
+            <Button bsStyle='primary' style={{textAlign: 'center'}} onClick={this.downloadZip} block>Download</Button>
         </Modal.Body>
       </Modal>
     )

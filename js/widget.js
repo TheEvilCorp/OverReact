@@ -1,8 +1,8 @@
-import CreateBox from './widgetHelpers/CreateBox';
-import CreateInput from './widgetHelpers/CreateInput';
-import CreateDeleteBtn from './widgetHelpers/CreateDeleteBtn';
-import AlsoResizeChildren from './widgetHelpers/AlsoResizeChildren';
-import GenerateNames from './widgetHelpers/GenerateNamesArr';
+import CreateBox from './widgetHelpers/createBox';
+import CreateInput from './widgetHelpers/createInput';
+import CreateDeleteBtn from './widgetHelpers/createDeleteBtn';
+import AlsoResizeChildren from './widgetHelpers/alsoResizeChildren';
+import GenerateNames from './widgetHelpers/generateNamesArr';
 
 export default function() {
 

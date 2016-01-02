@@ -1,5 +1,5 @@
-import CreateDataObj from './CreateDataObj';
-import ReadFormData from './ReadFormData';
+import CreateDataObj from './createDataObj';
+import ReadFormData from './readFormData';
 
 export default function(state, callback) {
   console.log(CreateDataObj, 'postfunc')
@@ -31,7 +31,8 @@ export default function(state, callback) {
     }),
     //this initiates download once the file is zipped
     success(uniqueID) {
-      callback(uniqueID);
+      var name = form.projectName || 'myOverReactProject';
+      callback(uniqueID,name);
     },
     error(err) {
       console.log('ERROR: ', err);

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Input} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Input } from 'react-bootstrap';
 
 export default class ServerComponent extends Component {
 

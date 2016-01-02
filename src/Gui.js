@@ -1,5 +1,5 @@
 const isBrowser = typeof window !== undefined;
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import widget from './../js/widget';
 var $ = isBrowser ? require('jquery') : undefined;
 

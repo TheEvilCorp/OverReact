@@ -1,4 +1,4 @@
-import CreateInput from './CreateInput';
+import CreateInput from './createInput';
 
 //renames the component and removes input field
 function renameComponent(node) {

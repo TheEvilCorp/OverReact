@@ -1,4 +1,4 @@
-import ToPascal from './ToPascal';
+import ToPascal from './toPascal';
 
 //function called to create the input component name field and add event handlers
 export default function(context, func) {
