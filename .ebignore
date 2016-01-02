@@ -1,0 +1,9 @@
+node_modules
+bower_components
+build
+dist
+npm-debug.log
+config
+.gitignore
+.DS_Store
+.git/

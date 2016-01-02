@@ -1,5 +1,5 @@
-import CreateDataObj from './CreateDataObj';
-import ReadFormData from './ReadFormData';
+import CreateDataObj from './createDataObj';
+import ReadFormData from './readFormData';
 
 export default function(state, callback) {
   console.log(CreateDataObj, 'postfunc')

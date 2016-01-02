@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var browserify = require('browserify');
 var babelify = require('babelify');
-var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var notify = require('gulp-notify');
 var uglify = require('gulp-uglify');
@@ -30,7 +29,7 @@ function buildScript(file, watch, destName) {
   };
 
   //watchify if watch set to true. otherwise browserify once
-  var bundler = watch ? watchify(browserify(props)) : browserify(props);
+  var bundler = browserify(props);
 
   function rebundle() {
     var stream = bundler.bundle();

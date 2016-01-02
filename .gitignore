@@ -12,3 +12,13 @@ zips
 !.elasticbeanstalk/*.global.yml
 
 .DS_Store
+ZZZ-sessionController.js
+ZZZ-sessionModel.js
+40install_node.sh
+50npm.sh
+env.vars
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

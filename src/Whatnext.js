@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Well} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Well } from 'react-bootstrap';
 
 export default class WhatNext extends Component {
   render() {
