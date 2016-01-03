@@ -88,37 +88,8 @@ body{
   margin-top: 10px;
 }
 
-/*#instruction-section h3 {
-  text-align: center;
-}*/
-
-/*.instructions{
-  width: 330px;
-  height: 330px;
-  display: inline-block;
-  border-radius: 20px;
-  vertical-align: middle;
-  margin: 35px;
-  background-color: white;
-}
-
-.instructions img {
-  width: 300px;
-  margin: 10px;
-}*/
-
 #selectOptions {
   margin-top: 20px;
-}
-
-.instructions p {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.instructions hr {
-  width: 150px;
-  border: 1px solid white;
 }
 
 /*Application Section*/

@@ -87,39 +87,6 @@ const styles = {
         backgroundColor: 'white',
         margin: 'auto',
         borderRadius: '25px'
-      },
-      instructions: {
-        width: '330px',
-        height: '330px',
-        display: 'inline-block',
-        borderRadius: '20px',
-        verticalAlign: 'middle',
-        margin: '35px',
-        backgroundColor: 'white',
-        textAlign: 'center',
-        fontFamily: ["Helvetica Neue", 'Helvetica', 'Arial', 'sans-serif']
-      },
-      instructionsImg: {
-        width: '300px',
-        margin: '10px',
-        verticalAlign: 'middle',
-        border: 0
-      },
-      instructionsParagraph: {
-        textAlign: 'center',
-        color: '#4F4F4F',
-        marginTop: '0px',
-        marginBottom: '0px'
-      },
-      instructionsHr: {
-        color: '#4F4F4F',
-        textAlign: 'center',
-        fontSize: '24px',
-        marginTop: '20px',
-        marginBottom: '10px',
-        fontWeight: 500,
-        lineHeight: 1.1,
-        border: '1px solid white'
       }
     }
   },
