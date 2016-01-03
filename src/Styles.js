@@ -59,7 +59,7 @@ const styles = {
       borderColor: '#FC913A',
       padding: '10px 20px',
       borderRadius: '50px',
-      margin: '20px 0px 40px 0px',
+      margin: '10px 0px 20px 0px',
       display:'inline-block',
       fontSize: '18px',
       fontWeight: '400',
@@ -73,49 +73,20 @@ const styles = {
       cursor: 'pointer',
       userSelect: 'none',
       backgroundImage: 'none',
-      border: '1px solid transparent',
+      border: '1px solid transparent'
     },
     Instructions: {
       instructionsSection: {
-        minWidth: '1280px',
+        width: '700px',
+        minWidth: '700px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        marginTop: '-40px'
-      },
-      instructions: {
-        width: '330px',
-        height: '330px',
-        display: 'inline-block',
-        borderRadius: '20px',
-        verticalAlign: 'middle',
-        margin: '35px',
+        padding: '25px',
         backgroundColor: 'white',
-        textAlign: 'center',
-        fontFamily: ["Helvetica Neue", 'Helvetica', 'Arial', 'sans-serif'],
-      },
-      instructionsImg: {
-        width: '300px',
-        margin: '10px',
-        verticalAlign: 'middle',
-        border: 0
-      },
-      instructionsParagraph: {
-        textAlign: 'center',
-        color: '#4F4F4F',
-        marginTop: '0px',
-        marginBottom: '0px'
-      },
-      instructionsHr: {
-        color: '#4F4F4F',
-        textAlign: 'center',
-        fontSize: '24px',
-        marginTop: '20px',
-        marginBottom: '10px',
-        fontWeight: 500,
-        lineHeight: 1.1,
-        border: '1px solid white'
+        margin: 'auto',
+        borderRadius: '25px'
       }
     }
   },
