@@ -390,4 +390,22 @@ body{
   background-color: #3a8296;
   border: 1px solid black;
   color: white;
+  width: 100%;
+  text-overflow: ellipsis;
+  text-align: center;
+  overflow: hidden;
+}
+​
+#copyOverlay {
+  text-overflow: ellipsis;
+}
+​
+#commandText {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+  text-overflow: ellipsis;
+
 }
