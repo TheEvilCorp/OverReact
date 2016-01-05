@@ -40,8 +40,8 @@ app.get('/', function(req,res) {
       } else if (redirectLocation) {
           res.redirect(302, redirectLocation.pathname + redirectLocation.search)
         } else if (renderProps) {
-          var content = renderToString(<RoutingContext {...renderProps} />);
-          res.render('ssrIndex', {content: content});
+          const content = renderToString(<RoutingContext {...renderProps} />);
+          res.render('ssrIndex', {content});
           } else {
               res.status(404).send('Not found')
             }

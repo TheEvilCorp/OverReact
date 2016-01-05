@@ -12,6 +12,13 @@
   },
   "author": "",
   "license": "ISC",
+  <% if(task === 'webpack'){ %>"babel": {
+    "presets": [
+      "react",
+      "es2015",
+      "stage-0"
+    ]
+  }, <%}%>
   "devDependencies": {
     <% if(server !== 'none'){ -%>"watchify": "^3.2.2"<% if(task === 'grunt') {%>,
     "grunt-contrib-watch": "^0.6.1"<%}}%>
