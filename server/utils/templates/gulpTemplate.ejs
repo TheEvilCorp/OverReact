@@ -17,7 +17,7 @@ function handleErrors() {
 
 function buildScript(file, watch) {
   var props = {
-    entries : ['./src/' + file],
+    entries : ['./components/' + file],
     debug : true,
     transform : babelify.configure({
                 presets: ["react", "es2015"<% if (es6 === 'es6') {%>, "stage-0"<%}%>]
