@@ -32,8 +32,6 @@ module.exports = function(req, res, next){
 			});
 			promises.push(fs.writeFileAsync(`./${req.body.folderName}/${req.body.task === 'gulp' ? 'gulp' : 'grunt'}file.js`, file));
 		} else {
-      file = ejs.render(fs.readFileSync(__dirname + '/templates/babelrcTemplate.ejs', 'utf-8'));
-      promises.push(fs.writeFileAsync(`./${req.body.folderName}/.babelrc`, file));
       file = ejs.render(fs.readFileSync(__dirname + '/templates/eslintrcTemplate.ejs', 'utf-8'));
       promises.push(fs.writeFileAsync(`./${req.body.folderName}/.eslintrc`, file));
       file = ejs.render(fs.readFileSync(__dirname + '/templates/webpackConfigTemplate.ejs', 'utf-8'));
