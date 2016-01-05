@@ -18,8 +18,6 @@ export default class DownloadModal extends Component {
     mv ./${this.props.projectName}/*/* ${this.props.projectName} &&
     rm -rf ./${this.props.projectName}/${this.props.hash} &&
     rm -rf ${this.props.hash}.zip`;
-    console.log(`hash: ${this.props.hash} projectName: ${this.props.projectName}`);
-    console.log(macCommand);
     let tooltip = <Tooltip id='copied' className='in' title='Copied to clipboard!'>Copied to clipboard!</Tooltip>;
     return (
       <Modal show={this.props.show} onHide={this.props.onHide} hash={this.props.hash}>
