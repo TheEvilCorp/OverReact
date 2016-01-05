@@ -20,6 +20,7 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
+    console.log(`%c Proudly Built By \n\n Brian Grober: bgrober (at) gmail (dot) com \n\n Susan Tashiro: susantashiro (at) gmail (dot) com \n\n Rico Moorer: rico (dot) moorer (at) gmail (dot) com`, 'color: #61dafb; font-size: 20px; font-family:helvetica');
     let userId = localStorage.getItem('userId');
     if (!userId){
       userId = 'anonymous' + Math.round(Math.random() * 1000000000)
