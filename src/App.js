@@ -43,11 +43,9 @@ export default class App extends Component {
   feedback = (e) => {
     e.preventDefault();
     var that = this;
-    console.log('clicked feedback');
     html2canvas(document.body, {
       onrendered: function(canvas) {
         var dataURL = canvas.toDataURL("image/png");
-        console.log(dataURL);
         that.setState({
           screenshot: dataURL.replace(/^data:image\/(png|jpg);base64,/, ""),
           formModal: true

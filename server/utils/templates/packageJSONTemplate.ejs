@@ -5,9 +5,9 @@
   "main": "bundle.js",
   "scripts": {
     "start": "npm run start-server",
-    "start-server": "node server/server.js", <%}%>
+    "start-server": "node server/server.js",
     "start-dev": <% if (task !== 'webpack'){ %>"npm run task & npm run start",<%} else {%>"node server/dev-server.js",
-    "lint": "eslint src",<%}%>
+    "lint": "eslint components",<%}%>
     "prestart": "<%-task%>"
   },
   "author": "",
