@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Your awesome project!",
   "main": "bundle.js",
-  "scripts": { 
-    "start": <% if (task !== 'webpack'){ %>"node server/server.js",<%} else {%>"npm run task & npm run start-server", 
+  "scripts": {
+    "start": "npm run start-server",
     "start-server": "node server/server.js", <%}%>
     "start-dev": <% if (task !== 'webpack'){ %>"npm run task & npm run start",<%} else {%>"node server/dev-server.js",
     "lint": "eslint src",<%}%>
-    "task": "<%-task%>"
+    "prestart": "<%-task%>"
   },
   "author": "",
   "license": "ISC",

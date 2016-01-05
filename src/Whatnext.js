@@ -11,11 +11,6 @@ export default class WhatNext extends Component {
         <Well bsSize='small'><p>3) Run &nbsp;&nbsp;<span className='terminal-text'>npm install</span></p></Well>
         <Well bsSize='small'>
           <p>4) Run &nbsp;&nbsp;<span className='terminal-text'>npm run start-dev</span></p>
-          <pre className='windows-directions'>
-            <p>For Windows users only:</p>
-            <p>&nbsp;&nbsp; Run &nbsp;&nbsp;<span className='terminal-text'>npm run task</span></p>
-            <p>&nbsp;&nbsp; Run &nbsp;&nbsp;<span className='terminal-text'>npm start</span></p>
-          </pre>
         </Well>
         <Well bsSize='small'><p>5) Open your browser and go to http://localhost:3000</p></Well>
       </div>
