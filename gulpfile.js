@@ -66,7 +66,7 @@ return gulp.src('./server/server.js')
 });
 //convert client to es5
 gulp.task('client', function() {
-return buildScript('Client.js' , false, 'Client.js');
+return buildScript('Client.js' , false, 'client.js');
 });
 //bundle css
 gulp.task('css', function() {
