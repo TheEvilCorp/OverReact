@@ -13,7 +13,7 @@ export default class DownloadModal extends Component {
   render() {
     let innerGlyphicon = <Glyphicon id="glyph" glyph="copy" />;
     let command = 'overreact ' + this.props.hash;
-    let macCommand = `curl -O https://overreact.io/zips/${this.props.hash}.zip &&
+    let macCommand = `curl -O http://www.overreact.io/zips/${this.props.hash}.zip &&
     unzip -qq -d ./${this.props.projectName} ${this.props.hash}.zip &&
     mv ./${this.props.projectName}/*/* ${this.props.projectName} &&
     rm -rf ./${this.props.projectName}/${this.props.hash} &&
