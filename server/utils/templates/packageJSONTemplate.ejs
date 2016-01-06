@@ -20,9 +20,9 @@
     ]
   }, <%}%>
   "devDependencies": {
-    <% if(server !== 'none'){ -%>"watchify": "^3.2.2",<% if(task === 'grunt') {%>
+    <% if(server !== 'none'){ -%>"watchify": "^3.2.2"<% if(task === 'grunt') {%>,
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-nodemon": "^0.4.1"<%} if(task === 'gulp'){%>
+    "grunt-nodemon": "^0.4.1"<%} if(task === 'gulp'){%>,
     "gulp-nodemon": "^2.0.6"<%}}%>
   },
   "dependencies": {
