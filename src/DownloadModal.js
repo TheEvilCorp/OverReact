@@ -6,8 +6,16 @@ var $ = isBrowser ? require('jquery') : undefined;
 
 export default class DownloadModal extends Component {
   downloadZip = () => {
-    mixpanel.track('Download Using Download Button');
+    mixpanel.track('Clicked Windows Download Button');
     window.location.href = `/download/:${this.props.hash}`;
+  }
+
+  trackNPM() {
+    mixpanel.track('Clicked NPM Download Link');
+  }
+
+  trackMac() {
+    mixpanel.track('Clicked Mac Download Link');
   }
 
   render() {
@@ -27,7 +35,7 @@ export default class DownloadModal extends Component {
         </Modal.Header>
         <Modal.Body>
           <h4>NPM Package Users</h4>
-            <OverlayTrigger trigger='click' placement='right' overlay={tooltip}>
+            <OverlayTrigger onClick={this.trackNPM} trigger='click' placement='right' overlay={tooltip}>
               <span>
               <ReactZeroClipboard text={command} id='copyOverlay'>
                 <Button addonAfter={innerGlyphicon} bscfont='courier' id='pasteable'><span id='commandText'>{command}</span></Button>
@@ -35,7 +43,7 @@ export default class DownloadModal extends Component {
               </span>
             </OverlayTrigger>
           <h4>Mac Users</h4>
-            <OverlayTrigger trigger='click' placement='right' overlay={tooltip}>
+            <OverlayTrigger onClick={this.trackMac} trigger='click' placement='right' overlay={tooltip}>
               <span>
               <ReactZeroClipboard text={macCommand} id='copyOverlay'>
                 <Button addonAfter={innerGlyphicon} bscfont='courier' id='pasteable'><span id='commandText'>{macCommand}</span></Button>
