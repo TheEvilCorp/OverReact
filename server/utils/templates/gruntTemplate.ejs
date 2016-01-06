@@ -1,5 +1,10 @@
 module.exports = function (grunt) {
   grunt.initConfig({
+    nodemon: {
+      dev: {
+        script: './server/server.js'
+      }
+    },
     browserify: {
       dist: {
         options: {
@@ -9,21 +14,21 @@ module.exports = function (grunt) {
             }]
           ]
         },
-          files: {
-            "./build/bundle.js": ["./src/App.js"]
+        files: {
+          "./build/bundle.js": ["./components/App.js"]
+        },
+        watch: {
+            files: ["./components/*.js"],
+            tasks: ["browserify"]
           }
-      }
-    },
-    watch: {
-      scripts: {
-        files: ["./src/*.js"],
-        tasks: ["browserify"]
       }
     }
   });
 
+
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask("default", ["browserify", "watch"]);
+  grunt.registerTask("default", ["browserify", "nodemon"]);
   };

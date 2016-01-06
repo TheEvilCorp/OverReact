@@ -2,7 +2,6 @@ import CreateDataObj from './createDataObj';
 import ReadFormData from './readFormData';
 
 export default function(state, callback) {
-  console.log(CreateDataObj, 'postfunc')
   const $overReactContainer = $('#overReact-container');
   //Retrieves data from form
   const form = ReadFormData(state)
