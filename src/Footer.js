@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 export default class Footer extends Component {
   trackDonate() {
     mixpanel.track('Clicked Donate');
-  },
+  }
+  
   render() {
     let styleObj = {
       textAlign: 'center',
