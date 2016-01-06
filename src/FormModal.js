@@ -44,6 +44,7 @@ export default class FormModal extends Component {
           }
         }),
         success: (response) => {
+          mixpanel.track('Submitted Feedback');
           this.setState({
           submitted: true
           })
