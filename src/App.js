@@ -67,7 +67,7 @@ export default class App extends Component {
       <div>
         <div style={Styles.navbar} fixedTop={true} id='nav-section'>
           OverReact
-          <sup style={Styles.sup}>Beta Version</sup>
+          <sup style={Styles.sup}>Beta</sup>
         </div>
         <Home />
         <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>
