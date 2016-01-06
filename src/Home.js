@@ -7,6 +7,7 @@ var $ = isBrowser ? require('jquery') : undefined;
 export default class Home extends Component {
   setFocus = (e) => {
     e.preventDefault();
+    mixpanel.track('Clicked Start A React Project');
     $('html, body').animate({
         scrollTop: $('#application-section').offset().top,
     }, 500);

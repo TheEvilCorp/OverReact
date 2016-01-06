@@ -34,6 +34,7 @@ export default class Options extends Component {
   }
 
   post = () => {
+    mixpanel.track('Clicked Generate Files Button');
     PostFunction(this.state, this.props.submit);
   }
 
