@@ -4,11 +4,10 @@
   "description": "Your awesome project!",
   "main": "bundle.js",
   "scripts": {
-    "start": "npm run start-server",
-    "start-server": "node server/server.js",
-    "start-dev": <% if (task !== 'webpack'){ %>"npm run task & npm run start",<%} else {%>"node server/dev-server.js",
-    "lint": "eslint components",<%}%>
     "prestart": "npm run task",
+    "start": "node server/server.js",
+    "start-dev": <% if (task !== 'webpack'){ %>"npm run task",<%} else {%>"node server/dev-server.js",
+    "lint": "eslint components",<%}%>
     "task": "<%-task%>"
   },
   "author": "",
@@ -21,8 +20,10 @@
     ]
   }, <%}%>
   "devDependencies": {
-    <% if(server !== 'none'){ -%>"watchify": "^3.2.2"<% if(task === 'grunt') {%>,
-    "grunt-contrib-watch": "^0.6.1"<%}}%>
+    <% if(server !== 'none'){ -%>"watchify": "^3.2.2",<% if(task === 'grunt') {%>
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.4.1"<%} if(task === 'gulp'){%>
+    "gulp-nodemon": "^2.0.6"<%}}%>
   },
   "dependencies": {
 <%#=====================static=====================-%>
