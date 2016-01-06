@@ -19,6 +19,7 @@ export default function (boxName, node, fromLoadButton) {
       cursor: "move",
       start: function(e, ui){
         $(this).find('p:first-of-type').css('color', '#A3A3A3');
+        mixpanel.track('Clicked and Dragged Component');
       }
     })
     .resizable({
@@ -30,7 +31,10 @@ export default function (boxName, node, fromLoadButton) {
       drop: function( e, ui ) {
         const droppedInto = $(this);
         //if dropping into same div, return out
-        if(droppedInto.attr('id') === ui.draggable.parent()[0].id) return;
+        if(droppedInto.attr('id') === ui.draggable.parent()[0].id) {
+          mixpanel.track('Moved Component');
+          return;
+        }
         //adjust the css on drop
         $(ui.draggable).css({
           top: ui.draggable.offset().top - droppedInto.offset().top,
@@ -44,6 +48,7 @@ export default function (boxName, node, fromLoadButton) {
         let parentName = droppedInto.attr('id');
         if(parentName === 'overReact-container') parentName = 'App';
         $(ui.draggable).children('div').children('p').text('nested in: ' + parentName)
+        mixpanel.track('Nested Component');
         return;
       }
     });

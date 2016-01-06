@@ -42,6 +42,7 @@ export default class App extends Component {
 
   feedback = (e) => {
     e.preventDefault();
+    mixpanel.track('Clicked Feedback Link');
     var that = this;
     html2canvas(document.body, {
       onrendered: function(canvas) {
