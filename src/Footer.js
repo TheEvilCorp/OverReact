@@ -8,10 +8,11 @@ export default class Footer extends Component {
   render() {
     let styleObj = {
       textAlign: 'center',
+      margin: 'auto'
     };
 
     let mixPanelImg = {
-      margin: 'auto',
+      margin: 'right',
       paddingRight: '30px'
     };
 
