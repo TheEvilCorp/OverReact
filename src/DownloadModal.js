@@ -35,7 +35,7 @@ export default class DownloadModal extends Component {
         </Modal.Header>
         <Modal.Body>
           <h4>NPM Package Users</h4>
-            <a href='https://www.npmjs.com/package/over-react'>Click here for our npm package</a>
+            <a href='https://www.npmjs.com/package/over-react' target="_blank" >Click here for our npm package</a>
             <OverlayTrigger onClick={this.trackNPM} trigger='click' placement='right' overlay={tooltip}>
               <span>
               <ReactZeroClipboard text={command} id='copyOverlay'>

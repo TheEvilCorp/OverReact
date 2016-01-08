@@ -349,6 +349,10 @@ body{
   align-self: center;
   margin-left: -17.5px;
 }
+#brought a {
+  color: white;
+  text-decoration: underline;
+}
 
 .dropdown {
   margin-left: 8px;
