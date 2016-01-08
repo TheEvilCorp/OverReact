@@ -58,17 +58,6 @@ describe('Back-End Tests', function() {
       console.log('next executed');
     }
 
-    // after(function(){
-    //   var directory = path.join(__dirname, './../')
-    //   console.log('file path: ', `${directory}${request.body.folderName}`)
-    //   fs.stat(`${directory}${request.body.folderName}`, function(err, stats) {
-
-    //     console.log('AFTER: ', stats);
-    //     console.log('dirname: ', __dirname);
-    //     console.log('error: ', err);
-    //   });
-    // });
-
     it('Unit test for capitalize middleware function', function(done) {
       capitalize(req, res, next);
       expect(req.body.main.name).to.eq('App');

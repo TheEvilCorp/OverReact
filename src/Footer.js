@@ -8,10 +8,11 @@ export default class Footer extends Component {
   render() {
     let styleObj = {
       textAlign: 'center',
+      margin: 'auto'
     };
 
     let mixPanelImg = {
-      margin: 'auto',
+      margin: 'right',
       paddingRight: '30px'
     };
 
@@ -21,11 +22,8 @@ export default class Footer extends Component {
           <span className='footerFlexItem'>
             <a id='feedback' href='' onClick={this.props.formModal}>Feedback</a>
           </span>
-          <span style={styleObj} className='footerFlexItem' id='brought'>Brought to you by the good folks at Evil Corp</span>
-          <a onClick={this.trackDonate} className='footerFlexItem' target="_blank" href='https://shop.stjude.org/GiftCatalog/donation.do?cID=13805&pID=24591&sc_icid=lz-tg-btn-donate-now'>Donate Here</a>
-        </div>
-        <div className='footerFlexContainer'>
-        <a style={mixPanelImg} href="https://mixpanel.com/f/partner" rel="nofollow"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
+          <span style={styleObj} className='footerFlexItem' id='brought'>Brought to you by <a href='http://www.linkedin.com/in/briangrober' target="_blank">Brian</a>, <a href='http://www.linkedin.com/in/ricomoorer' target="_blank">Rico</a> and <a href='http://www.linkedin.com/in/susantashiro' target="_blank">Susan</a> </span>
+          <a style={mixPanelImg} href="https://mixpanel.com/f/partner" rel="nofollow"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
         </div>
       </div>
     )
