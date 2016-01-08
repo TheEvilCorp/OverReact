@@ -42,12 +42,11 @@ export default class App extends Component {
 
   feedback = (e) => {
     e.preventDefault();
+    mixpanel.track('Clicked Feedback Link');
     var that = this;
-    console.log('clicked feedback');
     html2canvas(document.body, {
       onrendered: function(canvas) {
         var dataURL = canvas.toDataURL("image/png");
-        console.log(dataURL);
         that.setState({
           screenshot: dataURL.replace(/^data:image\/(png|jpg);base64,/, ""),
           formModal: true
@@ -68,7 +67,7 @@ export default class App extends Component {
       <div>
         <div style={Styles.navbar} fixedTop={true} id='nav-section'>
           OverReact
-          <sup style={Styles.sup}>Beta Version</sup>
+          <sup style={Styles.sup}>Beta</sup>
         </div>
         <Home />
         <Application id={this.state.id} hash={this.state.hash} submit={this.submit}/>

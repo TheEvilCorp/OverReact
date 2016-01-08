@@ -64,6 +64,7 @@ return gulp.src('./server/server.js')
   .pipe(babel())
   .pipe(gulp.dest('build'));
 });
+
 //convert client to es5
 gulp.task('client', function() {
 return buildScript('Client.js' , false, 'client.js');
