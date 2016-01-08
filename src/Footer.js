@@ -22,10 +22,7 @@ export default class Footer extends Component {
             <a id='feedback' href='' onClick={this.props.formModal}>Feedback</a>
           </span>
           <span style={styleObj} className='footerFlexItem' id='brought'>Brought to you by the good folks at Evil Corp</span>
-          <a onClick={this.trackDonate} className='footerFlexItem' target="_blank" href='https://shop.stjude.org/GiftCatalog/donation.do?cID=13805&pID=24591&sc_icid=lz-tg-btn-donate-now'>Donate Here</a>
-        </div>
-        <div className='footerFlexContainer'>
-        <a style={mixPanelImg} href="https://mixpanel.com/f/partner" rel="nofollow"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
+           <a style={mixPanelImg} href="https://mixpanel.com/f/partner" rel="nofollow"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
         </div>
       </div>
     )
