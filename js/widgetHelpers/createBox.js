@@ -12,7 +12,7 @@ export default function (boxName, node, fromLoadButton) {
 
   //create and append box
   $('<div class="box"><div>').attr('id', boxName)
-    .append(`<div id="names"><span>${boxName}</span><p class='parentName'> nested in: ${contextName}</p></div>`)
+    .append(`<div class='names'><span>${boxName}</span><p class='parentName'> nested in: ${contextName}</p></div>`)
     .appendTo(context)
     .draggable({
       containment: '#overReact-container',

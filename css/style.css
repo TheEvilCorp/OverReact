@@ -201,13 +201,13 @@ body{
   cursor: move;
   z-index:500;
 }
-#names > span {
+.names > span {
   font-weight: bold;
   color: #4daec8;
   overflow: hidden;
   cursor: auto;
 }
-#names {
+.names {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
