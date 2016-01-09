@@ -56,7 +56,6 @@ export default function() {
     if(GenerateNames().names.indexOf(componentName) !== -1 || componentName === "App") {
       node.find('input').val('');
       $('#dup-warning').css('display', 'inline-block');
-      //alert('React does not allow duplicate component names');
     } else {
         //clear out the input field
         if (!fromLoadButton) node.find('input').val('');

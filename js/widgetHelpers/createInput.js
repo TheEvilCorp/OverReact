@@ -20,8 +20,16 @@ export default function(context, func) {
     //convert input to Pascal case
     $('#dup-warning').css('display', 'none')
     const output = ToPascal($(e.target).find('input').val());
+    
+    //change parent names of children
+    var childArray = $(e.target).parent('div.box').children('div.box').toArray()
+    childArray.forEach(function(elem){
+      $(elem).children('div.names').children('p').text('nested in: ' + output);
+    });   
+
     $(e.target).find('input').val(output);
     func($(this));
+
   });
 
 };
