@@ -8,7 +8,7 @@ Wireframe React components and download starter files with one click.
 
 
 ## NPM Package 
-[over-react](https://www.npmjs.com/package/over-reactr)
+[over-react](https://www.npmjs.com/package/over-react)
  `npm install -g over-react`
 
 This provides an easy way to download your project files via the terminal and avoid the annoyance of dealing with zip files. 
