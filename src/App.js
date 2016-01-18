@@ -17,7 +17,7 @@ export default class App extends Component {
     downloadModal: false,
     formModal: false,
     projectName: null
-  }
+  };
 
   componentDidMount = () => {
     console.log(`%c Proudly Built By \n\n Brian Grober: bgrober (at) gmail (dot) com \n\n Susan Tashiro: susantashiro (at) gmail (dot) com \n\n Rico Moorer: rico (dot) moorer (at) gmail (dot) com`, 'color: #61dafb; font-size: 20px; font-family:helvetica');
@@ -30,7 +30,7 @@ export default class App extends Component {
     mixpanel.identify(userId);
     mixpanel.people.set_once('$first_name', userId);
     mixpanel.track('Page Load');
-  }
+  };
 
   submit = (hash,projectName) => {
     this.setState({
@@ -38,7 +38,7 @@ export default class App extends Component {
       hash: hash,
       projectName: projectName
     });
-  }
+  };
 
   feedback = (e) => {
     e.preventDefault();
@@ -53,14 +53,14 @@ export default class App extends Component {
         });
       }
     });
-  }
+  };
 
   hideModal = () => {
     this.setState({
       downloadModal: false,
       formModal: false
     });
-  }
+  };
 
   render = () => {
     return (
@@ -77,5 +77,5 @@ export default class App extends Component {
         <FormModal show={this.state.formModal} onHide={this.hideModal} screenshot={this.state.screenshot}/>
       </div>
     )
-  }
+  };
 }

@@ -8,15 +8,15 @@ export default class DownloadModal extends Component {
   downloadZip = () => {
     mixpanel.track('Clicked Windows Download Button');
     window.location.href = `/download/:${this.props.hash}`;
-  }
+  };
 
   trackNPM() {
     mixpanel.track('Clicked NPM Download Link');
-  }
+  };
 
   trackMac() {
     mixpanel.track('Clicked Mac Download Link');
-  }
+  };
 
   render() {
     let innerGlyphicon = <Glyphicon id="glyph" glyph="copy" />;
@@ -56,5 +56,5 @@ export default class DownloadModal extends Component {
         </Modal.Body>
       </Modal>
     )
-  }
+  };
 };

@@ -15,5 +15,5 @@ export default class WhatNext extends Component {
         <Well bsSize='small'><p>5) Open your browser and go to http://localhost:3000</p></Well>
       </div>
     )
-  }
+  };
 };

@@ -4,7 +4,7 @@ import { Input } from 'react-bootstrap';
 export default class ServerComponent extends Component {
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.props !== nextProps;
-  }
+  };
 
   render = () => {
     return (
@@ -18,5 +18,5 @@ export default class ServerComponent extends Component {
         </label>
       </div>
     )
-  }
+  };
 };

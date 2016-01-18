@@ -11,7 +11,7 @@ export default class Home extends Component {
     $('html, body').animate({
         scrollTop: $('#application-section').offset().top,
     }, 500);
-  }
+  };
 
   render() {
     return (
@@ -24,5 +24,5 @@ export default class Home extends Component {
         <Instructions css={styles.Home.Instructions} />
       </div>
     )
-  }
+  };
 };
