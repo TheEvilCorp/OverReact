@@ -153,12 +153,12 @@ body{
 }
 
 #overReact-container {
-  margin: -6px 35px 50px 35px;
+  margin: -50px 35px 50px 35px;
   min-width: 850px;
   height: 550px;
   position: relative;
   border: 5px solid #61dafb;
-  border-top-width: 1px;
+  border-top: 0px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   float: left;
