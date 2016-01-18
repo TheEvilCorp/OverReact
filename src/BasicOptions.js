@@ -4,7 +4,7 @@ import {Input} from 'react-bootstrap';
 export default class BasicOptions extends Component {
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.props !== nextProps;
-  }
+  };
 
   render() {
     return (
@@ -14,5 +14,5 @@ export default class BasicOptions extends Component {
         <Input type="checkbox" label="ES6 Format" id='es6' onChange={this.props.handler} readOnly checked={this.props.data.es6} />
       </div>
     )
-  }
+  };
 }

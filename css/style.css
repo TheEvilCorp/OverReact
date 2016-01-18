@@ -109,7 +109,7 @@ body{
 
 #overReact-sectionNotContainer{
   position: relative;
-  top: 30px;
+  top: 29px;
   float: left;
   padding: 0;
   margin: 0;
@@ -141,7 +141,7 @@ body{
   display: inline-block;
   float: right;
   width: 300px;
-  margin-top: 11px;
+  margin-top: 8px;
   margin-right: 11px;
 }
 
@@ -153,12 +153,12 @@ body{
 }
 
 #overReact-container {
-  margin: -4px 35px 50px 35px;
+  margin: -50px 35px 50px 35px;
   min-width: 850px;
-  height: 550px;
+  height: 600px;
   position: relative;
   border: 5px solid #61dafb;
-  border-top-width: 1px;
+  border-top: 0px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   float: left;
@@ -221,7 +221,7 @@ body{
 
 #options-section {
   min-width: 300px;
-  height: 600px;
+  height: 605px;
   margin: 57px 30px 50px 10px;
   background-color: #C4C4C4;
   border: 5px solid #C4C4C4;

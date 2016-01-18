@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Footer extends Component {
   trackDonate() {
     mixpanel.track('Clicked Donate');
-  }
+  };
 
   render() {
     let styleObj = {
@@ -28,5 +28,5 @@ export default class Footer extends Component {
         </div>
       </div>
     )
-  }
+  };
 };

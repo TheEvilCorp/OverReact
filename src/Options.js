@@ -17,26 +17,26 @@ export default class Options extends Component {
     gulp: true,
     grunt:false,
     webpack: false
-  }
+  };
 
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.state !== nextState;
-  }
+  };
 
   updateProjectName = (e) => {
     this.setState({
         projectName: e.target.value.replace(/\s/g, '_').replace(/[^\w]+/g, '')
       })
-  }
+  };
 
   handleButtonChange = (e) => {
     this.setState(HandleRadioButton(e, this.state));
-  }
+  };
 
   post = () => {
     mixpanel.track('Clicked Generate Files Button');
     PostFunction(this.state, this.props.submit);
-  }
+  };
 
   render () {
     return (
@@ -55,5 +55,5 @@ export default class Options extends Component {
         <Button id='submitButton' bsSize='large' onClick={this.post} >Generate Files</Button>
       </section>
     )
-  }
+  };
 }

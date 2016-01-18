@@ -5,7 +5,7 @@ import Options from './Options';
 export default class Application extends Component {
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.props !== nextProps;
-  }
+  };
 
   render() {
     return (
@@ -14,5 +14,5 @@ export default class Application extends Component {
         <Options className='appChild' submit={this.props.submit}/>
       </div>
     )
-  }
+  };
 };

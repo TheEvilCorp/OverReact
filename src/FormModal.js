@@ -10,13 +10,13 @@ export default class FormModal extends Component {
     category: 'Reason for contacting',
     feedback: null,
     submitted: false,
-  }
+  };
 
   dropdownSelection = (e, eKey) => {
     this.setState({
       category: e.target.text
     })
-  }
+  };
 
   feedbackSubmission = (e) => {
     e.preventDefault();
@@ -51,14 +51,14 @@ export default class FormModal extends Component {
         }
       });
     });
-  }
+  };
 
   hidden = () => {
     this.props.onHide();
     this.setState({
       submitted: false
     })
-  }
+  };
 
   render = () => {
     return (
@@ -97,5 +97,5 @@ export default class FormModal extends Component {
         </div>)}
       </Modal>
     )
-  }
+  };
 };

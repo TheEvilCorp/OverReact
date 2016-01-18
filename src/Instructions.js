@@ -8,5 +8,5 @@ export default class Instructions extends Component {
         <img src="/images/Demo3_optimized.gif" alt="HTML5 Icon" width="650px"/>
       </div>
     )
-  }
+  };
 };
