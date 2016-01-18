@@ -109,7 +109,7 @@ body{
 
 #overReact-sectionNotContainer{
   position: relative;
-  top: 30px;
+  top: 32px;
   float: left;
   padding: 0;
   margin: 0;
@@ -155,7 +155,7 @@ body{
 #overReact-container {
   margin: -50px 35px 50px 35px;
   min-width: 850px;
-  height: 600px;
+  height: 585px;
   position: relative;
   border: 5px solid #61dafb;
   border-top: 0px;
