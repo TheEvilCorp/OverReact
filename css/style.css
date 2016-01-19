@@ -168,6 +168,7 @@ body{
 
 #overReact-container form {
   float: right;
+  z-index: 999;
 }
 .ui-state-hover {
   background-color: transparent;
