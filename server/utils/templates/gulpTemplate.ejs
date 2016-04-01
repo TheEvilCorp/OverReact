@@ -28,18 +28,20 @@ function buildScript(file, watch) {
   //watchify if watch set to true. otherwise browserify once
   var bundler = watch ? watchify(browserify(props)) : browserify(props);
 
-  function rebundle(){
+  function rebundle(updateStart){
     var stream = bundler.bundle();
     return stream
       .on('error', handleErrors)
       .pipe(source('bundle.js'))
-      .pipe(gulp.dest('./build/'));
+      .pipe(gulp.dest('./build/'))
+      .on('finish', ()=>{
+        console.log('Updated!', (Date.now() - updateStart) + 'ms');
+      })
   }
 
   bundler.on('update', function() {
     var updateStart = Date.now();
-    rebundle();
-    console.log('Updated!', (Date.now() - updateStart) + 'ms');
+    rebundle(updateStart);
   })
 
   // run it once the first time buildScript is called
