@@ -134,7 +134,7 @@ body{
   display: none;
   margin-left: 100px;
   color: red;
-  font-weight: bold;
+  font-weight: normal; 
 }
 
 #gui-header form{
